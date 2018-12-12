@@ -49,9 +49,9 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:6', 'confirmed'],
+            'user_f_name' => ['required', 'string', 'max:255'],
+            'user_email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'user_password' => ['required', 'string', 'min:6', 'confirmed'],
         ]);
     }
 
@@ -64,9 +64,27 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'user_f_name' => $data['user_f_name'],
+            'user_l_name' => $data['user_l_name'],
+            'user_username' => $data['user_username'],
+            'user_email' => $data['user_email'],
+            'user_password' => Hash::make($data['user_password']),
+            'user_is_active' => $data['user_is_active'],
+            'user_is_deleted' => $data['user_is_deleted'],
+            'user_last_modified_password' => $data['user_last_modified_password'],
+            'user_modified_date' => $data['user_modified_date'],
+            'user_dob' => $data['user_dob'],
+            'user_cell_no' => $data['user_cell_no'],
+            'user_home_phone' => $data['user_home_phone'],
+            'user_city' => $data['user_city'],
+            'user_zip_code' => $data['user_zip_code'],
+            'user_state' => $data['user_state'],
+            'user_country' => $data['user_country'],
+            'user_street_address' => $data['user_street_address'],
+            'user_security_group_id' => $data['user_security_group_id'],
+            'user_home_url' => $data['user_home_url'],
+            'user_created_by' => $data['user_created_by'],
+            'user_modified_by' => $data['user_modified_by'],
         ]);
     }
 }
