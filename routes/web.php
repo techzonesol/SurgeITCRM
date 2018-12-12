@@ -19,4 +19,4 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/contacts','ContactsController@index')->name('contacts');
 Route::get('/contacts/create','ContactsController@create')->name('create_contacts');
-Route::post('/contacts/create','ContactsController@save_contact');
+Route::post('/contacts/create','ContactsController@save_contact')->name('save_contact');
