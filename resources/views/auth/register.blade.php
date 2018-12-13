@@ -1,102 +1,88 @@
 @extends('layouts.app')
-
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col m8">
                 <div class="card">
-                    <div class="card-header">{{ __('Register') }}</div>
-
-                    <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}">
+                    <div class="row">
+                        <div class="col s12">
+                            <h4 class="align_center">Add New User</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <form class="col s12" action="{{Route('create_user')}}" method="post">
                             @csrf
-
-                            <div class="form-group row">
-                                <div class="col-md-6">
-                                    <label for="f_name" class="col-md-4 col-form-label text-md-right">First Name</label>
-                                    <div class="col-md-12">
-                                        <input id="f_name" type="text" class="form-control{{ $errors->has('f_name') ? ' is-invalid' : '' }}" name="f_name" value="{{ old('f_name') }}" required autofocus>
-
-                                        @if ($errors->has('f_name'))
-                                            <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('f_name') }}</strong>
-                                        </span>
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="l_name" class="col-md-4 col-form-label text-md-right">Last Name</label>
-                                    <div class="col-md-12">
-                                        <input id="l_name" type="text" class="form-control{{ $errors->has('l_name') ? ' is-invalid' : '' }}" name="l_name" value="{{ old('l_name') }}" required >
-
-                                        @if ($errors->has('l_name'))
-                                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('l_name') }}</strong>
-                                    </span>
-                                        @endif
-                                    </div>
-                                </div>
+                            <div class="input-field col s3">
+                                <input  id="user_f_name" name="user_f_name" type="text" class="validate">
+                                <label for="user_f_name">First Name</label>
                             </div>
-                            <div class="form-group row">
-                                <div class="col-md-6">
-                                    <label for="user_name" class="col-md-4 col-form-label text-md-right">User Name</label>
-                                    <div class="col-md-12">
-                                        <input id="user_name" type="text" class="form-control{{ $errors->has('user_name') ? ' is-invalid' : '' }}" name="user_name" value="{{ old('user_name') }}" required>
-
-                                        @if ($errors->has('user_name'))
-                                            <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('user_name') }}</strong>
-                                        </span>
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
-                                    <div class="col-md-12">
-                                        <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" value="{{ old('password') }}" required>
-
-                                        @if ($errors->has('password'))
-                                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                        @endif
-                                    </div>
-                                </div>
+                            <div class="input-field col s3">
+                                <input id="user_l_name" name="user_l_name" type="text" class="validate">
+                                <label for="user_l_name">Last Name</label>
                             </div>
-                            <div class="form-group row">
-                                <div class="col-md-6">
-                                    <label for="user_name" class="col-md-4 col-form-label text-md-right">User Name</label>
-                                    <div class="col-md-12">
-                                        <input id="user_name" type="text" class="form-control{{ $errors->has('user_name') ? ' is-invalid' : '' }}" name="user_name" value="{{ old('user_name') }}" required>
-
-                                        @if ($errors->has('user_name'))
-                                            <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('user_name') }}</strong>
-                                        </span>
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
-                                    <div class="col-md-12">
-                                        <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" value="{{ old('password') }}" required>
-
-                                        @if ($errors->has('password'))
-                                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                        @endif
-                                    </div>
-                                </div>
+                            <div class="input-field col s6">
+                                <input id="user_email" name="user_email" type="email" class="validate">
+                                <label for="user_email">Email Address</label>
                             </div>
-
-
-                            <div class="form-group row mb-0">
-                                <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ __('Register') }}
-                                    </button>
-                                </div>
+                            <div class="input-field col s6">
+                                <input id="user_username" name="user_username" type="text" class="validate">
+                                <label for="user_username">User Name</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="user_password" name="user_password" type="password" class="validate">
+                                <label for="user_password">Password</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="user_dob" name="user_dob" type="date" class="validate">
+                                <label for="user_dob">DOB</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="user_home_phone" name="user_home_phone" type="text" class="validate">
+                                <label for="user_home_phone">Home Phone</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="user_cell_no" name="user_cell_no" type="text" class="validate">
+                                <label for="user_cell_no">Cell Phone</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="user_street_address" name="user_street_address" type="text" class="validate">
+                                <label for="user_street_address">Street Address</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="user_zip_code" name="user_zip_code" type="text" class="validate">
+                                <label for="user_zip_code">Zip Code</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <select name="contact_company_id">
+                                    <option value=""  selected>Select State</option>
+                                    <option value="1">State 1</option>
+                                    <option value="2">State 2</option>
+                                    <option value="3">State 3</option>
+                                </select>
+                                <label>State</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <select name="user_city">
+                                    <option value=""  selected>Select City</option>
+                                    <option value="1">City 1</option>
+                                    <option value="2">City 2</option>
+                                    <option value="3">City 3</option>
+                                </select>
+                                <label>City</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <select name="contact_company_id">
+                                    <option value=""  selected>Select Country</option>
+                                    <option value="1">Country 1</option>
+                                    <option value="2">Country 2</option>
+                                    <option value="3">Country 3</option>
+                                </select>
+                                <label>Country</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <button class="btn waves-effect waves-light align_center" type="submit" name="action">Submit
+                                    <i class="material-icons right">send</i>
+                                </button>
                             </div>
                         </form>
                     </div>
@@ -104,4 +90,12 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('js')
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('select').formSelect();
+    });
+</script>
 @endsection

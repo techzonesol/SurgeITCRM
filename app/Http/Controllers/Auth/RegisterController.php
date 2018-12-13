@@ -63,16 +63,20 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        dump($data);
+
         return User::create([
             'user_f_name' => $data['user_f_name'],
             'user_l_name' => $data['user_l_name'],
             'user_username' => $data['user_username'],
             'user_email' => $data['user_email'],
             'user_password' => Hash::make($data['user_password']),
+
             'user_is_active' => $data['user_is_active'],
             'user_is_deleted' => $data['user_is_deleted'],
             'user_last_modified_password' => $data['user_last_modified_password'],
             'user_modified_date' => $data['user_modified_date'],
+
             'user_dob' => $data['user_dob'],
             'user_cell_no' => $data['user_cell_no'],
             'user_home_phone' => $data['user_home_phone'],
@@ -81,6 +85,7 @@ class RegisterController extends Controller
             'user_state' => $data['user_state'],
             'user_country' => $data['user_country'],
             'user_street_address' => $data['user_street_address'],
+
             'user_security_group_id' => $data['user_security_group_id'],
             'user_home_url' => $data['user_home_url'],
             'user_created_by' => $data['user_created_by'],
