@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\Contacts;
 
 class ContactsController extends Controller
 {
@@ -12,10 +13,7 @@ class ContactsController extends Controller
     public function create(){
         return view('contacts.create');
     }
-    public function save_contact(Request $request){
-        $validatedData = $request->validate([
-            'title' => 'required|unique:posts|max:255',
-            'body' => 'required',
-        ]);
+    public function save_contact(Contacts $request){
+        dd('hassan');
     }
 }
