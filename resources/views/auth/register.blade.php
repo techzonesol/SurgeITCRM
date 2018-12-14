@@ -10,7 +10,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <form class="col s12" action="{{Route('create_user')}}" method="post">
+                        <form class="col s12" id="new-user" method="post" action="{{route('create_user')}}">
                             @csrf
                             <div class="input-field col s3">
                                 <input  id="user_f_name" name="user_f_name" type="text" class="validate">
@@ -33,7 +33,7 @@
                                 <label for="user_password">Password</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="user_dob" name="user_dob" type="date" class="validate">
+                                <input id="user_dob" name="user_dob" type="text" class="validate datepicker">
                                 <label for="user_dob">DOB</label>
                             </div>
                             <div class="input-field col s6">
@@ -54,6 +54,13 @@
                             </div>
                             <div class="input-field col s6">
                                 <select name="contact_company_id">
+                                    <option value="US">United States</option>
+                                    <option value="CN">Canada</option>
+                                </select>
+                                <label>Country</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <select name="contact_company_id">
                                     <option value=""  selected>Select State</option>
                                     <option value="1">State 1</option>
                                     <option value="2">State 2</option>
@@ -70,15 +77,6 @@
                                 </select>
                                 <label>City</label>
                             </div>
-                            <div class="input-field col s6">
-                                <select name="contact_company_id">
-                                    <option value=""  selected>Select Country</option>
-                                    <option value="1">Country 1</option>
-                                    <option value="2">Country 2</option>
-                                    <option value="3">Country 3</option>
-                                </select>
-                                <label>Country</label>
-                            </div>
                             <div class="input-field col s12">
                                 <button class="btn waves-effect waves-light align_center" type="submit" name="action">Submit
                                     <i class="material-icons right">send</i>
@@ -93,9 +91,69 @@
 @endsection
 
 @section('js')
+<script src="{{asset('js/jquery.validate.min.js')}}"></script>
 <script type="text/javascript">
     $(document).ready(function(){
         $('select').formSelect();
     });
+
+    $("#new-user").validate({
+            rules: {
+                user_f_name: {
+                    required: true,
+                    maxlength: 55
+                },
+                user_l_name: {
+                    required: true,
+                    maxlength: 55
+                },
+                user_username: {
+                    required: true,
+                    maxlength: 9
+                },
+                user_email: {
+                    required: true,
+                    email:true
+                },
+                user_password: {
+                    required: true,
+                    maxlength: 55
+                }
+            },
+            //For custom messages
+            messages: {
+                user_f_name:{
+                    required: "Please Enter First Name",
+                    maxlength: "Max 55 characters allowed"
+                },
+                user_l_name:{
+                    required: "Please Enter Last Name",
+                    maxlength: "Max 55 characters allowed"
+                },
+                user_username:{
+                    required:"Please Enter User Name",
+                    maxlength:"Max 9 characters allowed"
+                },
+                user_email: {
+                    required: "Please Enter Email",
+                    email:"Enter valid Email",
+                    maxlength: "Max 90 characters allowed"
+                },
+                user_password: "Please Enter Password"
+            },
+            errorElement : 'div',
+            errorPlacement: function(error, element) {
+                var placement = $(element).data('error');
+                if (placement) {
+                    $(placement).append(error)
+                } else {
+                    error.insertAfter(element);
+                }
+            }
+        });
+    $(document).ready(function(){
+        $('.datepicker').datepicker();
+    });
+
 </script>
 @endsection
