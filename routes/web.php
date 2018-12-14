@@ -18,9 +18,10 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/contacts','ContactsController@index')->name('contacts');
-Route::get('/contacts/create','ContactsController@create')->name('create_contacts');
 
 Route::post('/register/create','Auth\RegisterController@create')->name('create_user');
-
 Route::post('/contacts/create','ContactsController@save_contact')->name('save_contact');
 
+Route::post('/contacts/delete','ContactsController@delete_contact')->name('delete_contact');
+Route::get('/contacts/{id}','ContactsController@view_contact')->name('view_contact');
+Route::post('/contacts/{id}','ContactsController@update_contact')->name('update_contact');

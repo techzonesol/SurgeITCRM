@@ -25,7 +25,7 @@
                                 <label for="contact_work_email">Email Address</label>
                             </div>
                             <div class="input-field col s6">
-                                <select name="contact_company_id">
+                                <select name="contact_company_id" id="contact_company_id">
                                     <option value=""  selected>Choose your Company</option>
                                     <option value="1">Company 1</option>
                                     <option value="2">Company 2</option>
@@ -104,7 +104,9 @@
                     email:true,
                     maxlength: 90
                 },
-                contact_company_id : "required",
+                contact_company_id : {
+                    required:true
+                },
                 contact_office_phone: {
                     required: true,
                     maxlength: 55
@@ -148,7 +150,9 @@
                     email:"Enter valid Email",
                     maxlength: "Max 90 characters allowed"
                 },
-                contact_company_id : "Please Select Company id",
+                contact_company_id : {
+                    required : "Please Select Company id"
+                },
                 contact_office_phone: {
                     required: 'Enter Enter Office Phone',
                     maxlength: 'Max 55 characters allowed'
