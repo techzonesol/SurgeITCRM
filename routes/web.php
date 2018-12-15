@@ -23,3 +23,4 @@ Route::post('/contacts/create','ContactsController@save_contact')->name('save_co
 Route::post('/contacts/delete','ContactsController@delete_contact')->name('delete_contact');
 Route::get('/contacts/{id}','ContactsController@view_contact')->name('view_contact');
 Route::post('/contacts/{id}','ContactsController@update_contact')->name('update_contact');
+Route::get('check_email','ContactsController@check_email')->name('check_email');
