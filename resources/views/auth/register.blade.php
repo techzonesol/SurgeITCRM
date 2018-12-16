@@ -113,7 +113,7 @@
                 },
                 user_email: {
                     required: true,
-                    email:true
+                    email:true,
                 },
                 user_password: {
                     required: true,
