@@ -12,25 +12,24 @@
                         <h4 class="align_center">{{ __('Login Here') }}</h4>
                         <img src="http://www.surgeitsupport.com/wp-content/uploads/2018/04/SurgetIT-logo-300.jpg" style="margin: auto; display: block; height: 50%;" />
                     </div>
-                
-                    <form class="col s6" method="post">
+                    <form class="col s6" method="post" action="{{ route('login') }}">
                         @csrf
                         <div class="col m12">
                           <div class="input-field col s12">
                               <label for="user_username">{{ __('Username') }}</label>
                               <input  id="user_username" name="user_username" type="text" class="validate"  required autofocus>
-                              @if ($errors->has('username'))
+                              @if ($errors->has('user_username'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('user_username') }}</strong>
                                     </span>
                                 @endif
                           </div>
                           <div class="input-field col s12">
-                              <label for="user_email">{{ __('Password') }}</label>
-                              <input id="user_password" name="user_password" type="password" class="validate" required>
+                              <label for="password">{{ __('Password') }}</label>
+                              <input id="password" name="password" type="password" class="validate" required>
                               @if ($errors->has('password'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('user_password') }}</strong>
+                                        <strong>{{ $errors->first('password') }}</strong>
                                     </span>
                                 @endif
                           </div>
