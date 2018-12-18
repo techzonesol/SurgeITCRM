@@ -78,7 +78,16 @@ class ContactsController extends Controller
         }else{
             $request->session()->flash('error', 'Something went wrong!, Contacts not saved');
         }
-//        return view('contacts.detail',['contact' => $get_contact]);
         return redirect()->route('view_contact',['id' => $id]);
+    }
+    public function check_email(Request $request){
+        $email = $request->input('email');
+        $contact_obj = new Contact();
+        $count =  $contact_obj->check_email($email);
+        if($count){
+            return "false";
+        }else{
+            return "true";
+        }
     }
 }

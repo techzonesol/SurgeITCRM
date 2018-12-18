@@ -102,7 +102,16 @@
                     contact_work_email: {
                         required: true,
                         email:true,
-                        maxlength: 90
+                        maxlength: 90,
+                        remote: {
+                            url: "{{route('check_email')}}",
+                            type: "GET",
+                            cache: false,
+                            dataType: "json",
+                            data: {
+                                email: function() { return $("#contact_work_email").val(); }
+                            }
+                        }
                     },
                     contact_company_id : {
                         required:true
@@ -133,7 +142,6 @@
                     contact_assigned_to_id:{
                         required: true,
                     }
-
                 },
                 //For custom messages
                 messages: {
@@ -148,7 +156,8 @@
                     contact_work_email: {
                         required: "Enter Enter Work Email",
                         email:"Enter valid Email",
-                        maxlength: "Max 90 characters allowed"
+                        maxlength: "Max 90 characters allowed",
+                        remote: "Email already exist"
                     },
                     contact_company_id : {
                         required : "Please Select Company id"
