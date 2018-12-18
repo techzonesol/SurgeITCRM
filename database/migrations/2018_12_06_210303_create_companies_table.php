@@ -26,12 +26,12 @@ class CreateCompaniesTable extends Migration
             $table->string('company_billing_city',55)->nullable();
             $table->string('company_fax',55)->nullable();
             $table->string('company_other_phone_no',55)->nullable();
-            $table->string('company_website',55)->nullable();
+            $table->string('company_website',255)->nullable();
             $table->string('company_country',55)->nullable();
             $table->string('company_billing_country',55)->nullable();
             $table->string('company_billing_zip_code',55)->nullable();
             $table->string('company_billing_state',55)->nullable();
-            $table->string('company_billing_street_address',55)->nullable();
+            $table->string('company_billing_street_address',255)->nullable();
             $table->string('company_industry_id',55)->nullable();
             $table->boolean('company_is_active')->default(true);
             $table->boolean('company_is_deleted')->default(false);
