@@ -174,7 +174,7 @@
 <script type="text/javascript" src="{{asset('js/jquery.js')}}"></script>
 <script src="{{asset('js/jquery-ui.1.11.2.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/materialize.min.js')}}"></script>
-
+@yield('js')
 <script type="text/javascript">
     $(document).ready(function(){
       $('.dropdown-trigger').dropdown();
