@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
     @if(Session::has('msg'))
         <p class="alert alert-success">{{ Session::get('msg') }} <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></p>
@@ -17,68 +16,6 @@
         <p class="alert alert-danger">{{ Session::get('error') }} <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></p>
     @endif
 
-    <header class="gnrl-blk gnrl-mrgn-pdng">
-        <div class="container">
-
-            <nav>
-                <div class="nav-wrapper">
-                    <a href="#" class="brand-logo"> <img src="images/logo.png" alt="" /> </a>
-                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-
-                    <ul id="nav-mobile" class="left hide-on-med-and-down">
-                        <li><a href="sass.html"> Marketing </a></li>
-                        <li><a href="badges.html"> Help Desk </a></li>
-                        <li><a href="collapsible.html"> Administration </a></li>
-                        <li><a href="collapsible.html"> Accounting </a></li>
-                        <li><a href="collapsible.html"> Sales </a></li>
-                        <li><a href="collapsible.html"> Knowledge Base </a></li>
-                    </ul>
-
-                    <ul id="" class="valign-wrapper right hide-on-med-and-down">
-                        <li>
-                            <div class="input-field top-search">
-                                <input id="search_top" type="text" placeholder="Search" required>
-                                <label class="label-icon" for="search_top"><i class="material-icons">search</i></label>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="sass.html" class="valign-wrapper nav-icon">
-                                <i class="fa fa-plus"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="sass.html" class="valign-wrapper nav-icon">
-                                <i class="fa fa-envelope"></i>
-                                <span>12</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="sass.html" class="valign-wrapper nav-icon">
-                                <i class="fa fa-bell"></i>
-                                <span>12</span>
-                            </a>
-                        </li>
-
-                    </ul>
-
-
-
-                </div>
-            </nav><!-- nav end -->
-
-
-            <ul class="sidenav" id="mobile-demo">
-                <li><a href="sass.html"> Marketing </a></li>
-                <li><a href="badges.html"> Help Desk </a></li>
-                <li><a href="collapsible.html"> Administration </a></li>
-                <li><a href="collapsible.html"> Accounting </a></li>
-                <li><a href="collapsible.html"> Sales </a></li>
-                <li><a href="collapsible.html"> Knowledge Base </a></li>
-            </ul>
-
-        </div>
-
-    </header><!-- header end -->
 
     <section class="gnrl-mrgn-pdng gnrl-blk header">
         <div class="container">
@@ -96,7 +33,7 @@
                     </span>
                                 </h1>
                                 <div class="valign-wrapper  gnrl-mrgn-pdng card-con-tags">
-                                    <img src="images/tag.png" alt="" />
+                                    <img src="{{asset('images/tag.png')}}" alt="" />
                                 </div>
                             </div><!-- end card title -->
                         </a><!-- end card part container -->
@@ -116,7 +53,7 @@
                     </span>
                                 </h1>
                                 <div class="valign-wrapper  gnrl-mrgn-pdng card-con-tags">
-                                    <img src="images/cog.png" alt="" />
+                                    <img src="{{asset('images/cog.png')}}" alt="" />
                                 </div>
                             </div><!-- end card title -->
                         </a><!-- end card part container -->
@@ -136,7 +73,7 @@
                     </span>
                                 </h1>
                                 <div class="valign-wrapper  gnrl-mrgn-pdng card-con-tags">
-                                    <img src="images/bell.png" alt="" />
+                                    <img src="{{asset('images/bell.png')}}" alt="" />
                                 </div>
                             </div><!-- end card title -->
                         </a><!-- end card part container -->
@@ -156,7 +93,7 @@
                     </span>
                                 </h1>
                                 <div class="valign-wrapper  gnrl-mrgn-pdng card-con-tags">
-                                    <img src="images/clients.png" alt="" />
+                                    <img src="{{asset('images/clients.png')}}" alt="" />
                                 </div>
                             </div><!-- end card title -->
                         </a><!-- end card part container -->
@@ -285,7 +222,7 @@
                                 <ul class="collection manage-tickets" style="margin-top: 57px;">
 
                                     <li class="collection-item avatar">
-                                        <img src="images/yuna.jpg" alt="" class="circle">
+                                        <img src="{{asset('images/yuna.jpg')}}" alt="" class="circle">
                                         <span class="title gnrl-font"> <b class=" gnrl-font-bold"> james: </b> [#23047] Donec return congeo leo eget malesusada </span>
                                         <p class=" gnrl-font"> Donec return congue leo eget malesuada. Quisque velit nisi, pretium ut lacinia in, elementum id enim vivamus.
                                         </p>
@@ -308,7 +245,7 @@
                                     </li>
 
                                     <li class="collection-item avatar">
-                                        <img src="images/yuna.jpg" alt="" class="circle">
+                                        <img src="{{asset('images/yuna.jpg')}}" alt="" class="circle">
                                         <span class="title gnrl-font"> <b class=" gnrl-font-bold"> james: </b> [#23047] Donec return congeo leo eget malesusada </span>
                                         <p class=" gnrl-font"> Donec return congue leo eget malesuada. Quisque velit nisi, pretium ut lacinia in, elementum id enim vivamus.
                                         </p>
@@ -360,22 +297,22 @@
                                 <ul class="tabs">
                                     <li class="tab">
                                         <a href="#meraki" class="gnrl-font-bold valign-wrapper">
-                                            <img src="images/Cisco.png" class="tab-img" alt="" />Meraki
+                                            <img src="{{asset('images/Cisco.png')}}" class="tab-img" alt="" />Meraki
                                         </a>
                                     </li>
                                     <li class="tab">
                                         <a href="#vpn" class="gnrl-font-bold valign-wrapper">
-                                            <img src="images/security.png" class="tab-img" alt="" />VPN
+                                            <img src="{{asset('images/security.png')}}" class="tab-img" alt="" />VPN
                                         </a>
                                     </li>
                                     <li class="tab">
                                         <a class="active valign-wrapper gnrl-font-bold" href="#assets">
-                                            <img src="images/dollar.png" class="tab-img" alt="" />Assets
+                                            <img src="{{asset('images/dollar.png')}}" class="tab-img" alt="" />Assets
                                         </a>
                                     </li>
                                     <li class="tab">
                                         <a class="gnrl-font-bold valign-wrapper">
-                                            <img src="images/action.png" class="tab-img" alt="" />Action
+                                            <img src="{{asset('images/action.png')}}" class="tab-img" alt="" />Action
                                         </a>
                                     </li>
                                 </ul>
