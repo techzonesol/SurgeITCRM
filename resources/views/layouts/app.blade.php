@@ -11,7 +11,7 @@
 
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=0"/>
-  <link href="{{asset('css/jquery-ui.1.11.2.min.css')}}" rel="stylesheet" />
+  <link href="css/jquery-ui.1.11.2.min.css" rel="stylesheet" />
   <script>
     window.onload = function () {
 
@@ -160,13 +160,6 @@
 </section><!-- card playing end -->
 
 
-
-
-
-
-
-
-
 <footer>
   <div class="copy-content">
     <div class="container">
@@ -176,7 +169,6 @@
     </div>
   </div>
 </footer>
-
 
 <!--JavaScript at end of body for optimized loading-->
 <script type="text/javascript" src="{{asset('js/jquery.js')}}"></script>
