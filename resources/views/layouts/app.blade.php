@@ -1,86 +1,219 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="{{asset('css/materialize.min.css')}}"  media="screen,projection"/>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="{{asset('css/Custom/gnrl.css')}}" />
+  <link type="text/css" rel="stylesheet" href="{{asset('css/Custom/style.css')}}" />
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=0"/>
+  <link href="css/jquery-ui.1.11.2.min.css" rel="stylesheet" />
+  <script>
+    window.onload = function () {
 
-    <title>{{ config('app.name', 'SurgeIT CRM') }}</title>
+// Construct options first and then pass it as a parameter
+      var options1 = {
+        animationEnabled: true,
+        title: {
+          text: ""
+        },
+        axisY: {
+          gridThickness: 0
+        },
+        data: [{
+          type: "column", //change it to line, area, bar, pie, etc
+          legendText: "",
+          showInLegend: false,
+          color: "#8234b8",
+          dataPoints: [
+            { label: "Monday", y: 10 },
+            { label: "Tuesday", y: 6 },
+            { label: "Wednesday", y: 14 },
+            { label: "Thursday", y: 12 },
+            { label: "Friday", y: 19 },
+            { label: "Saturday", y: 14 },
+            { label: "Sunday", y: 22 }
+          ]
+        }]
+      };
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/materialize.js')}}" defer></script>
-    <script src="{{ asset('js/app.js') }}"></script>
+      $("#resizable").resizable({
+        create: function (event, ui) {
+          //Create chart.
+          $("#chartContainer1").CanvasJSChart(options1);
+        },
+        resize: function (event, ui) {
+          //Update chart size according to its container size.
+          $("#chartContainer1").CanvasJSChart().render();
+        }
+      });
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/materialize.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    }
+  </script>
 </head>
+
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'SurgeIT CRM') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+<header class="gnrl-blk gnrl-mrgn-pdng">
+  <div class="container">
 
-                    </ul>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo"> <img src="images/logo.png" alt="" /> </a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            <li class="nav-item">
-                                @if (Route::has('register'))
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                @endif
-                            </li>
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
+        @guest
+        <ul class="navbar-nav ml-auto right">
+            <!-- Authentication Links -->
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+            </li>
+            <li class="nav-item">
+                @if (Route::has('register'))
+                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                @endif
+            </li>
+        </ul>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+        @else
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+          <li><a href="sass.html"> Marketing </a></li>
+          <li><a href="badges.html"> Help Desk </a></li>
+          <li><a href="collapsible.html"> Administration </a></li>
+          <li><a href="collapsible.html"> Accounting </a></li>
+          <li><a href="collapsible.html"> Sales </a></li>
+          <li><a href="collapsible.html"> Knowledge Base </a></li>
+          <li>
+          <a class="dropdown-item" href="{{ route('logout') }}"
+               onclick="event.preventDefault();
+                             document.getElementById('logout-form').submit();">
+                {{ __('Logout') }}
+            </a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+            </li>
+        </ul>
+
+        <ul id="" class="valign-wrapper right hide-on-med-and-down">
+          <li>
+            <div class="input-field top-search">
+              <input id="search_top" type="text" placeholder="Search" required>
+              <button type="submit" class="btn-srch"><i class="material-icons">search</i></button>
+
             </div>
-        </nav>
+          </li>
+          <li>
+            <a href="sass.html" class="valign-wrapper nav-icon">
+              <i class="fa fa-plus"></i>
+            </a>
+          </li>
+          <li>
+            <a href="sass.html" class="valign-wrapper nav-icon">
+              <i class="envelope"></i>
+              <span>12</span>
+            </a>
+          </li>
+          <li>
+            <a href="sass.html" class="valign-wrapper nav-icon">
+              <i class="bell"></i>
+              <span>12</span>
+            </a>
+          </li>
+          <li>
+            <a href="sass.html" class="valign-wrapper nav-icon user-img">
+              <i class="user"></i>
+              <span></span>
+            </a>
+          </li>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
+        </ul>
+        @endguest
+
+
+      </div>
+    </nav><!-- nav end -->
+
+
+    <ul class="sidenav" id="mobile-demo">
+      <li><a href="sass.html"> Marketing </a></li>
+      <li><a href="badges.html"> Help Desk </a></li>
+      <li><a href="collapsible.html"> Administration </a></li>
+      <li><a href="collapsible.html"> Accounting </a></li>
+      <li><a href="collapsible.html"> Sales </a></li>
+      <li><a href="collapsible.html"> Knowledge Base </a></li>
+    </ul>
+
+  </div>
+
+</header><!-- header end -->
+
+
+<section class="gnrl-blk gnrl-mrgn-pdng card-playing">
+    @yield('content')
+</section><!-- card playing end -->
+
+
+
+
+
+
+
+
+<footer>
+  <div class="copy-content">
+    <div class="container">
+      <a href="#" target="_blank">
+        <p>
+          &copy; Copyright 2018. All Rights Reserved.
+
+        </p>
+      </a>
     </div>
-@yield('js')
+  </div>
+</footer>
+
+
+
+
+<!--JavaScript at end of body for optimized loading-->
+<script type="text/javascript" src="{{asset('js/jquery.js')}}"></script>
+<script src="{{asset('js/jquery-ui.1.11.2.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/materialize.min.js')}}"></script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+      $('.dropdown-trigger').dropdown();
+      $('.tabs').tabs();
+      $('.sidenav').sidenav();
+
+      //select all checkboxes
+      $("#checkAll").change(function(){  //"select all" change
+        $(".checkbox").prop('checked', $(this).prop("checked")); //change all ".checkbox" checked status
+      });
+
+      //".checkbox" change
+      $('.checkbox').change(function(){
+        //uncheck "select all", if one of the listed checkbox item is unchecked
+        if(false == $(this).prop("checked")){ //if this item is unchecked
+          $("#checkAll").prop('checked', false); //change "select all" checked status to false
+        }
+        //check "select all" if all checkbox items are checked
+        if ($('.checkbox:checked').length == $('.checkbox').length ){
+          $("#checkAll").prop('checked', true);
+        }
+      });
+
+    });
+</script>
+
+<script src="{{asset('js/jquery.canvasjs.min.js')}}"></script>
+
 </body>
 </html>
