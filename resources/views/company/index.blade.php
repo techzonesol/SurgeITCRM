@@ -2,15 +2,18 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col m10">
+            <div class="col m12 background-white">
                 <div class="card">
-                    <div class="row">
-                        <div class="col s12">
-                            <h4 class="align_center">View Companies</h4>
-                        </div>
+                    <div class="col s11">
+                        <h4 class="margin-0px">View Companies</h4>
                     </div>
-                    <div class="row1">
-                        <div class="col s12">
+                    <div class="col s1">
+
+                        <p class="center-align">
+                            <a class="waves-effect waves-light btn-small delete_company" href="javascript:void(0)">Create</a>
+                        </p>
+                    </div>
+                    <div class="col s12">
                             <table class="highlight">
                                 <thead>
                                 <tr>
@@ -44,7 +47,6 @@
                             </table>
                             {{$companies}}
                         </div>
-                    </div>
                 </div>
             </div>
         </div>
