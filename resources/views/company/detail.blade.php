@@ -2,16 +2,12 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col m8 offset-m2">
+            <div class="col m12 background-white">
                 <div class="card">
-                    <div class="row">
-                        <div class="col s12">
-                        <div class="col s12">
-                            <h4 class="align_center">Company Details</h4>
-                        </div>
+                    <div class="col s12">
+                        <h4 class="align_center">Company Details</h4>
                     </div>
-                    <div class="row">
-                        <form class="col s12" action="{{route('update_company',['id' => $company->company_id])}}" method="post" id="Company_form">
+                    <form class="col s12" action="{{route('update_company',['id' => $company->company_id])}}" method="post" id="Company_form">
                             @csrf
                             <div class="input-field col s6">
                                 <input  id="company_name" name="company_name" type="text" class="validate" value="{{$company->company_name}}">
@@ -106,8 +102,6 @@
                                 </button>
                             </div>
                         </form>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

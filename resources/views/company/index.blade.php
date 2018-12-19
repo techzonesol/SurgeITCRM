@@ -4,13 +4,12 @@
         <div class="row justify-content-center">
             <div class="col m12 background-white">
                 <div class="card">
-                    <div class="col s11">
+                    <div class="col s6">
                         <h4 class="margin-0px">View Companies</h4>
                     </div>
-                    <div class="col s1">
-
-                        <p class="center-align">
-                            <a class="waves-effect waves-light btn-small delete_company" href="javascript:void(0)">Create</a>
+                    <div class="col s6">
+                        <p class="right-align">
+                            <a class="waves-effect waves-light btn-small" href="{{route('create_company')}}"><i class="fa fa-plus" style="font-size: 0.8rem;"></i> Add Company</a>
                         </p>
                     </div>
                     <div class="col s12">

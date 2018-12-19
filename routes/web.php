@@ -32,15 +32,17 @@ Route::post('/contacts/{id}','ContactsController@update_contact')->name('update_
 Route::get('check_email','ContactsController@check_email')->name('check_email');
 /*******         Contacts Module END                      *********/
 
+Route::prefix('company')->group(function () {
+    /*******         Company Module Start                      *********/
+    Route::get('/','CompanyController@index')->name('company');
+    Route::post('create','CompanyController@save_company')->name('save_company');
+    Route::get('create','CompanyController@create')->name('create_company');
+    Route::post('delete','CompanyController@delete_company')->name('delete_company');
+    Route::get('{id}','CompanyController@view_company')->name('view_company');
+    Route::post('{id}','CompanyController@update_company')->name('update_company');
+    /*******         Company Module END                      *********/
 
-/*******         Company Module Start                      *********/
-Route::get('/company','CompanyController@index')->name('company');
-Route::get('/company/create','CompanyController@create')->name('create_company');
-Route::post('/company/create','CompanyController@save_company')->name('save_company');
-Route::post('/company/delete','CompanyController@delete_company')->name('delete_company');
-Route::get('/company/{id}','CompanyController@view_company')->name('view_company');
-Route::post('/company/{id}','CompanyController@update_company')->name('update_company');
-/*******         Company Module END                      *********/
+});
 
 /*******         Assets Module Start                      *********/
 Route::get('/assets','AssetsController@index')->name('assets');
