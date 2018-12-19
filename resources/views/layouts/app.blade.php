@@ -63,7 +63,7 @@
 
     <nav>
       <div class="nav-wrapper">
-        <a href="/home" class="brand-logo"> <img src="images/logo.png" alt="" /> </a>
+        <a href="/home" class="brand-logo"> <img src="{{asset('images/logo.png')}}" alt="" /> </a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
         @guest
@@ -82,11 +82,11 @@
         @else
 
         <ul id="nav-mobile" class="left hide-on-med-and-down">
-          <li><a href="{{route('contacts')}}"> <i class="fa fa-plus"></i> Contacts </a></li>
-          <li><a href="{{route('company')}}"> <i class="fa fa-plus"></i> Companies </a></li>
-          <li><a href="javascript:void(0)"> <i class="fa fa-plus"></i> Employees </a></li>
+          <li><a href="{{route('contacts')}}">Contacts </a></li>
+          <li><a href="{{route('company')}}">Companies </a></li>
+          <li><a href="javascript:void(0)">Employees </a></li>
             @if (Route::has('register'))
-                <li><a href="{{ route('register') }}"><i class="fa fa-plus"></i> {{ __('Add New User') }}</a></li>
+                <li><a href="{{ url('/register')}}">{{ __('Add New User') }}</a></li>
             @endif
           <li>
           <a class="dropdown-item" href="{{ route('logout') }}"

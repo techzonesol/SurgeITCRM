@@ -2,14 +2,17 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col m10">
+            <div class="col m12" style="background: white;">
                 <div class="card">
-                    <div class="row">
-                        <div class="col s12">
-                            <h4 class="align_center">View Contacts</h4>
+                    <div class="">
+                        <div class="col m6">
+                            <h4 class="margin-0px">View Contacts</h4>
+                        </div>
+                        <div class="col m6 right-align">
+                            <p><a class="waves-effect waves-light btn-small delete_company" href="{{route('create_contact')}}"><i class="fa fa-plus" style="font-size: 0.8rem;"></i> Add Conact</a></p>
                         </div>
                     </div>
-                    <div class="row1">
+                    <div class="">
                         <div class="col s12">
                             <table class="highlight">
                             <thead>

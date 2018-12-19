@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::get('/company/create','CompanyController@create')->name('create_company');
 Route::get('/home', 'HomeController@index')->name('home');
 
 /*******         Contacts Module Start                      *********/
@@ -35,7 +36,6 @@ Route::get('check_email','ContactsController@check_email')->name('check_email');
 
 /*******         Company Module Start                      *********/
 Route::get('/company','CompanyController@index')->name('company');
-Route::get('/company/create','CompanyController@create')->name('create_company');
 Route::post('/company/create','CompanyController@save_company')->name('save_company');
 Route::post('/company/delete','CompanyController@delete_company')->name('delete_company');
 Route::get('/company/{id}','CompanyController@view_company')->name('view_company');
