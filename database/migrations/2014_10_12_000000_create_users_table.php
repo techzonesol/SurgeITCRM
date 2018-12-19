@@ -37,6 +37,7 @@ class CreateUsersTable extends Migration
             $table->string('user_created_by',55)->nullable();
             $table->string('user_modified_by',55)->nullable();
             $table->timestamps();
+            $table->rememberToken();
         });
     }
 
