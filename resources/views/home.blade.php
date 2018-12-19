@@ -860,17 +860,4 @@
             </div>
         </div>
     </section><!-- card playing end -->
-
-    <footer>
-        <div class="copy-content">
-            <div class="container">
-                <a href="http://adviceadvertising.ae/" target="_blank">
-                    <p>
-                        &copy; Copyright 2018. All Rights Reserved.
-
-                    </p>
-                </a>
-            </div>
-        </div>
-    </footer>
 @endsection

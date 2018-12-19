@@ -541,8 +541,8 @@ th {
     color:red;
 }
 .margin-0px{margin:0px;}
-
-
+.padding-0px{padding:0px !important;}
+.background-white{background-color:  #fff;}
 
 @media (min-width: 320px) and (max-width: 479px) {
 

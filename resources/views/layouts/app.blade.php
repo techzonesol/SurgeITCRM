@@ -6,12 +6,12 @@
   <!--Import materialize.css-->
   <link type="text/css" rel="stylesheet" href="{{asset('css/materialize.min.css')}}"  media="screen,projection"/>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-  <link type="text/css" rel="stylesheet" href="{{asset('css/Custom/gnrl.css')}}" />
-  <link type="text/css" rel="stylesheet" href="{{asset('css/Custom/style.css')}}" />
+  <link type="text/css" rel="stylesheet" href="{{asset('css/gnrl.css')}}" />
+  <link type="text/css" rel="stylesheet" href="{{asset('css/style.css')}}" />
 
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=0"/>
-  <link href="css/jquery-ui.1.11.2.min.css" rel="stylesheet" />
+  <link href="{{asset('css/jquery-ui.1.11.2.min.css')}}" rel="stylesheet" />
   <script>
     window.onload = function () {
 
@@ -82,9 +82,9 @@
         @else
 
         <ul id="nav-mobile" class="left hide-on-med-and-down">
-          <li><a href="/contacts"> <i class="fa fa-plus"></i> Contacts </a></li>
-          <li><a href="/company"> <i class="fa fa-plus"></i> Companies </a></li>
-          <li><a href="/employees"> <i class="fa fa-plus"></i> Employees </a></li>
+          <li><a href="{{route('contacts')}}"> <i class="fa fa-plus"></i> Contacts </a></li>
+          <li><a href="{{route('company')}}"> <i class="fa fa-plus"></i> Companies </a></li>
+          <li><a href="javascript:void(0)"> <i class="fa fa-plus"></i> Employees </a></li>
             @if (Route::has('register'))
                 <li><a href="{{ route('register') }}"><i class="fa fa-plus"></i> {{ __('Add New User') }}</a></li>
             @endif
@@ -155,7 +155,7 @@
 </header><!-- header end -->
 
 
-<section class="gnrl-blk gnrl-mrgn-pdng card-playing">
+<section class="gnrl-blk gnrl-mrgn-pdng card-playing {{ (Route::currentRouteName() == 'home' ? 'padding-0px' : '') }}">
     @yield('content')
 </section><!-- card playing end -->
 
