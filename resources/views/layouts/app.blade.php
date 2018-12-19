@@ -162,10 +162,6 @@
 
 
 
-
-
-
-
 <footer>
   <div class="copy-content">
     <div class="container">
@@ -175,7 +171,6 @@
     </div>
   </div>
 </footer>
-
 
 
 
