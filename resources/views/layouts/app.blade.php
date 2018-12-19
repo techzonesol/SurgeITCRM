@@ -63,7 +63,7 @@
 
     <nav>
       <div class="nav-wrapper">
-        <a href="#" class="brand-logo"> <img src="images/logo.png" alt="" /> </a>
+        <a href="/home" class="brand-logo"> <img src="images/logo.png" alt="" /> </a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
         @guest
@@ -82,15 +82,17 @@
         @else
 
         <ul id="nav-mobile" class="left hide-on-med-and-down">
-          <li><a href="#"> Marketing </a></li>
-          <li><a href="#"> Help Desk </a></li>
-          <li><a href="#"> Knowledge Base </a></li>
-          <li><a href="/register"> Add New User</a></li>
+          <li><a href="/contacts"> <i class="fa fa-plus"></i> Contacts </a></li>
+          <li><a href="/company"> <i class="fa fa-plus"></i> Companies </a></li>
+          <li><a href="/employees"> <i class="fa fa-plus"></i> Employees </a></li>
+            @if (Route::has('register'))
+                <li><a href="{{ route('register') }}"><i class="fa fa-plus"></i> {{ __('Add New User') }}</a></li>
+            @endif
           <li>
           <a class="dropdown-item" href="{{ route('logout') }}"
                onclick="event.preventDefault();
-                             document.getElementById('logout-form').submit();">
-                {{ __('Logout') }}
+                        document.getElementById('logout-form').submit();"> 
+                {{ __('Logout') }} 
             </a>
 
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -158,6 +160,22 @@
 </section><!-- card playing end -->
 
 
+
+
+
+
+
+
+
+<footer>
+  <div class="copy-content">
+    <div class="container">
+        <p>
+          &copy; Copyright 2018 - SurgeIT Support. All Rights Reserved.
+        </p>
+    </div>
+  </div>
+</footer>
 
 
 <!--JavaScript at end of body for optimized loading-->
