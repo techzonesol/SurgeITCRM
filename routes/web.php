@@ -22,6 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/contacts','ContactsController@index')->name('contacts');
 
 Route::post('/register/create','Auth\RegisterController@create')->name('create_user');
+Route::get('/contacts/create','ContactsController@create')->name('create_contact');
 Route::post('/contacts/create','ContactsController@save_contact')->name('save_contact');
 
 Route::post('/contacts/delete','ContactsController@delete_contact')->name('delete_contact');
