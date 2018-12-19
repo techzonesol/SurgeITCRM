@@ -41,3 +41,8 @@ Route::get('/company/{id}','CompanyController@view_company')->name('view_company
 Route::post('/company/{id}','CompanyController@update_company')->name('update_company');
 /*******         Company Module END                      *********/
 
+/*******         Assets Module Start                      *********/
+Route::get('/assets','AssetsController@index')->name('assets');
+Route::get('/assets/create','AssetsController@create')->name('create_assets');
+Route::post('/company/create','AssetsController@save_assets')->name('save_assets');
+/*******         Assets Module END                      *********/
