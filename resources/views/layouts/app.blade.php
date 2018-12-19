@@ -72,22 +72,20 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 @if (Route::has('register'))
                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                 @endif
-            </li>
+            </li> -->
         </ul>
 
         @else
 
         <ul id="nav-mobile" class="left hide-on-med-and-down">
-          <li><a href="sass.html"> Marketing </a></li>
-          <li><a href="badges.html"> Help Desk </a></li>
-          <li><a href="collapsible.html"> Administration </a></li>
-          <li><a href="collapsible.html"> Accounting </a></li>
-          <li><a href="collapsible.html"> Sales </a></li>
-          <li><a href="collapsible.html"> Knowledge Base </a></li>
+          <li><a href="#"> Marketing </a></li>
+          <li><a href="#"> Help Desk </a></li>
+          <li><a href="#"> Knowledge Base </a></li>
+          <li><a href="/register"> Add New User</a></li>
           <li>
           <a class="dropdown-item" href="{{ route('logout') }}"
                onclick="event.preventDefault();
@@ -110,25 +108,25 @@
             </div>
           </li>
           <li>
-            <a href="sass.html" class="valign-wrapper nav-icon">
+            <a href="#" class="valign-wrapper nav-icon">
               <i class="fa fa-plus"></i>
             </a>
           </li>
           <li>
-            <a href="sass.html" class="valign-wrapper nav-icon">
-              <i class="envelope"></i>
-              <span>12</span>
+            <a href="#" class="valign-wrapper nav-icon">
+              <i class="material-icons">email</i>
+              <span>0</span>
             </a>
           </li>
           <li>
-            <a href="sass.html" class="valign-wrapper nav-icon">
+            <a href="#" class="valign-wrapper nav-icon">
               <i class="bell"></i>
-              <span>12</span>
+              <span>0</span>
             </a>
           </li>
           <li>
-            <a href="sass.html" class="valign-wrapper nav-icon user-img">
-              <i class="user"></i>
+            <a href="#" class="valign-wrapper nav-icon user-img">
+              <i class="material-icons">account_circle</i>
               <span></span>
             </a>
           </li>
@@ -142,12 +140,12 @@
 
 
     <ul class="sidenav" id="mobile-demo">
-      <li><a href="sass.html"> Marketing </a></li>
-      <li><a href="badges.html"> Help Desk </a></li>
-      <li><a href="collapsible.html"> Administration </a></li>
-      <li><a href="collapsible.html"> Accounting </a></li>
-      <li><a href="collapsible.html"> Sales </a></li>
-      <li><a href="collapsible.html"> Knowledge Base </a></li>
+      <li><a href="#"> Marketing </a></li>
+      <li><a href="#"> Help Desk </a></li>
+      <li><a href="#"> Administration </a></li>
+      <li><a href="#"> Accounting </a></li>
+      <li><a href="#"> Sales </a></li>
+      <li><a href="#"> Knowledge Base </a></li>
     </ul>
 
   </div>

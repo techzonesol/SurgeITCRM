@@ -9,8 +9,8 @@
                 
                 <div class="row">
                     <div class="col s12 l6">
-                        <h4 class="align_center">{{ __('Login Here') }}</h4>
-                        <img src="http://www.surgeitsupport.com/wp-content/uploads/2018/04/SurgetIT-logo-300.jpg" style="margin: auto; display: block; height: 50%;" />
+                        <h4 class="center-align">{{ __('Login Here') }}</h4>
+                        <img class="center-align" src="http://www.surgeitsupport.com/wp-content/uploads/2018/04/SurgetIT-logo-300.jpg" style="margin: auto; display: block; height: 50%;" />
                     </div>
                     <form class="col s6" method="post" action="{{ route('login') }}">
                         @csrf

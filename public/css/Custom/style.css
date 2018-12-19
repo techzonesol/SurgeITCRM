@@ -2,36 +2,36 @@
 
 @font-face {
 	font-family: 'OpenSans-Regular';
-	src: url('../fonts/OpenSans-Regular.eot');
-	src: url('../fonts/OpenSans-Regular.woff2') format('woff2'),
-	url('../fonts/OpenSans-Regular.woff') format('woff'),
-	url('../fonts/OpenSans-Regular.ttf') format('truetype'),
-	url('../fonts/OpenSans-Regular.svg#OpenSans-Regular') format('svg'),
-	url('../fonts/OpenSans-Regular.eot?#iefix') format('embedded-opentype');
+	src: url('../../fonts/OpenSans-Regular.eot');
+	src: url('../../fonts/OpenSans-Regular.woff2') format('woff2'),
+	url('../../fonts/OpenSans-Regular.woff') format('woff'),
+	url('../../fonts/OpenSans-Regular.ttf') format('truetype'),
+	url('../../fonts/OpenSans-Regular.svg#OpenSans-Regular') format('svg'),
+	url('../../fonts/OpenSans-Regular.eot?#iefix') format('embedded-opentype');
 	font-weight: normal;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: 'OpenSans-Bold';
-	src: url('../fonts/OpenSans-Bold.eot');
-	src: url('../fonts/OpenSans-Bold.woff2') format('woff2'),
-	url('../fonts/OpenSans-Bold.woff') format('woff'),
-	url('../fonts/OpenSans-Bold.ttf') format('truetype'),
-	url('../fonts/OpenSans-Bold.svg#OpenSans-Regular') format('svg'),
-	url('../fonts/OpenSans-Bold.eot?#iefix') format('embedded-opentype');
+	src: url('../../fonts/OpenSans-Bold.eot');
+	src: url('../../fonts/OpenSans-Bold.woff2') format('woff2'),
+	url('../../fonts/OpenSans-Bold.woff') format('woff'),
+	url('../../fonts/OpenSans-Bold.ttf') format('truetype'),
+	url('../../fonts/OpenSans-Bold.svg#OpenSans-Regular') format('svg'),
+	url('../../fonts/OpenSans-Bold.eot?#iefix') format('embedded-opentype');
 	font-weight: normal;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: 'OpenSans-SemiBold';
-	src: url('../fonts/OpenSans-SemiBold.eot');
-	src: url('../fonts/OpenSans-SemiBold.woff2') format('woff2'),
-	url('../fonts/OpenSans-SemiBold.woff') format('woff'),
-	url('../fonts/OpenSans-SemiBold.ttf') format('truetype'),
-	url('../fonts/OpenSans-SemiBold.svg#OpenSans-Regular') format('svg'),
-	url('../fonts/OpenSans-SemiBold.eot?#iefix') format('embedded-opentype');
+	src: url('../../fonts/OpenSans-SemiBold.eot');
+	src: url('../../fonts/OpenSans-SemiBold.woff2') format('woff2'),
+	url('../../fonts/OpenSans-SemiBold.woff') format('woff'),
+	url('../../fonts/OpenSans-SemiBold.ttf') format('truetype'),
+	url('../../fonts/OpenSans-SemiBold.svg#OpenSans-Regular') format('svg'),
+	url('../../fonts/OpenSans-SemiBold.eot?#iefix') format('embedded-opentype');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -104,7 +104,7 @@ header nav .right a.nav-icon span{
 	background-color: #ff2f49;
 	color: #fff;
 	font-size: 8px;
-	padding: 3px;
+	padding: 3px 0px 0px 5px;
 	border-radius: 100%;
 	overflow: hidden;
 }
@@ -115,7 +115,8 @@ header nav .right a.nav-icon.user-img span{
 	bottom: 0px;
 	right: -2px;
 	top: inherit;
-	background-color: #2f302e;
+	/*background-color: #2f302e;*/
+	background-color: limegreen;
 }
 
 header nav .right a.nav-icon i{
@@ -131,18 +132,18 @@ header nav .right a.nav-icon i{
 }
 
 header nav .right a.nav-icon i.envelope{
-	background-image: url(../images/envelope.png);
+	background-image: url(../../images/envelope.png);
 }
 
 header nav .right a.nav-icon i.bell{
-	background-image: url(../images/bell2.png);
+	background-image: url(../../images/bell2.png);
 }
 
 header nav .right a.nav-icon i.user{
     width: 100%;
     height: 100%;
     background-size: 100%;
-	background-image: url(../images/user-img.png);
+	background-image: url(../../images/user-img.png);
 }
 
 nav ul a i{
@@ -191,7 +192,7 @@ nav .input-field.top-search input{
 
 
 section.header{
-	background-image: url(../images/dotted.jpg);
+	background-image: url(../../images/dotted.jpg);
 	background-repeat: repeat;
 	padding: 56px 0px 44px;
 	box-shadow: 0px 10px 10px rgba(0,0,0,.3 );
@@ -464,7 +465,7 @@ section.card-playing{
 .card-play-con .card-play-prt .collection.manage-tickets .collection-item .dropdown-trigger .caret-drop {
 	width: 10px;
     height: 5px;
-    background-image: url(../images/caret-drop.png);
+    background-image: url(../../images/caret-drop.png);
     background-repeat: no-repeat;
     background-size: 10px 5px;
     background-position: center;
