@@ -14,7 +14,7 @@ class CompanyController extends Controller
     public function create(){
         return view('company.create');
     }
-    public function save_company(Request $request){
+    public function saveCompany(Request $request){
         $is_active = '';
         if($request->input('company_is_active') == 'on'){
             $is_active = 1;
