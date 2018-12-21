@@ -36,8 +36,8 @@ Route::get('check_email','ContactsController@check_email')->name('check_email');
 Route::prefix('company')->group(function () {
     /*******         Company Module Start                      *********/
     Route::get('/','CompanyController@index')->name('company');
-    Route::post('create','CompanyController@save_company')->name('save_company');
-    Route::get('create','CompanyController@create')->name('create_company');
+    Route::post('/create','CompanyController@saveCompany')->name('saveCompany');
+    Route::get('/create','CompanyController@create')->name('create_company');
     Route::post('delete','CompanyController@delete_company')->name('delete_company');
     Route::get('{id}','CompanyController@view_company')->name('view_company');
     Route::post('{id}','CompanyController@update_company')->name('update_company');
@@ -48,5 +48,5 @@ Route::prefix('company')->group(function () {
 /*******         Assets Module Start                      *********/
 Route::get('/assets','AssetsController@index')->name('assets');
 Route::get('/assets/create','AssetsController@create')->name('create_assets');
-Route::post('/company/create','AssetsController@save_assets')->name('save_assets');
+Route::post('/assets/create','AssetsController@save_assets')->name('save_assets');
 /*******         Assets Module END                      *********/

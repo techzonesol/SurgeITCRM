@@ -10,7 +10,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <form class="col s12" action="{{action('CompanyController@saveCompany')}}" method="post" id="Contact_form">
+                        <form class="col s12" action="{{url('/company/create')}}" method="post" id="Contact_form">
                             @csrf
                             <div class="input-field col s6">
                                 <input  id="company_name" name="company_name" type="text" class="validate">
