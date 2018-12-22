@@ -84,10 +84,10 @@
         <ul id="nav-mobile" class="left hide-on-med-and-down">
           <li><a href="{{route('contacts')}}">Contacts </a></li>
           <li><a href="{{route('company')}}">Companies </a></li>
-          <li><a href="javascript:void(0)">Employees </a></li>
+          {{-- <li><a href="javascript:void(0)">Employees </a></li>
             @if (Route::has('register'))
                 <li><a href="{{ url('/register')}}">{{ __('Add New User') }}</a></li>
-            @endif
+            @endif --}}
           <li>
           <a class="dropdown-item" href="{{ route('logout') }}"
                onclick="event.preventDefault();
