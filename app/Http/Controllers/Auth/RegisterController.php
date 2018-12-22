@@ -80,7 +80,7 @@ class RegisterController extends Controller
             'user_username' => $data['user_username'],
             'user_email' => $data['user_email'],
             'password' => Hash::make($data['user_password']),
-            'user_dob' => $data['user_dob'],
+            'user_dob' => date('Y-m-d',strtotime($data['user_dob'])),
             'user_cell_no' => $data['user_cell_no'],
             'user_home_phone' => $data['user_home_phone'],
             'user_city' => $data['user_city'],
