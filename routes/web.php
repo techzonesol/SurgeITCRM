@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::get('/company/create','CompanyController@create')->name('create_company');
 Route::get('/home', 'HomeController@index')->name('home');
 
 /*******         Contacts Module Start                      *********/
@@ -41,8 +42,8 @@ Route::prefix('company')->group(function () {
     Route::get('{id}','CompanyController@view_company')->name('view_company');
     Route::post('{id}','CompanyController@update_company')->name('update_company');
     /*******         Company Module END                      *********/
-
 });
+
 
 /*******         Assets Module Start                      *********/
 Route::get('/assets','AssetsController@index')->name('assets');

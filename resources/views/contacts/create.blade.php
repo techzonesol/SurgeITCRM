@@ -6,7 +6,7 @@
                 <div class="card">
                     <div class="row">
                         <div class="col s12">
-                            <h4 class="align_center">Create Contacts</h4>
+                            <h4 class="center-align">Create Contacts</h4>
                         </div>
                     </div>
                     <div class="row">
@@ -26,12 +26,12 @@
                             </div>
                             <div class="input-field col s6">
                                 <select name="contact_company_id" id="contact_company_id">
-                                    <option value=""  selected>Choose your Company</option>
+                                    <option value=""  selected disabled>Select Contact Company</option>
                                     <option value="1">Company 1</option>
                                     <option value="2">Company 2</option>
                                     <option value="3">Company 3</option>
                                 </select>
-                                <label>Materialize Select</label>
+                                <label>Select Company</label>
                             </div>
                             <div class="input-field col s6">
                                 <input id="contact_office_phone" name="contact_office_phone" type="text" class="validate">
@@ -63,12 +63,12 @@
                             </div>
                             <div class="input-field col s6">
                                 <select name="contact_assigned_to_id">
-                                    <option value="" selected>Choose your Company</option>
-                                    <option value="1">Company 1</option>
-                                    <option value="2">Company 2</option>
-                                    <option value="3">Company 3</option>
+                                    <option value="" selected disabled>Select Assigne</option>
+                                    <option value="1">User 1</option>
+                                    <option value="2">User 2</option>
+                                    <option value="3">User 3</option>
                                 </select>
-                                <label>Materialize Select</label>
+                                <label>Select Assigne</label>
                             </div>
                             <div class="input-field col s12">
                                 <button class="btn waves-effect waves-light align_center" type="submit" name="action">Submit
