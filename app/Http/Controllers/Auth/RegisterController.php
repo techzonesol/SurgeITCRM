@@ -103,6 +103,6 @@ class RegisterController extends Controller
             'employee_modified_by' => $user_id,
         ]);
         $data->session()->flash('msg', 'New User Successfully Added');
-        return view('home');
+        return redirect()->route('home');
     }
 }
