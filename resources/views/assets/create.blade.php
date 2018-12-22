@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col m8">
+            <div class="col m8 offset-m2">
                 <div class="card">
                     <div class="row">
                         <div class="col s12">
@@ -12,6 +12,14 @@
                     <div class="row">
                         <form class="col s12" action="{{route('save_assets')}}" method="post" id="Assets_form">
                             @csrf
+                            <div class="input-field col s6">
+                                <input id="asset_name" name="asset_name" type="text" class="validate">
+                                <label for="asset_name">Asset Name</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="asset_tag_number" name="asset_tag_number" type="text" class="validate">
+                                <label for="asset_tag_number">Tag Number</label>
+                            </div>
                             <div class="input-field col s6">
                                 <input  id="asset_no" name="asset_no" type="text" class="validate">
                                 <label for="asset_no">Assets No</label>
@@ -32,14 +40,19 @@
                             <div class="input-field col s6">
                                 <select name="asset_product_type" id="asset_product_type">
                                     <option value="" selected>Status</option>
-                                    <option value="good">Good</option>
-                                    <option value="service">Service</option>
+                                    <option value="good">Product 1</option>
+                                    <option value="service">Product 2</option>
                                 </select>
                                 <label>Product Type</label>
                             </div>
-                            <div class="input-field col s6">
-                                <input id="asset_image" name="asset_image" type="file" class="validate">
-                                <label for="asset_image">Asset Image</label>
+                            <div class="input-field file-field col s6">
+                                <div class="btn">
+                                    <span>File</span>
+                                    <input type="file">
+                                </div>
+                                <div class="file-path-wrapper">
+                                    <input class="file-path validate" type="text" placeholder="Asset Image" name="asset_image">
+                                </div>
                             </div>
                             <div class="input-field col s6">
                                 <input id="asset_in_service_date" name="asset_in_service_date" type="text" class="validate datepicker">
@@ -50,16 +63,8 @@
                                 <label for="asset_details">Assets Details</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="asset_name" name="asset_name" type="text" class="validate">
-                                <label for="asset_name">Asset Name</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="asset_tag_number" name="asset_tag_number" type="text" class="validate">
-                                <label for="asset_tag_number">Tag Number</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="asset_receiving_notes" name="asset_receiving_notes" type="text" class="validate">
-                                <label for="asset_receiving_notes">Receiving Notes</label>
+                                <input id="date_sold" name="date_sold" type="text" class="validate datepicker">
+                                <label for="date_sold">Date Sold</label>
                             </div>
                             <div class="input-field col s6">
                                 <select name="asset_contact_id" id="asset_contact_id">
@@ -70,59 +75,24 @@
                                 <label>Contact</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="company_billing_city" name="company_billing_city" type="text" class="validate">
-                                <label for="company_billing_city">Billing City</label>
+                                <input id="product_memory" name="product_memory" type="text" class="validate">
+                                <label for="product_memory">Product Memory</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <textarea id="product_architecture" class="materialize-textarea" name="product_architecture"></textarea>
+                                <label for="product_architecture">Product Architecture</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="company_fax" name="company_fax" type="text" class="validate">
-                                <label for="company_fax">Company Fax</label>
+                                <input id="product_processor" name="product_processor" type="text" class="validate">
+                                <label for="product_processor">Product Processor</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="company_other_phone_no" name="company_other_phone_no" type="text" class="validate">
-                                <label for="company_other_phone_no">Other Phone No.</label>
+                                <input id="product_os" name="product_os" type="text" class="validate">
+                                <label for="product_os">Product OS</label>
                             </div>
-                            <div class="input-field col s6">
-                                <input id="company_website" name="company_website" type="text" class="validate">
-                                <label for="company_website">Website</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="company_country" name="company_country" type="text" class="validate">
-                                <label for="company_country">Country</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="company_billing_country" name="company_billing_country" type="text" class="validate">
-                                <label for="company_billing_country">Billing Country</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="company_billing_zip_code" name="company_billing_zip_code" type="text" class="validate">
-                                <label for="company_billing_zip_code">Billing Zip Code</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="company_billing_state" name="company_billing_state" type="text" class="validate">
-                                <label for="company_billing_state">Billing state</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="company_billing_street_address" name="company_billing_street_address" type="text" class="validate">
-                                <label for="company_billing_street_address">Billing Street Address</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <select name="company_industry_id">
-                                    <option value="" selected>Choose your Industry</option>
-                                    <option value="1">Industry 1</option>
-                                    <option value="2">Industry 2</option>
-                                    <option value="3">Industry 3</option>
-                                </select>
-                                <label>Select industry</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <div class="switch">
-                                    <label>
-                                        Deactive
-                                        <input type="checkbox" checked id="company_is_active" name="company_is_active">
-                                        <span class="lever"></span>
-                                        Active
-                                    </label>
-                                </div>
+                            <div class="input-field col s12">
+                                <input id="asset_receiving_notes" name="asset_receiving_notes" type="text" class="validate">
+                                <label for="asset_receiving_notes">Receiving Notes</label>
                             </div>
                             <div class="input-field col s12">
                                 <button class="btn waves-effect waves-light align_center" type="submit" name="action">Submit

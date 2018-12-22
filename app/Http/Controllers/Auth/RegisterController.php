@@ -42,7 +42,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('auth');
     }
 
     /**
@@ -80,7 +80,7 @@ class RegisterController extends Controller
             'user_username' => $data['user_username'],
             'user_email' => $data['user_email'],
             'password' => Hash::make($data['user_password']),
-            'user_dob' => $data['user_dob'],
+            'user_dob' => date('Y-m-d',strtotime($data['user_dob'])),
             'user_cell_no' => $data['user_cell_no'],
             'user_home_phone' => $data['user_home_phone'],
             'user_city' => $data['user_city'],
@@ -103,6 +103,6 @@ class RegisterController extends Controller
             'employee_modified_by' => $user_id,
         ]);
         $data->session()->flash('msg', 'New User Successfully Added');
-        return view('home');
+        return redirect()->route('home');
     }
 }
