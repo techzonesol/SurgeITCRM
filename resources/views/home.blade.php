@@ -111,7 +111,6 @@
         <div class="container">
             <div class="row">
 
-
                 <div class="col s12 m12 l4">
                     <div class="gnrl-blk gnrl-mrgn-pdng card-play-con">
                         <div class="gnrl-blk gnrl-mrgn-pdng card-play-prt">
