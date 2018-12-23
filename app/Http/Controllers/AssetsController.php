@@ -8,34 +8,37 @@ use Illuminate\Http\Request;
 class AssetsController extends Controller
 {
     public function index(){
-        $companies = Asset::paginate(10);
-        return view('company.index',['companies' =>  $companies]);
+        $assets = Asset::paginate(10);
+        return view('assets.index',['assets' =>  $assets]);
     }
     public function create(){
         return view('assets.create');
     }
     public function save_assets(Request $request){
-        $asset_img = $request->file('asset_image')->store('Assets');
-        dd($asset_img);
+        $path = '';
+        if ($request->hasFile('asset_image')) {
+            $path = $request->asset_image->store('Assets');
+        }
+//        $asset_img = $request->file('asset_image')->store('Assets');
         $data = [
-            'asset_no' =>  $request->input('asset_no'),
-            'asset_serial_no' =>  $request->input('asset_serial_no'),
-            'asset_status_id' =>  $request->input('asset_status_id'),
-            'asset_product_type' =>  $request->input('asset_product_type'),
-            'asset_image' =>  $request->input('asset_image'),
-            'asset_in_service_date' =>  $request->input('asset_in_service_date'),
-            'asset_details' =>  $request->input('asset_details'),
-            'asset_name' =>  $request->input('asset_name'),
-            'asset_tag_number' =>  $request->input('asset_tag_number'),
-            'date_sold' =>  $request->input('date_sold'),
-            'asset_contact_id' =>  $request->input('asset_contact_id'),
-            'product_memory' =>  $request->input('product_memory'),
-            'product_architecture' =>  $request->input('product_architecture'),
-            'product_processor' =>  $request->input('product_processor'),
-            'product_os' =>  $request->input('product_os'),
-            'asset_receiving_notes' =>  $request->input('asset_receiving_notes'),
-//            'asset_created_by' => auth()->user()->id,
-//            'asset_modified_by' => auth()->user()->id
+            'asset_no' => $request->input('asset_no'),
+            'asset_serial_no' => $request->input('asset_serial_no'),
+            'asset_status_id' => $request->input('asset_status_id'),
+            'asset_product_type' => $request->input('asset_product_type'),
+            'asset_image' => $path,
+            'asset_in_service_date' => date('Y-m-d H:i:s',strtotime($request->input('asset_in_service_date'))),
+            'asset_details' => $request->input('asset_details'),
+            'asset_name' => $request->input('asset_name'),
+            'asset_tag_number' => $request->input('asset_tag_number'),
+            'asset_date_sold' => date('Y-m-d H:i:s',strtotime($request->input('asset_date_sold'))),
+            'asset_contact_id' => $request->input('asset_contact_id'),
+            'asset_product_memory' => $request->input('asset_product_memory'),
+            'asset_product_architecture' => $request->input('asset_product_architecture'),
+            'asset_product_processor' => $request->input('asset_product_processor'),
+            'asset_product_os' => $request->input('asset_product_os'),
+            'asset_receiving_notes' => $request->input('asset_receiving_notes'),
+            'asset_created_by' => auth()->user()->id,
+            'asset_modified_by' => auth()->user()->id
         ];
         $insert_company = Asset::insertGetId($data);
         if($insert_company){
@@ -45,62 +48,59 @@ class AssetsController extends Controller
         }
         return redirect()->route('assets');
     }
-    public function delete_company(Request $request){
-        $company_modal_obj = new Company();
-        $delete = $company_modal_obj->delete_company($request->post('id'));
+    public function delete_assets(Request $request){
+        $asset_obj = new Asset();
+        $delete = $asset_obj->delete_asset($request->post('id'));
         if($delete){
             return 1;
         }else{
             return 0;
         }
     }
-    public function view_company($id, Request $request){
-        $company_modal_obj = new Company();
-        $get_company  = $company_modal_obj->getCompany($id);
-        if($get_company){
-            return view('company.detail',['company' => $get_company]);
+    public function view_assets($id, Request $request){
+        $asset_obj = new Asset();
+        $get_asset = $asset_obj->getAsset($id);
+        if($get_asset){
+            return view('assets.detail',['asset' => $get_asset]);
         }else{
             $request->session()->flash('error', 'Something went wrong!');
             return redirect()->route('home');
         }
     }
-    public function update_company($id, Request $request){
-        $is_active = '';
-        if($request->input('company_is_active') == 'on'){
-            $is_active = 1;
+    public function update_assets($id, Request $request){
+        $path = '';
+        $asset = Asset::where('asset_id' , $id)->first();
+        if ($request->hasFile('asset_image')) {
+            $path = $request->asset_image->store('Assets');
         }else{
-            $is_active = 0;
+            $path = $asset->asset_image;
         }
         $data = [
-            'company_name' =>  $request->input('company_name'),
-            'company_email' =>  $request->input('company_email'),
-            'company_phone_no' =>  $request->input('company_phone_no'),
-            'company_phone_no_ext' =>  $request->input('company_phone_no_ext'),
-            'company_title' =>  $request->input('company_title'),
-            'company_state' =>  $request->input('company_state'),
-            'company_zip_code' =>  $request->input('company_zip_code'),
-            'company_street_address' =>  $request->input('company_street_address'),
-            'company_billing_city' =>  $request->input('company_billing_city'),
-            'company_fax' =>  $request->input('company_fax'),
-            'company_other_phone_no' =>  $request->input('company_other_phone_no'),
-            'company_website' =>  $request->input('company_website'),
-            'company_country' =>  $request->input('company_country'),
-            'company_billing_country' =>  $request->input('company_billing_country'),
-            'company_billing_zip_code' =>  $request->input('company_billing_zip_code'),
-            'company_billing_state' =>  $request->input('company_billing_state'),
-            'company_billing_street_address' =>  $request->input('company_billing_street_address'),
-            'company_industry_id' =>  $request->input('company_industry_id'),
-            'company_is_active' =>  $is_active,
-//            'company_created_by' => auth()->user()->id,
-//            'company_modified_by' => auth()->user()->id
+            'asset_no' => $request->input('asset_no'),
+            'asset_serial_no' => $request->input('asset_serial_no'),
+            'asset_status_id' => $request->input('asset_status_id'),
+            'asset_product_type' => $request->input('asset_product_type'),
+            'asset_image' => $path,
+            'asset_in_service_date' => date('Y-m-d H:i:s',strtotime($request->input('asset_in_service_date'))),
+            'asset_details' => $request->input('asset_details'),
+            'asset_name' => $request->input('asset_name'),
+            'asset_tag_number' => $request->input('asset_tag_number'),
+            'asset_date_sold' => date('Y-m-d H:i:s',strtotime($request->input('asset_date_sold'))),
+            'asset_contact_id' => $request->input('asset_contact_id'),
+            'asset_product_memory' => $request->input('asset_product_memory'),
+            'asset_product_architecture' => $request->input('asset_product_architecture'),
+            'asset_product_processor' => $request->input('asset_product_processor'),
+            'asset_product_os' => $request->input('asset_product_os'),
+            'asset_receiving_notes' => $request->input('asset_receiving_notes'),
+            'asset_modified_by' => auth()->user()->id
         ];
-        $company_obj = new Company();
-        $company = $company_obj->update_data($id, $data);
-        if($company){
-            $request->session()->flash('success', 'Contacts updated successful!');
+        $asset_obj = new Asset();
+        $asset = $asset_obj->update_data($id, $data);
+        if($asset){
+            $request->session()->flash('success', 'Assets updated successful!');
         }else{
             $request->session()->flash('error', 'Something went wrong!, Contacts not saved');
         }
-        return redirect()->route('view_company',['id' => $id]);
+        return redirect()->route('view_assets',['id' => $id]);
     }
 }
