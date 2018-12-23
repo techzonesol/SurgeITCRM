@@ -9,7 +9,7 @@
                     </div>
                     <div class="col s6">
                         <p class="right-align">
-                            <a class="waves-effect waves-light btn-small" href="{{route('create_assets')}}"><i class="fa fa-plus" style="font-size: 0.8rem;"></i> Add Company</a>
+                            <a class="waves-effect waves-light btn-small" href="{{route('create_assets')}}"><i class="fa fa-plus" style="font-size: 0.8rem;"></i>Add Assets</a>
                         </p>
                     </div>
                     <div class="col s12">
@@ -33,8 +33,8 @@
                                     <td>{{$asset->asset_name}}</td>
                                     <td>{{$asset->asset_serial_no}}</td>
                                     <td>{{$asset->asset_tag_number}}</td>
-                                    <td>{{$asset->asset_product_type}}</td>
-                                    <td>{{ $asset->asset_status_id }}</td>
+                                    <td>{{ucwords($asset->asset_product_type)}}</td>
+                                    <td>{{ ucwords(str_replace('_',' ',$asset->asset_status_id)) }}</td>
                                     <td>
                                         <a class="waves-effect waves-light btn-small delete_assets" data-id="{{$asset->asset_id}}" href="javascript:void(0)">Delete</a>
                                         <a class="waves-effect waves-light btn-small" href="{{route('view_assets',['id' =>  $asset->asset_id])}}">Details</a>

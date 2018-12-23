@@ -37,13 +37,6 @@
                                 </select>
                                 <label>Select Status</label>
                             </div>
-                            <div class="input-field col s6">
-                                <select name="asset_product_type" id="asset_product_type">
-                                    <option value="good">Good</option>
-                                    <option value="service">Service</option>
-                                </select>
-                                <label>Product Type</label>
-                            </div>
                             <div class="input-field file-field col s6">
                                 <div class="btn">
                                     <span>File</span>
@@ -66,12 +59,15 @@
                                 <label for="asset_date_sold">Date Sold</label>
                             </div>
                             <div class="input-field col s6">
+                                <select name="asset_product_type" id="asset_product_type">
+                                    <option value="good">Good</option>
+                                    <option value="service">Service</option>
+                                </select>
+                                <label>Product Type</label>
+                            </div>
+                            <div class="input-field col s6">
                                 <input id="asset_product_memory" name="asset_product_memory" type="text" class="validate">
                                 <label for="asset_product_memory">Product Memory</label>
-                            </div>
-                            <div class="input-field col s12">
-                                <textarea id="asset_product_architecture" class="materialize-textarea" name="asset_product_architecture"></textarea>
-                                <label for="asset_product_architecture">Product Architecture</label>
                             </div>
                             <div class="input-field col s6">
                                 <select name="asset_product_architecture" id="asset_product_architecture">
@@ -79,6 +75,10 @@
                                     <option value="64">64 bit</option>
                                 </select>
                                 <label>Product Architecture</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="asset_product_processor" name="asset_product_processor" type="text" class="validate">
+                                <label for="asset_product_processor">Product Processor</label>
                             </div>
                             <div class="input-field col s6">
                                 <select name="asset_product_os" id="asset_product_os">
