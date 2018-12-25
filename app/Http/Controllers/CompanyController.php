@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Company;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use DB;
+
 class CompanyController extends Controller
 {
     public function index(){
@@ -12,7 +14,13 @@ class CompanyController extends Controller
         return view('company.index',['companies' =>  $companies]);
     }
     public function create(){
-        return view('company.create');
+        $industries = DB::table('industries')->get();
+        foreach ($industries as $industry){
+            $i_name = str_replace(',', '', $industry->industry_name);
+            DB::table('industries')->where('id',$industry->id)->update(['industry_name' => $i_name]);
+        }
+        dd('hassan');
+        return view('company.create',['industries' => $industries]);
     }
     public function saveCompany(Request $request){
         $is_active = '';
@@ -67,7 +75,8 @@ class CompanyController extends Controller
         $company_modal_obj = new Company();
         $get_company  = $company_modal_obj->getCompany($id);
         if($get_company){
-            return view('company.detail',['company' => $get_company]);
+            $industries = DB::table('industries')->get();
+            return view('company.detail',['company' => $get_company,'industries' => $industries]);
         }else{
             $request->session()->flash('error', 'Something went wrong!');
             return redirect()->route('home');
