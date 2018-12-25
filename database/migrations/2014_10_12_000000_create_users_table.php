@@ -21,7 +21,6 @@ class CreateUsersTable extends Migration
             $table->string('user_email',90);
             $table->string('password',90);
             $table->boolean('user_is_active')->default(true);
-            $table->boolean('user_is_deleted')->default(false);
             $table->timestamp('user_last_modified_password')->nullable();
             $table->timestamp('user_modified_date')->nullable();
             $table->timestamp('user_dob')->nullable();
@@ -37,6 +36,7 @@ class CreateUsersTable extends Migration
             $table->string('user_created_by',55)->nullable();
             $table->string('user_modified_by',55)->nullable();
             $table->timestamps();
+            $table->softDeletes();
             $table->rememberToken();
         });
     }

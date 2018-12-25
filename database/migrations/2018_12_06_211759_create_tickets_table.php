@@ -26,8 +26,8 @@ class CreateTicketsTable extends Migration
             $table->string('ticket_sub_category_id')->nullable();
             $table->bigInteger('ticket_asset_id')->nullable();
             $table->string('ticket_created_by_id',500)->nullable();
-            $table->boolean('ticket_is_deleted')->default(false);
             $table->bigInteger('ticket_modified_by_id')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

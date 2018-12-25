@@ -33,6 +33,7 @@ class CreateAssetsTable extends Migration
             $table->integer('asset_created_by')->nullable();
             $table->integer('asset_modified_by')->nullable();
             $table->timestamp('asset_date_sold')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

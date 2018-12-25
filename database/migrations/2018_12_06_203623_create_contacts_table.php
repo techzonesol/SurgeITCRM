@@ -28,10 +28,10 @@ class CreateContactsTable extends Migration
             $table->string('contact_country',55)->nullable();
             $table->string('contact_street_address')->nullable();
             $table->integer('contact_assigned_to_id')->nullable();
-            $table->boolean('contact_is_active',55)->default(true);
-            $table->boolean('contact_is_deleted',55)->default(false);
+            $table->boolean('contact_is_active')->default(true);
             $table->string('contact_created_by',55)->nullable();
             $table->string('contact_modified_by',55)->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

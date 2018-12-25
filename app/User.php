@@ -15,8 +15,9 @@ class User extends Authenticatable
      *
      * @var array
      */
+    //public $timestamps = true;
     protected $fillable = [
-        'user_f_name', 'user_l_name','user_username','user_email', 'password',
+        'user_f_name', 'user_l_name','user_username','user_email', 'password','created_at'
     ];
 
     /**
@@ -27,4 +28,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    public function get_user(){
+        return User::where('user_is_active',1)->get();
+    }
 }

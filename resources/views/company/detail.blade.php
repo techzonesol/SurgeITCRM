@@ -79,10 +79,9 @@
                             </div>
                             <div class="input-field col s6">
                                 <select name="company_industry_id">
-                                    <option value="" >Choose your Industry</option>
-                                    <option value="1" {{$company->company_industry_id == 1 ? 'selected' : ''}}>Industry 1</option>
-                                    <option value="2" {{$company->company_industry_id == 2 ? 'selected' : ''}}>Industry 2</option>
-                                    <option value="3" {{$company->company_industry_id == 3 ? 'selected' : ''}}>Industry 3</option>
+                                    @foreach($industries as $industry)
+                                    <option value="{{$industry->id}}" {{$company->company_industry_id == $industry->id ? 'selected' : ''}}>{{$industry->industry_name}}</option>
+                                    @endforeach
                                 </select>
                                 <label>Select industry</label>
                             </div>

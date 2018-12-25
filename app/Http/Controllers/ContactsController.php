@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Company;
 use App\Contact;
+use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ContactsController extends Controller
@@ -12,7 +15,11 @@ class ContactsController extends Controller
         return view('contacts.index',['contacts' =>  $contacts]);
     }
     public function create(){
-        return view('contacts.create');
+        $company_obj = new Company;
+        $companies = $company_obj->getCompanies();
+        $user_obj = new User;
+        $users = $user_obj->get_user();
+        return view('contacts.create',['companies' => $companies,'users' => $users]);
     }
     public function save_contact(Request $request){
         $data = [
@@ -28,14 +35,16 @@ class ContactsController extends Controller
             'contact_country' =>  $request->input('contact_country'),
             'contact_street_address' =>  $request->input('contact_street_address'),
             'contact_assigned_to_id' =>  $request->input('contact_assigned_to_id'),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ];
         $contacts = Contact::insertGetId($data);
         if($contacts){
-            $request->session()->flash('success', 'Task was successful!');
+            $request->session()->flash('success', 'Contacts created successful!');
         }else{
             $request->session()->flash('error', 'Something went wrong!');
         }
-        return redirect()->route('home');
+        return redirect()->route('contacts');
     }
     public function delete_contact(Request $request){
         $contact_onj = new Contact();
@@ -50,7 +59,11 @@ class ContactsController extends Controller
         $contact_obj = new Contact();
         $get_contact  = $contact_obj->getContact($id);
         if($get_contact){
-            return view('contacts.detail',['contact' => $get_contact]);
+            $company_obj = new Company;
+            $companies = $company_obj->getCompanies();
+            $user_obj = new User;
+            $users = $user_obj->get_user();
+            return view('contacts.detail',['contact' => $get_contact, 'companies' => $companies, 'users' => $users]);
         }else{
             $request->session()->flash('error', 'Something went wrong!');
             return redirect()->route('home');

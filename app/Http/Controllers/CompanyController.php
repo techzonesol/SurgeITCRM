@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Company;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+use DB;
 
 class CompanyController extends Controller
 {
@@ -12,7 +14,8 @@ class CompanyController extends Controller
         return view('company.index',['companies' =>  $companies]);
     }
     public function create(){
-        return view('company.create');
+        $industries = DB::table('industries')->get();
+        return view('company.create',['industries' => $industries]);
     }
     public function saveCompany(Request $request){
         $is_active = '';
@@ -41,8 +44,10 @@ class CompanyController extends Controller
             'company_billing_street_address' =>  $request->input('company_billing_street_address'),
             'company_industry_id' =>  $request->input('company_industry_id'),
             'company_is_active' =>  $is_active,
-//            'company_created_by' => auth()->user()->id,
-//            'company_modified_by' => auth()->user()->id
+            'company_created_by' => auth()->user()->id,
+            'company_modified_by' => auth()->user()->id,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ];
         $insert_company = Company::insertGetId($data);
         if($insert_company){
@@ -65,7 +70,8 @@ class CompanyController extends Controller
         $company_modal_obj = new Company();
         $get_company  = $company_modal_obj->getCompany($id);
         if($get_company){
-            return view('company.detail',['company' => $get_company]);
+            $industries = DB::table('industries')->get();
+            return view('company.detail',['company' => $get_company,'industries' => $industries]);
         }else{
             $request->session()->flash('error', 'Something went wrong!');
             return redirect()->route('home');
@@ -98,8 +104,9 @@ class CompanyController extends Controller
             'company_billing_street_address' =>  $request->input('company_billing_street_address'),
             'company_industry_id' =>  $request->input('company_industry_id'),
             'company_is_active' =>  $is_active,
-//            'company_created_by' => auth()->user()->id,
-//            'company_modified_by' => auth()->user()->id
+            'company_created_by' => auth()->user()->id,
+            'company_modified_by' => auth()->user()->id,
+            'updated_at' => Carbon::now()
         ];
         $company_obj = new Company();
         $company = $company_obj->update_data($id, $data);

@@ -53,29 +53,16 @@
                                 <label for="user_zip_code">Zip Code</label>
                             </div>
                             <div class="input-field col s6">
-                                <select name="contact_company_id">
-                                    <option value="US">United States</option>
-                                    <option value="CN">Canada</option>
-                                </select>
-                                <label>Country</label>
+                                <input id="user_country" name="user_country" type="text" class="validate" value="United States">
+                                <label for="user_country">Country</label>
                             </div>
                             <div class="input-field col s6">
-                                <select name="contact_company_id">
-                                    <option value=""  selected>Select State</option>
-                                    <option value="1">State 1</option>
-                                    <option value="2">State 2</option>
-                                    <option value="3">State 3</option>
-                                </select>
-                                <label>State</label>
+                                <input id="user_state" name="user_state" type="text" class="validate">
+                                <label for="user_state">State</label>
                             </div>
                             <div class="input-field col s6">
-                                <select name="user_city">
-                                    <option value=""  selected>Select City</option>
-                                    <option value="1">City 1</option>
-                                    <option value="2">City 2</option>
-                                    <option value="3">City 3</option>
-                                </select>
-                                <label>City</label>
+                                <input id="user_city" name="user_city" type="text" class="validate">
+                                <label for="user_city">City</label>
                             </div>
                             <div class="input-field col s12">
                                 <button class="btn waves-effect waves-light align_center" type="submit" name="action">Submit

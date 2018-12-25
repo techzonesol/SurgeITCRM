@@ -26,10 +26,9 @@
                             </div>
                             <div class="input-field col s6">
                                 <select name="contact_company_id" id="contact_company_id">
-                                    <option value=""  selected disabled>Select Contact Company</option>
-                                    <option value="1">Company 1</option>
-                                    <option value="2">Company 2</option>
-                                    <option value="3">Company 3</option>
+                                    @foreach($companies as $company)
+                                    <option value="{{$company->company_id}}">{{$company->company_name}}</option>
+                                    @endforeach
                                 </select>
                                 <label>Select Company</label>
                             </div>
@@ -63,10 +62,9 @@
                             </div>
                             <div class="input-field col s6">
                                 <select name="contact_assigned_to_id">
-                                    <option value="" selected disabled>Select Assigne</option>
-                                    <option value="1">User 1</option>
-                                    <option value="2">User 2</option>
-                                    <option value="3">User 3</option>
+                                    @foreach($users as $user)
+                                    <option value="{{$user->id}}">{{$user->user_f_name .' '. $user->user_l_name}}</option>
+                                    @endforeach
                                 </select>
                                 <label>Select Assigne</label>
                             </div>

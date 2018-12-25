@@ -26,10 +26,9 @@
                             </div>
                             <div class="input-field col s6">
                                 <select name="contact_company_id" id="contact_company_id">
-                                    <option value="" >Choose your Company</option>
-                                    <option value="1" {{$contact->contact_company_id == 1 ? 'selected' : ''}}>Company 1</option>
-                                    <option value="2" {{$contact->contact_company_id == 2 ? 'selected' : ''}}>Company 2</option>
-                                    <option value="3" {{$contact->contact_company_id == 3 ? 'selected' : ''}}>Company 3</option>
+                                    @foreach($companies as $company)
+                                    <option value="{{$company->company_id}}" {{$contact->contact_company_id == $company->company_id ? 'selected' : ''}}>{{$company->company_name}}</option>
+                                    @endforeach
                                 </select>
                                 <label>Select Company</label>
                             </div>
@@ -63,10 +62,9 @@
                             </div>
                             <div class="input-field col s6">
                                 <select name="contact_assigned_to_id" id="contact_assigned_to_id">
-                                    <option value="" >Choose your Company</option>
-                                    <option value="1" {{$contact->contact_assigned_to_id == 1 ? 'selected' : ''}}>Company 1</option>
-                                    <option value="2" {{$contact->contact_assigned_to_id == 2 ? 'selected' : ''}}>Company 2</option>
-                                    <option value="3" {{$contact->contact_assigned_to_id == 3 ? 'selected' : ''}}>Company 3</option>
+                                    @foreach($users as $user)
+                                        <option value="{{$user->id}}" {{$contact->contact_assigned_to_id == $user->id ? 'selected' : ''}}>{{$user->user_f_name .' '. $user->user_l_name}}</option>
+                                    @endforeach
                                 </select>
                                 <label>Contact Assign To:</label>
                             </div>

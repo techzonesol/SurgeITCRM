@@ -82,10 +82,9 @@
                             </div>
                             <div class="input-field col s6">
                                 <select name="company_industry_id">
-                                    <option value="" selected>Choose your Industry</option>
-                                    <option value="1">Industry 1</option>
-                                    <option value="2">Industry 2</option>
-                                    <option value="3">Industry 3</option>
+                                    @foreach($industries as $industry)
+                                        <option value="{{$industry->id}}" >{{$industry->industry_name}}</option>
+                                    @endforeach
                                 </select>
                                 <label>Select industry</label>
                             </div>
