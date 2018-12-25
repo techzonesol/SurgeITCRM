@@ -17,6 +17,7 @@ class CreateDesignationsTable extends Migration
             $table->increments('designation_id');
             $table->string('designation_title',500)->nullable();
             $table->string('designation_department_id',55)->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

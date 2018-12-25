@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Asset;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class AssetsController extends Controller
 {
@@ -38,7 +39,9 @@ class AssetsController extends Controller
             'asset_product_os' => $request->input('asset_product_os'),
             'asset_receiving_notes' => $request->input('asset_receiving_notes'),
             'asset_created_by' => auth()->user()->id,
-            'asset_modified_by' => auth()->user()->id
+            'asset_modified_by' => auth()->user()->id,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ];
         $insert_company = Asset::insertGetId($data);
         if($insert_company){
@@ -92,7 +95,8 @@ class AssetsController extends Controller
             'asset_product_processor' => $request->input('asset_product_processor'),
             'asset_product_os' => $request->input('asset_product_os'),
             'asset_receiving_notes' => $request->input('asset_receiving_notes'),
-            'asset_modified_by' => auth()->user()->id
+            'asset_modified_by' => auth()->user()->id,
+            'updated_at' => Carbon::now(),
         ];
         $asset_obj = new Asset();
         $asset = $asset_obj->update_data($id, $data);

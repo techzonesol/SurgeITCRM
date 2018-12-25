@@ -8,6 +8,8 @@ class Asset extends Model
 {
     //
     protected $guarded = [];
+    public $timestamps = true;
+
     public function getAsset($id){
         return Asset::where('asset_id', $id)->first();
     }

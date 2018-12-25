@@ -28,6 +28,7 @@ class CreateEmployeesTable extends Migration
             $table->string('employee_works_under_mod',90)->nullable();
             $table->string('employee_created_by',55)->nullable();
             $table->string('employee_modified_by',55)->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

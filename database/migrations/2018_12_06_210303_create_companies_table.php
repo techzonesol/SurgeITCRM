@@ -34,9 +34,9 @@ class CreateCompaniesTable extends Migration
             $table->string('company_billing_street_address',255)->nullable();
             $table->string('company_industry_id',55)->nullable();
             $table->boolean('company_is_active')->default(true);
-            $table->boolean('company_is_deleted')->default(false);
             $table->integer('company_created_by')->nullable();
             $table->integer('company_modified_by')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

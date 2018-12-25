@@ -33,7 +33,7 @@
                                         <td>{{$company->company_name}}</td>
                                         <td>{{$company->company_email}}</td>
                                         <td>{{'(' .$company->company_phone_no_ext. ')' .' '.$company->company_phone_no}}</td>
-                                        <td><a href="{{'http://'.$company->company_website}}">{{$company->company_website}}</a></td>
+                                        <td><a href="{{'http://'.$company->company_website}}" target="_blank">{{$company->company_website}}</a></td>
                                         <td>{{ ($company->company_is_active == 1 ? 'Active' : 'Un Active') }}</td>
                                         <td>
                                             <a class="waves-effect waves-light btn-small delete_company" data-id="{{$company->company_id}}" href="javascript:void(0)">Delete</a>
