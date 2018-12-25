@@ -15,11 +15,6 @@ class CompanyController extends Controller
     }
     public function create(){
         $industries = DB::table('industries')->get();
-        foreach ($industries as $industry){
-            $i_name = str_replace(',', '', $industry->industry_name);
-            DB::table('industries')->where('id',$industry->id)->update(['industry_name' => $i_name]);
-        }
-        dd('hassan');
         return view('company.create',['industries' => $industries]);
     }
     public function saveCompany(Request $request){
