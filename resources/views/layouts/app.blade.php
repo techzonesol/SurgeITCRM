@@ -41,8 +41,8 @@
 	<!-- Main navbar -->
 	<div class="navbar navbar-expand-md navbar-dark">
 		<div class="navbar-brand wmin-200">
-			<a href="index.html" class="d-inline-block">
-				<img src="{{ asset('images/logo_light.png') }}" alt="">
+			<a href="{{route('home')}}" class="d-inline-block">
+				<img src="{{ asset('images/logo.png') }}" alt="">
 			</a>
 		</div>
 
@@ -287,98 +287,16 @@
 	</div>
 	<!-- /main navbar -->
 
-
-	<!-- Page header -->
-	<div class="page-header">
-		<div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
-			<div class="d-flex">
-				<div class="breadcrumb">
-					<a href="index.html" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
-					<span class="breadcrumb-item active">Dashboard</span>
-				</div>
-
-				<a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
-			</div>
-
-			<div class="header-elements d-none">
-				<div class="breadcrumb justify-content-center">
-					<a href="#" class="breadcrumb-elements-item">
-						<i class="icon-comment-discussion mr-2"></i>
-						Support
-					</a>
-
-					<div class="breadcrumb-elements-item dropdown p-0">
-						<a href="#" class="breadcrumb-elements-item dropdown-toggle" data-toggle="dropdown">
-							<i class="icon-gear mr-2"></i>
-							Settings
-						</a>
-
-						<div class="dropdown-menu dropdown-menu-right">
-							<a href="#" class="dropdown-item"><i class="icon-user-lock"></i> Account security</a>
-							<a href="#" class="dropdown-item"><i class="icon-statistics"></i> Analytics</a>
-							<a href="#" class="dropdown-item"><i class="icon-accessibility"></i> Accessibility</a>
-							<div class="dropdown-divider"></div>
-							<a href="#" class="dropdown-item"><i class="icon-gear"></i> All settings</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="page-header-content header-elements-md-inline">
-			<div class="page-title d-flex">
-				<h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Home</span> - Dashboard</h4>
-				<a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
-			</div>
-
-			<div class="header-elements d-none mb-3 mb-md-0">
-				<div class="d-flex justify-content-center">
-					<a href="#" class="btn btn-link btn-float text-default"><i class="icon-bars-alt text-indigo-400"></i> <span>Statistics</span></a>
-					<a href="#" class="btn btn-link btn-float text-default"><i class="icon-calculator text-indigo-400"></i> <span>Invoices</span></a>
-					<a href="#" class="btn btn-link btn-float text-default"><i class="icon-calendar5 text-indigo-400"></i> <span>Schedule</span></a>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- /page header -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+{{-- Dynamic Body Content --}}
+@yield('content')
 
 
 	<!-- Footer -->
 	<div class="navbar navbar-expand-lg navbar-light">
-		<div class="text-center d-lg-none w-100">
-			<button type="button" class="navbar-toggler dropdown-toggle" data-toggle="collapse" data-target="#navbar-footer">
-				<i class="icon-unfold mr-2"></i>
-				Footer
-			</button>
-		</div>
-
 		<div class="navbar-collapse collapse" id="navbar-footer">
 			<span class="navbar-text">
-				&copy; 2015 - 2018. <a href="#">Limitless Web App Kit</a> by <a href="http://themeforest.net/user/Kopyov" target="_blank">Eugene Kopyov</a>
+				&copy; 2018 - 2019. <a href="#">SurgeIT CRM</a> by <a href="www.tzsolution.com" target="_blank">TZ Solutions</a>
 			</span>
-
-			<ul class="navbar-nav ml-lg-auto">
-				<li class="nav-item"><a href="https://kopyov.ticksy.com/" class="navbar-nav-link" target="_blank"><i class="icon-lifebuoy mr-2"></i> Support</a></li>
-				<li class="nav-item"><a href="http://demo.interface.club/limitless/docs/" class="navbar-nav-link" target="_blank"><i class="icon-file-text2 mr-2"></i> Docs</a></li>
-				<li class="nav-item"><a href="https://themeforest.net/item/limitless-responsive-web-application-kit/13080328?ref=kopyov" class="navbar-nav-link font-weight-semibold"><span class="text-pink-400"><i class="icon-cart2 mr-2"></i> Purchase</span></a></li>
-			</ul>
 		</div>
 	</div>
 	<!-- /footer -->

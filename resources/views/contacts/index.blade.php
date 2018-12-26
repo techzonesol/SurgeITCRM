@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('content')
+@section('content1')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col m12" style="background: white;">
@@ -75,4 +75,64 @@
        });
     });
 </script>
+@endsection
+
+
+@section('content')
+
+<!-- Content area -->
+<div class="content">
+
+  <!-- Basic datatable -->
+  <div class="card">
+    <div class="card-header header-elements-inline">
+      <h5 class="card-title">View Contacts</h5>
+    </div>
+
+    <table class="table datatable-basic table-hover">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>City</th>
+          <th>Status</th>
+          <th class="text-center">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach($contacts as $contact)
+        <tr>
+          <td>{{$contact->contact_id}}</td>
+          <td><a href="{{route('view_contact',['id' =>  $contact->contact_id])}}">{{$contact->contact_f_name .' '. $contact->contact_l_name}}</a></td>
+          <td>{{$contact->contact_work_email}}</td>
+          <td>{{$contact->contact_office_phone}}</td>
+          <td>{{$contact->contact_city}}</td>
+          <td><spn class="badge badge-success">Activ</spn></td>
+          <td class="text-center">
+            <div class="list-icons">
+              <div class="dropdown">
+                <a href="#" class="list-icons-item" data-toggle="dropdown">
+                  <i class="icon-menu9"></i>
+                </a>
+
+                <div class="dropdown-menu dropdown-menu-right">
+                  <a href="{{route('view_contact',['id' =>  $contact->contact_id])}}" class="dropdown-item"><i class="icon-file-pdf"></i> View</a>
+                  <a href="{{route('view_contact',['id' =>  $contact->contact_id])}}" class="dropdown-item"><i class="icon-file-excel"></i> Edit</a>
+                  <a class="dropdown-item" data-id="{{$contact->contact_id}}" href="javascript:void(0)"><i class="icon-file-word"></i> Delete</a>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        @endforeach
+      </tbody>
+    </table>
+  </div>
+  <!-- /basic datatable -->
+
+</div>
+<!-- /content area -->
+
 @endsection
