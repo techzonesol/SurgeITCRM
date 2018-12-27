@@ -63,7 +63,7 @@
 					</a>
 				</li>
 
-				<li class="nav-item dropdown">
+				{{-- <li class="nav-item dropdown">
 					<a href="#" class="navbar-nav-link dropdown-toggle caret-0" data-toggle="dropdown">
 						<i class="icon-bell2"></i>
 						<span class="d-md-none ml-2">Activity</span>
@@ -154,7 +154,7 @@
 							</div>
 						</div>
 					</div>
-				</li>
+				</li> --}}
 			</ul>
 
 			<span class="navbar-text ml-md-auto mr-md-3">
@@ -270,13 +270,15 @@
 				<li class="nav-item dropdown dropdown-user">
 					<a href="#" class="navbar-nav-link dropdown-toggle" data-toggle="dropdown">
 						<img src="{{ asset('images/placeholders/placeholder.jpg') }}" class="rounded-circle" alt="">
-						<span>Victoria</span>
+						<span>
+							{{ isset(Auth::user()->user_f_name) ? 1 : 0 }} 
+							{{ isset(Auth::user()->user_l_name) ? 1 : 0 }}
+						</span>
 					</a>
 
 					<div class="dropdown-menu dropdown-menu-right">
 						<a href="#" class="dropdown-item"><i class="icon-user-plus"></i> My profile</a>
-						<a href="#" class="dropdown-item"><i class="icon-coins"></i> My balance</a>
-						<a href="#" class="dropdown-item"><i class="icon-comment-discussion"></i> Messages <span class="badge badge-pill bg-blue ml-auto">58</span></a>
+						<a href="#" class="dropdown-item"><i class="icon-comment-discussion"></i> Messages <span class="badge badge-pill bg-blue ml-auto">0</span></a>
 						<div class="dropdown-divider"></div>
 						<a href="#" class="dropdown-item"><i class="icon-cog5"></i> Account settings</a>
 						<a href="#" class="dropdown-item"><i class="icon-switch2"></i> Logout</a>
@@ -287,9 +289,184 @@
 	</div>
 	<!-- /main navbar -->
 
-{{-- Dynamic Body Content --}}
-@yield('content')
+	<!-- Page header -->
+<div class="page-header">
+    <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+        <div class="d-flex">
+            <div class="breadcrumb">
+                <a href="index.html" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
+                <span class="breadcrumb-item active">Dashboard</span>
+            </div>
 
+            <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+        </div>
+
+        <div class="header-elements d-none">
+            <div class="breadcrumb justify-content-center">
+                <a href="#" class="breadcrumb-elements-item">
+                    <i class="icon-comment-discussion mr-2"></i>
+                    Support
+                </a>
+
+                <div class="breadcrumb-elements-item dropdown p-0">
+                    <a href="#" class="breadcrumb-elements-item dropdown-toggle" data-toggle="dropdown">
+                        <i class="icon-gear mr-2"></i>
+                        Settings
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a href="#" class="dropdown-item"><i class="icon-statistics"></i> Analytics</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item"><i class="icon-gear"></i> All settings</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-header-content header-elements-md-inline">
+        <div class="page-title d-flex">
+            <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Home</span> - Dashboard</h4>
+            <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+        </div>
+
+        <div class="header-elements d-none mb-3 mb-md-0">
+            <div class="d-flex justify-content-center">
+                <a href="#" class="btn btn-link btn-float text-default"><i class="icon-bars-alt text-indigo-400"></i> <span>Tickets</span></a>
+                <a href="#" class="btn btn-link btn-float text-default"><i class="icon-calculator text-indigo-400"></i> <span>Reports</span></a>
+                <a href="#" class="btn btn-link btn-float text-default"><i class="icon-calendar5 text-indigo-400"></i> <span>My Profile</span></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /page header -->
+
+<!-- Page content -->
+<div class="page-content pt-0">
+
+    <!-- Main sidebar -->
+    <div class="sidebar sidebar-light sidebar-main sidebar-expand-md align-self-start">
+
+        <!-- Sidebar mobile toggler -->
+        <div class="sidebar-mobile-toggler text-center">
+            <a href="#" class="sidebar-mobile-main-toggle">
+                <i class="icon-arrow-left8"></i>
+            </a>
+            <span class="font-weight-semibold">Main sidebar</span>
+            <a href="#" class="sidebar-mobile-expand">
+                <i class="icon-screen-full"></i>
+                <i class="icon-screen-normal"></i>
+            </a>
+        </div>
+        <!-- /sidebar mobile toggler -->
+
+
+        <!-- Sidebar content -->
+        <div class="sidebar-content">
+            <div class="card card-sidebar-mobile">
+
+                <!-- Header -->
+                <div class="card-header header-elements-inline">
+                    <h6 class="card-title">Navigation</h6>
+                    <div class="header-elements">
+                        <div class="list-icons">
+                            <a class="list-icons-item" data-action="collapse"></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- User menu -->
+                <div class="sidebar-user">
+                    <div class="card-body">
+                        <div class="media">
+                            <div class="mr-3">
+                                <a href="#"><img src="{{ asset('images/placeholders/placeholder.jpg') }}" width="38" height="38" class="rounded-circle" alt=""></a>
+                            </div>
+
+                            <div class="media-body">
+                                <div class="media-title font-weight-semibold">
+                                	{{ isset(Auth::user()->user_f_name) ? 1 : 0 }}
+                                	{{ isset(Auth::user()->user_l_name) ? 1 : 0 }}
+                                </div>
+                                <div class="font-size-xs opacity-50">
+                                    <i class="icon-pin font-size-sm"></i> &nbsp;
+                                    	{{ isset(Auth::user()->user_city) ? Auth::user()->user_city : '' }} 
+                                    	{{ isset(Auth::user()->user_state) ? Auth::user()->user_state : '' }}
+                                </div>
+                            </div>
+
+                            <div class="ml-3 align-self-center">
+                                <a href="#" class="text-white"><i class="icon-cog3"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /user menu -->
+
+                
+                <!-- Main navigation -->
+                <div class="card-body p-0">
+                    <ul class="nav nav-sidebar" data-nav-type="accordion">
+
+                        <!-- Main -->
+                        <li class="nav-item-header mt-0"><div class="text-uppercase font-size-xs line-height-xs">Main Menu</div> <i class="icon-menu" title="Main"></i></li>
+                        <li class="nav-item">
+                            <a href="/" class="nav-link active">
+                                <i class="icon-home4"></i>
+                                <span>
+                                    Dashboard
+                                </span>
+                            </a>
+                        </li>
+                        <li class="nav-item nav-item-submenu">
+                            <a href="#" class="nav-link"><i class="icon-user"></i> <span>Contacts</span></a>
+
+                            <ul class="nav nav-group-sub" data-submenu-title="Contacts">
+                                <li class="nav-item"><a href="{{route('contacts')}}" class="nav-link">View Contacts</a></li>
+                                <li class="nav-item"><a href="{{route('create_contact')}}" class="nav-link">Add Contact</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item nav-item-submenu">
+                            <a href="#" class="nav-link"><i class="icon-stack"></i> <span>Companies</span></a>
+
+                            <ul class="nav nav-group-sub" data-submenu-title="Companies">
+                                <li class="nav-item"><a href="{{route('company')}}" class="nav-link active">View Company</a></li>
+                                <li class="nav-item"><a href="{{route('create_company')}}" class="nav-link">Add Company</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item nav-item-submenu">
+                            <a href="#" class="nav-link"><i class="icon-stack"></i> <span>Assets</span></a>
+
+                            <ul class="nav nav-group-sub" data-submenu-title="Assets">
+                                <li class="nav-item"><a href="" class="nav-link">View Assets</a></li>
+                                <li class="nav-item"><a href="" class="nav-link">Add Assets</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item nav-item-submenu">
+                            <a href="#" class="nav-link"><i class="icon-stack"></i> <span>Employees</span></a>
+
+                            <ul class="nav nav-group-sub" data-submenu-title="Employees">
+                                <li class="nav-item"><a href="" class="nav-link">View Employees</a></li>
+                                <li class="nav-item"><a href="" class="nav-link">Add Employee</a></li>
+                            </ul>
+                        </li>
+                        <!-- /main -->
+                    </ul>
+                </div>
+                <!-- /main navigation -->
+
+            </div>
+        </div>
+        <!-- /sidebar content -->
+        
+    </div>
+    <!-- /main sidebar -->
+
+	{{-- Dynamic Body Content --}}
+	@yield('content')
+
+	</div>
+	<!-- /page content -->
 
 	<!-- Footer -->
 	<div class="navbar navbar-expand-lg navbar-light">
@@ -300,6 +477,6 @@
 		</div>
 	</div>
 	<!-- /footer -->
-		
+	@yield('js')		
 </body>
 </html>

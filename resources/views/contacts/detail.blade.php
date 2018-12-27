@@ -1,4 +1,4 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app')
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -80,6 +80,120 @@
         </div>
     </div>
 @endsection
+ --}}
+
+
+
+@extends('layouts.app')
+
+@section('content')
+
+<!-- Main content -->
+<div class="content-wrapper">
+
+<!-- Content area -->
+    <div class="content">
+
+        <!-- Form inputs -->
+        <div class="card">
+            <div class="card-header header-elements-inline">
+                <h5 class="card-title font-weight-semibold">Contact Details</h5>
+            </div>
+
+            <div class="card-body">
+                <p class="mb-4">Manage your contact details here.</p>
+
+                <form action="{{route('update_contact',['id' => $contact->contact_id])}}" method="post" id="Contact_form">
+                    <fieldset class="mb-3">
+                        
+                        <div class="form-group row">
+                            <label class="col-form-label col-lg-2">First Name</label>
+                            <div class="col-lg-10">
+                                <input id="contact_f_name" name="contact_f_name" type="text" class="form-control" value="{{ $contact->contact_f_name }}">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-form-label col-lg-2">Last Name</label>
+                            <div class="col-lg-10">
+                                <input id="contact_l_name" name="contact_l_name" type="text" class="form-control" value="{{ $contact->contact_l_name }}">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-form-label col-lg-2">Email Address</label>
+                            <div class="col-lg-10">
+                                <input id="contact_work_email" name="contact_work_email" type="email" class="form-control" value="{{ $contact->contact_work_email }}">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-form-label col-lg-2">Password</label>
+                            <div class="col-lg-10">
+                                <input id="contact_l_name" name="contact_l_name" type="text" class="form-control" value="{{ $contact->contact_l_name }}">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-form-label col-lg-2">Password</label>
+                            <div class="col-lg-10">
+                                <input id="contact_l_name" name="contact_l_name" type="text" class="form-control" value="{{ $contact->contact_l_name }}">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-form-label col-lg-2">Password</label>
+                            <div class="col-lg-10">
+                                <input id="contact_l_name" name="contact_l_name" type="text" class="form-control" value="{{ $contact->contact_l_name }}">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-form-label col-lg-2">Password</label>
+                            <div class="col-lg-10">
+                                <input id="contact_l_name" name="contact_l_name" type="text" class="form-control" value="{{ $contact->contact_l_name }}">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-form-label col-lg-2">Password</label>
+                            <div class="col-lg-10">
+                                <input id="contact_l_name" name="contact_l_name" type="text" class="form-control" value="{{ $contact->contact_l_name }}">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-form-label col-lg-2">Password</label>
+                            <div class="col-lg-10">
+                                <input id="contact_l_name" name="contact_l_name" type="text" class="form-control" value="{{ $contact->contact_l_name }}">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-form-label col-lg-2">Password</label>
+                            <div class="col-lg-10">
+                                <input id="contact_l_name" name="contact_l_name" type="text" class="form-control" value="{{ $contact->contact_l_name }}">
+                            </div>
+                        </div>
+
+                    </fieldset>
+
+                    <div class="text-right">
+                        <button type="submit" class="btn btn-primary">Submit <i class="icon-paperplane ml-2"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- /form inputs -->
+
+    </div>
+    <!-- /content area -->    
+
+</div>
+<!-- /main content -->
+
+@endsection
+
 @section('js')
     <script src="{{asset('js/jquery.validate.min.js')}}"></script>
     <script type="text/javascript">
