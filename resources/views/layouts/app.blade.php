@@ -271,8 +271,8 @@
 					<a href="#" class="navbar-nav-link dropdown-toggle" data-toggle="dropdown">
 						<img src="{{ asset('images/placeholders/placeholder.jpg') }}" class="rounded-circle" alt="">
 						<span>
-							{{ isset(Auth::user()->user_f_name) ? 1 : 0 }} 
-							{{ isset(Auth::user()->user_l_name) ? 1 : 0 }}
+							{{ isset(Auth::user()->user_f_name) ? Auth::user()->user_f_name : '' }} 
+							{{ isset(Auth::user()->user_l_name) ? Auth::user()->user_l_name : '' }}
 						</span>
 					</a>
 
@@ -281,7 +281,12 @@
 						<a href="#" class="dropdown-item"><i class="icon-comment-discussion"></i> Messages <span class="badge badge-pill bg-blue ml-auto">0</span></a>
 						<div class="dropdown-divider"></div>
 						<a href="#" class="dropdown-item"><i class="icon-cog5"></i> Account settings</a>
-						<a href="#" class="dropdown-item"><i class="icon-switch2"></i> Logout</a>
+						<a href="#" class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+								document.getElementById('logout-form').submit();">
+                                <i class="icon-switch2"></i>{{ __('Logout') }}</a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
 					</div>
 				</li>
 			</ul>
@@ -385,8 +390,8 @@
 
                             <div class="media-body">
                                 <div class="media-title font-weight-semibold">
-                                	{{ isset(Auth::user()->user_f_name) ? 1 : 0 }}
-                                	{{ isset(Auth::user()->user_l_name) ? 1 : 0 }}
+                                	{{ isset(Auth::user()->user_f_name) ? Auth::user()->user_f_name : '' }}
+                                	{{ isset(Auth::user()->user_l_name) ? Auth::user()->user_l_name : '' }}
                                 </div>
                                 <div class="font-size-xs opacity-50">
                                     <i class="icon-pin font-size-sm"></i> &nbsp;
