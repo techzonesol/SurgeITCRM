@@ -12,7 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    if(Auth::user())
+        return view('home');
+    else 
+        return view('auth.login');
 });
 Auth::routes();
 Route::middleware('auth')->group(function () {

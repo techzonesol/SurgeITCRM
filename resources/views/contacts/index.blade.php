@@ -11,7 +11,7 @@
       <!-- Basic datatable -->
       <div class="card">
         <div class="card-header header-elements-inline">
-          <h5 class="card-title">View Contacts</h5>
+          <h5 class="card-title font-weight-bold">View Contacts</h5>
         </div>
         <div class="card-body">
             Manage all your contacts here.

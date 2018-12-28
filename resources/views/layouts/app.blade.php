@@ -416,7 +416,7 @@
                         <!-- Main -->
                         <li class="nav-item-header mt-0"><div class="text-uppercase font-size-xs line-height-xs">Main Menu</div> <i class="icon-menu" title="Main"></i></li>
                         <li class="nav-item">
-                            <a href="/" class="nav-link active">
+                            <a href="/" class="nav-link">
                                 <i class="icon-home4"></i>
                                 <span>
                                     Dashboard
@@ -435,7 +435,7 @@
                             <a href="#" class="nav-link"><i class="icon-stack"></i> <span>Companies</span></a>
 
                             <ul class="nav nav-group-sub" data-submenu-title="Companies">
-                                <li class="nav-item"><a href="{{route('company')}}" class="nav-link active">View Company</a></li>
+                                <li class="nav-item"><a href="{{route('company')}}" class="nav-link">View Company</a></li>
                                 <li class="nav-item"><a href="{{route('create_company')}}" class="nav-link">Add Company</a></li>
                             </ul>
                         </li>
@@ -443,8 +443,8 @@
                             <a href="#" class="nav-link"><i class="icon-stack"></i> <span>Assets</span></a>
 
                             <ul class="nav nav-group-sub" data-submenu-title="Assets">
-                                <li class="nav-item"><a href="" class="nav-link">View Assets</a></li>
-                                <li class="nav-item"><a href="" class="nav-link">Add Assets</a></li>
+                                <li class="nav-item"><a href="{{route('assets')}}" class="nav-link">View Assets</a></li>
+                                <li class="nav-item"><a href="{{route('create_assets')}}" class="nav-link">Add Assets</a></li>
                             </ul>
                         </li>
                         <li class="nav-item nav-item-submenu">
@@ -452,7 +452,7 @@
 
                             <ul class="nav nav-group-sub" data-submenu-title="Employees">
                                 <li class="nav-item"><a href="" class="nav-link">View Employees</a></li>
-                                <li class="nav-item"><a href="" class="nav-link">Add Employee</a></li>
+                                <li class="nav-item"><a href="{{url('register')}}" class="nav-link">Add Employee</a></li>
                             </ul>
                         </li>
                         <!-- /main -->

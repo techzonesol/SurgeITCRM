@@ -1,56 +1,76 @@
 @extends('layouts.app')
+
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col m12 background-white">
-                <div class="card">
-                    <div class="col s6">
-                        <h4 class="margin-0px">View Assets</h4>
-                    </div>
-                    <div class="col s6">
-                        <p class="right-align">
-                            <a class="waves-effect waves-light btn-small" href="{{route('create_assets')}}"><i class="fa fa-plus" style="font-size: 0.8rem;"></i>Add Assets</a>
-                        </p>
-                    </div>
-                    <div class="col s12">
-                        <table class="highlight">
-                            <thead>
-                            <tr>
-                                <th>Id</th>
-                                <th>Name</th>
-                                <th>Serial No.</th>
-                                <th>Tag No.</th>
-                                <th>Product Type</th>
-                                <th>Status</th>
-                                <th>Action</th>
-                            </tr>
-                            </thead>
 
-                            <tbody>
-                            @foreach($assets as $asset)
-                                <tr>
-                                    <td>{{$asset->asset_id}}</td>
-                                    <td>{{$asset->asset_name}}</td>
-                                    <td>{{$asset->asset_serial_no}}</td>
-                                    <td>{{$asset->asset_tag_number}}</td>
-                                    <td>{{ucwords($asset->asset_product_type)}}</td>
-                                    <td>{{ ucwords(str_replace('_',' ',$asset->asset_status_id)) }}</td>
-                                    <td>
-                                        <a class="waves-effect waves-light btn-small delete_assets" data-id="{{$asset->asset_id}}" href="javascript:void(0)">Delete</a>
-                                        <a class="waves-effect waves-light btn-small" href="{{route('view_assets',['id' =>  $asset->asset_id])}}">Details</a>
-                                    </td>
-                                </tr>
+<!-- Main content -->
+<div class="content-wrapper">
 
-                            @endforeach
-                            </tbody>
-                        </table>
-                        {{$assets}}
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- Content area -->
+<div class="content">
+
+  <!-- Basic datatable -->
+  <div class="card">
+    <div class="card-header header-elements-inline">
+      <h5 class="card-title font-weight-bold">View Assets</h5>
     </div>
+    <div class="card-body">
+        Manage all assets here.
+    </div>
+    
+    <table class="table datatable-basic table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Asset Name</th>
+                <th>Serial No.</th>
+                <th>Tag No.</th>
+                <th>Product Type</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+      <tbody>
+        @foreach($assets as $asset)
+        <tr>
+            <td>{{$asset->asset_id}}</td>
+            <td><a href="{{route('view_assets',['id' =>  $asset->asset_id])}}">{{$asset->asset_name}}</a></td>
+            <td>{{$asset->asset_serial_no}}</td>
+            <td>{{$asset->asset_tag_number}}</td>
+            <td>{{ucwords($asset->asset_product_type)}}</td>
+            <td>{{ ucwords(str_replace('_',' ',$asset->asset_status_id)) }}</td>
+
+            <td class="text-center">
+                <div class="list-icons">
+                  <div class="dropdown">
+                    <a href="#" class="list-icons-item" data-toggle="dropdown">
+                      <i class="icon-menu9"></i>
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right">
+                      <a href="{{route('view_assets',['id' =>  $asset->asset_id])}}" class="dropdown-item"><i class="icon-file-pdf"></i> View</a>
+                      <a href="{{route('view_assets',['id' =>  $asset->asset_id])}}" class="dropdown-item"><i class="icon-file-excel"></i> Edit</a>
+                      <a class="dropdown-item delete_assets" data-id="{{$asset->asset_id}}" href="javascript:void(0)"><i class="icon-file-word"></i> Delete</a>
+                    </div>
+                  </div>
+                </div>
+            </td>
+        </tr>
+        @endforeach
+      </tbody>
+    </table>
+    {{$assets}}
+  </div>
+  <!-- /basic datatable -->
+
+</div>
+<!-- /content area -->
+
+</div>
+<!-- /main content -->
+
 @endsection
+
+
 @section('js')
     <script>
         $(document).ready(function(){
@@ -75,3 +95,4 @@
         });
     </script>
 @endsection
+
