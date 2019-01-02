@@ -1,5 +1,8 @@
 @extends('layouts.app')
-
+@section('meta_title') Contacts Lists @endsection
+@section('page_bread_scrum')
+    Contacts
+@endsection
 @section('content')
 
     <!-- Main content -->

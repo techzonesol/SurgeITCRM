@@ -17,6 +17,10 @@ class ResetPasswordController extends Controller
     | explore this trait and override any methods you wish to tweak.
     |
     */
+    public function getEmailForPasswordReset()
+    {
+        return $this->user_email;
+    }
 
     use ResetsPasswords;
 

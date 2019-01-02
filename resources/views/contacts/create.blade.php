@@ -1,4 +1,8 @@
 @extends('layouts.app')
+@section('meta_title') Create Contacts @endsection
+@section('page_bread_scrum')
+    Contacts
+@endsection
 @section('content')
     <div class="container">
         <div class="row justify-content-center">

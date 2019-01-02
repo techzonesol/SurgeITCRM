@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('meta_title') Create User @endsection
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -21,8 +22,8 @@
                                 <label for="user_l_name">Last Name</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="user_email" name="user_email" type="email" class="validate">
-                                <label for="user_email">Email Address</label>
+                                <input id="email" name="email" type="email" class="validate">
+                                <label for="email">Email Address</label>
                             </div>
                             <div class="input-field col s6">
                                 <input id="user_username" name="user_username" type="text" class="validate">
@@ -98,7 +99,7 @@
                     required: true,
                     maxlength: 9
                 },
-                user_email: {
+                email: {
                     required: true,
                     email:true,
                 },
@@ -121,7 +122,7 @@
                     required:"Please Enter User Name",
                     maxlength:"Max 9 characters allowed"
                 },
-                user_email: {
+                email: {
                     required: "Please Enter Email",
                     email:"Enter valid Email",
                     maxlength: "Max 90 characters allowed"

@@ -1,5 +1,8 @@
 @extends('layouts.app')
-
+@section('meta_title') Assets Lists @endsection
+@section('page_bread_scrum')
+Assets
+@endsection
 @section('content')
 
 <!-- Main content -->

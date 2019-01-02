@@ -1,5 +1,8 @@
 @extends('layouts.app')
-
+@section('meta_title') Dashboard @endsection
+@section('page_bread_scrum')
+	Dashboard
+@endsection
 @section('content')
 
 	<!-- Main content -->

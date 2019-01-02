@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>SurgeIT CRM - SurgeIT CRM</title>
+	<title>@yield('meta_title') | {{env('PROJECT_NAME')}}</title>
 
 	<!-- Global stylesheets -->
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
@@ -299,7 +299,7 @@
     <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
         <div class="d-flex">
             <div class="breadcrumb">
-                <a href="index.html" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
+                <a href="{{route('home')}}" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
                 <span class="breadcrumb-item active">Dashboard</span>
             </div>
 
@@ -331,7 +331,7 @@
 
     <div class="page-header-content header-elements-md-inline">
         <div class="page-title d-flex">
-            <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Home</span> - Dashboard</h4>
+            <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Home</span> - @yield('page_bread_scrum')</h4>
             <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
         </div>
 
@@ -477,7 +477,7 @@
 	<div class="navbar navbar-expand-lg navbar-light">
 		<div class="navbar-collapse collapse" id="navbar-footer">
 			<span class="navbar-text">
-				&copy; 2018 - 2019. <a href="#">SurgeIT CRM</a> by <a href="www.tzsolution.com" target="_blank">TZ Solutions</a>
+				&copy; 2019. <a href="{{route('home')}}">{{env('PROJECT_NAME')}}</a> by <a href="https://www.tzsolution.com" target="_blank">TZ Solutions</a>
 			</span>
 		</div>
 	</div>

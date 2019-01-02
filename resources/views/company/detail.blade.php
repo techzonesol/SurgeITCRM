@@ -1,4 +1,8 @@
 @extends('layouts.app')
+@section('meta_title') Company Detail @endsection
+@section('page_bread_scrum')
+    Company
+@endsection
 @section('content')
     <div class="container">
         <div class="row justify-content-center">

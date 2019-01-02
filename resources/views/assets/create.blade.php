@@ -1,4 +1,8 @@
 @extends('layouts.app')
+@section('meta_title') Create Assets @endsection
+@section('page_bread_scrum')
+    Assets
+@endsection
 @section('content')
     <div class="container">
         <div class="row justify-content-center">

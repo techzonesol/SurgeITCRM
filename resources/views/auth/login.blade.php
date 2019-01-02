@@ -4,8 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Limitless - Responsive Web Application Kit by Eugene Kopyov</title>
-
+  <title>Login Page | {{env('PROJECT_NAME')}}</title>
   <!-- Global stylesheets -->
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
   <link href="{{ asset('css/icons/icomoon/styles.css') }}" rel="stylesheet" type="text/css">
@@ -14,6 +13,7 @@
   <link href="{{ asset('css/layout.min.css') }}" rel="stylesheet" type="text/css">
   <link href="{{ asset('css/components.css') }}" rel="stylesheet" type="text/css">
   <link href="{{ asset('css/colors.min.css') }}" rel="stylesheet" type="text/css">
+  <link href="{{ asset('css/login.css') }}" rel="stylesheet" type="text/css">
   <!-- /global stylesheets -->
 
   <!-- Core JS files -->
@@ -41,7 +41,6 @@
 
       <!-- Content area -->
       <div class="content d-flex justify-content-center align-items-center">
-
         <!-- Login card -->
         <form class="login-form" method="post" action="{{ route('login') }}">
           @csrf
@@ -62,7 +61,7 @@
                 </div>
 
                 @if ($errors->has('user_username'))
-                    <span class="invalid-feedback" role="alert">
+                    <span class="invalid-feedback show" role="alert">
                         <strong>{{ $errors->first('user_username') }}</strong>
                     </span>
                 @endif
@@ -75,7 +74,7 @@
                 </div>
 
                 @if ($errors->has('password'))
-                    <span class="invalid-feedback" role="alert">
+                    <span class="invalid-feedback show" role="alert">
                         <strong>{{ $errors->first('password') }}</strong>
                     </span>
                 @endif

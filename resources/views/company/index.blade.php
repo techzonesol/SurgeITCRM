@@ -1,5 +1,8 @@
 @extends('layouts.app')
-
+@section('meta_title') Company Lists @endsection
+@section('page_bread_scrum')
+    Company
+@endsection
 @section('content')
 
 <!-- Main content -->
