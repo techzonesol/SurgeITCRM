@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>@yield('meta_title') | {{env('PROJECT_NAME')}}</title>
+	<title>@yield('meta_title') | {{env('APP_NAME')}}</title>
 	<meta name="robots" content="noindex, nofollow">
 
 	<!-- Global stylesheets -->
@@ -478,7 +478,7 @@
 	<div class="navbar navbar-expand-lg navbar-light">
 		<div class="navbar-collapse collapse" id="navbar-footer">
 			<span class="navbar-text">
-				&copy; 2019. <a href="{{route('home')}}">{{env('PROJECT_NAME')}}</a> by <a href="https://www.tzsolution.com" target="_blank">TZ Solutions</a>
+				&copy; 2019. <a href="{{route('home')}}">{{env('APP_NAME')}}</a> by <a href="https://www.tzsolution.com" target="_blank">TZ Solutions</a>
 			</span>
 		</div>
 	</div>
