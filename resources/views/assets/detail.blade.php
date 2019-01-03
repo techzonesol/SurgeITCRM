@@ -3,6 +3,7 @@
 @section('page_bread_scrum')
     Assets
 @endsection
+
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -114,6 +115,125 @@
         </div>
     </div>
 @endsection
+
+
+@section('content')
+
+<!-- Main content -->
+<div class="content-wrapper">
+
+<!-- Content area -->
+    <div class="content">
+
+        <!-- Form inputs -->
+        <div class="card">
+            <div class="card-header header-elements-inline">
+                <h5 class="card-title font-weight-semibold">Asset Details</h5>
+            </div>
+
+            <div class="card-body">
+                <p class="mb-4">Manage your assets detail here.</p>
+
+                <form action="{{route('update_assets',['id' => $asset->asset_id])}}" method="post" id="Assets_form" enctype="multipart/form-data">
+                    <fieldset class="mb-3">
+                        
+                        <div class="form-group row">
+                            <label class="col-form-label col-lg-2">Asset Name</label>
+                            <div class="col-lg-10">
+                                <input id="asset_name" name="asset_name" type="text" class="form-control" value="{{ $asset->contact_f_name }}">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-form-label col-lg-2">Tag Number</label>
+                            <div class="col-lg-10">
+                                <input name="asset_tag_number" name="asset_tag_number" type="text" class="form-control" value="{{$asset->asset_tag_number}}">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-form-label col-lg-2">Asset No</label>
+                            <div class="col-lg-10">
+                                <input id="asset_no" name="asset_no" type="text" class="form-control" value="{{$asset->asset_no}}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label col-lg-2">Serial No</label>
+                            <div class="col-lg-10">
+                                <input id="asset_serial_no" name="asset_serial_no" type="text" class="form-control" value="{{$asset->asset_serial_no}}">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-form-label col-lg-2">Fax</label>
+                            <div class="col-lg-10">
+                                <input id="contact_fax" name="contact_fax" type="text" class="form-control" value="{{ $asset->contact_fax }}">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-form-label col-lg-2">Office Extension</label>
+                            <div class="col-lg-10">
+                                <input id="contact_office_phone_ext" name="contact_office_phone_ext" type="text" class="form-control" value="{{ $asset->contact_office_phone_ext }}">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-form-label col-lg-2">City</label>
+                            <div class="col-lg-10">
+                                <input id="contact_city" name="contact_city" type="text" class="form-control" value="{{ $asset->contact_city }}">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-form-label col-lg-2">State</label>
+                            <div class="col-lg-10">
+                                <input id="contact_state" name="contact_state" type="text" class="form-control" value="{{ $asset->contact_state }}">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-form-label col-lg-2">Country</label>
+                            <div class="col-lg-10">
+                                <input id="contact_country" name="contact_country" type="text" class="form-control" value="{{ $asset->contact_country }}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label col-lg-2">Street Address</label>
+                            <div class="col-lg-10">
+                                <input id="contact_street_address" name="contact_street_address" type="text" class="form-control" value="{{ $asset->contact_street_address }}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label col-lg-2">Contact Assign To:</label>
+                            <div class="col-lg-10">
+                                <select name="contact_assigned_to_id" id="contact_assigned_to_id" class="form-control">
+                                    @foreach($users as $user)
+                                        <option value="{{$user->id}}" {{$asset->contact_assigned_to_id == $user->id ? 'selected' : ''}}>{{$user->user_f_name .' '. $user->user_l_name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+                    </fieldset>
+
+                    <div class="text-right">
+                        <button type="submit" class="btn btn-primary">Submit <i class="icon-paperplane ml-2"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- /form inputs -->
+
+    </div>
+    <!-- /content area -->    
+
+</div>
+<!-- /main content -->
+
+@endsection
+
+
 @section('js')
     <script src="{{asset('js/jquery.validate.min.js')}}"></script>
     <script type="text/javascript">
