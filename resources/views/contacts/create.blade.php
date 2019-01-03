@@ -4,84 +4,124 @@
     Contacts
 @endsection
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col m8 offset-m2">
-                <div class="card">
-                    <div class="row">
-                        <div class="col s12">
-                            <h4 class="center-align">Create Contacts</h4>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <form class="col s12" action="{{route('save_contact')}}" method="post" id="Contact_form">
-                            @csrf
-                            <div class="input-field col s6">
-                                <input  id="contact_f_name" name="contact_f_name" type="text" class="validate"  value="{{ old('contact_f_name') }}">
-                                <label for="contact_f_name">First Name</label>
+    <div class="content-wrapper">
+
+        <!-- Content area -->
+        <div class="content">
+
+            <!-- Form inputs -->
+            <div class="card">
+                <div class="card-header header-elements-inline">
+                    <h5 class="card-title font-weight-semibold">Contact Details</h5>
+                </div>
+
+                <div class="card-body">
+                    <p class="mb-4">Create your contact here.</p>
+
+                    <form action="{{route('save_contact')}}" method="post" id="Contact_form">
+                        @csrf
+                        <fieldset class="mb-3">
+
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">First Name</label>
+                                <div class="col-lg-10">
+                                    <input id="contact_f_name" name="contact_f_name" type="text" class="form-control">
+                                </div>
                             </div>
-                            <div class="input-field col s6">
-                                <input id="contact_l_name" name="contact_l_name" type="text" class="validate">
-                                <label for="contact_l_name">Last Name</label>
+
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Last Name</label>
+                                <div class="col-lg-10">
+                                    <input id="contact_l_name" name="contact_l_name" type="text" class="form-control">
+                                </div>
                             </div>
-                            <div class="input-field col s6">
-                                <input id="contact_work_email" name="contact_work_email" type="email" class="validate">
-                                <label for="contact_work_email">Email Address</label>
+
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Email Address</label>
+                                <div class="col-lg-10">
+                                    <input id="contact_work_email" name="contact_work_email" type="email" class="form-control">
+                                </div>
                             </div>
-                            <div class="input-field col s6">
-                                <select name="contact_company_id" id="contact_company_id">
-                                    @foreach($companies as $company)
-                                    <option value="{{$company->company_id}}">{{$company->company_name}}</option>
-                                    @endforeach
-                                </select>
-                                <label>Select Company</label>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Select Company:</label>
+                                <div class="col-lg-10">
+                                    <select name="contact_company_id" id="contact_company_id" class="form-control">
+                                        @foreach($companies as $company)
+                                            <option value="{{$company->company_id}}">{{$company->company_name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
-                            <div class="input-field col s6">
-                                <input id="contact_office_phone" name="contact_office_phone" type="text" class="validate">
-                                <label for="contact_office_phone">Office Phone</label>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Office Phone</label>
+                                <div class="col-lg-10">
+                                    <input id="contact_office_phone" name="contact_office_phone" type="text" class="form-control">
+                                </div>
                             </div>
-                            <div class="input-field col s6">
-                                <input id="contact_fax" name="contact_fax" type="text" class="validate">
-                                <label for="contact_fax">Fax</label>
+
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Fax</label>
+                                <div class="col-lg-10">
+                                    <input id="contact_fax" name="contact_fax" type="text" class="form-control">
+                                </div>
                             </div>
-                            <div class="input-field col s6">
-                                <input id="contact_office_phone_ext" name="contact_office_phone_ext" type="text" class="validate">
-                                <label for="contact_office_phone_ext">Office Extension</label>
+
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Office Extension</label>
+                                <div class="col-lg-10">
+                                    <input id="contact_office_phone_ext" name="contact_office_phone_ext" type="text" class="form-control">
+                                </div>
                             </div>
-                            <div class="input-field col s6">
-                                <input id="contact_city" name="contact_city" type="text" class="validate">
-                                <label for="contact_city">Contact City</label>
+
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">City</label>
+                                <div class="col-lg-10">
+                                    <input id="contact_city" name="contact_city" type="text" class="form-control">
+                                </div>
                             </div>
-                            <div class="input-field col s6">
-                                <input id="contact_state" name="contact_state" type="text" class="validate">
-                                <label for="contact_state">Contact State</label>
+
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">State</label>
+                                <div class="col-lg-10">
+                                    <input id="contact_state" name="contact_state" type="text" class="form-control">
+                                </div>
                             </div>
-                            <div class="input-field col s6">
-                                <input id="contact_country" name="contact_country" type="text" class="validate">
-                                <label for="contact_country">Contact Country</label>
+
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Country</label>
+                                <div class="col-lg-10">
+                                    <input id="contact_country" name="contact_country" type="text" class="form-control">
+                                </div>
                             </div>
-                            <div class="input-field col s6">
-                                <input id="contact_street_address" name="contact_street_address" type="text" class="validate">
-                                <label for="contact_street_address">Street Address</label>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Street Address</label>
+                                <div class="col-lg-10">
+                                    <input id="contact_street_address" name="contact_street_address" type="text" class="form-control">
+                                </div>
                             </div>
-                            <div class="input-field col s6">
-                                <select name="contact_assigned_to_id">
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Contact Assign To:</label>
+                                <div class="col-lg-10">
+                                    <select name="contact_assigned_to_id" id="contact_assigned_to_id" class="form-control">
                                     @foreach($users as $user)
-                                    <option value="{{$user->id}}">{{$user->user_f_name .' '. $user->user_l_name}}</option>
+                                        <option value="{{$user->id}}">{{$user->user_f_name .' '. $user->user_l_name}}</option>
                                     @endforeach
                                 </select>
-                                <label>Select Assigne</label>
+                                </div>
                             </div>
-                            <div class="input-field col s12">
-                                <button class="btn waves-effect waves-light align_center" type="submit" name="action">Submit
-                                    <i class="material-icons right">send</i>
-                                </button>
-                            </div>
-                        </form>
-                    </div>
+                        </fieldset>
+
+                        <div class="text-right">
+                            <button type="submit" class="btn btn-primary">Submit <i class="icon-paperplane ml-2"></i></button>
+                        </div>
+                    </form>
                 </div>
             </div>
+            <!-- /form inputs -->
+
         </div>
+        <!-- /content area -->
+
     </div>
     @endsection
 @section('js')

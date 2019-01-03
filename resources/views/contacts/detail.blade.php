@@ -129,53 +129,71 @@
                                 <input id="contact_work_email" name="contact_work_email" type="email" class="form-control" value="{{ $contact->contact_work_email }}">
                             </div>
                         </div>
-
                         <div class="form-group row">
-                            <label class="col-form-label col-lg-2">Password</label>
+                            <label class="col-form-label col-lg-2">Select Company:</label>
                             <div class="col-lg-10">
-                                <input id="contact_l_name" name="contact_l_name" type="text" class="form-control" value="{{ $contact->contact_l_name }}">
+                                <select name="contact_company_id" id="contact_company_id" class="form-control">
+                                    @foreach($companies as $company)
+                                        <option value="{{$company->company_id}}" {{$contact->contact_company_id == $company->company_id ? 'selected' : ''}}>{{$company->company_name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label col-lg-2">Office Phone</label>
+                            <div class="col-lg-10">
+                                <input id="contact_office_phone" name="contact_office_phone" type="text" class="form-control" value="{{ $contact->contact_office_phone }}">
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-form-label col-lg-2">Password</label>
+                            <label class="col-form-label col-lg-2">Fax</label>
                             <div class="col-lg-10">
-                                <input id="contact_l_name" name="contact_l_name" type="text" class="form-control" value="{{ $contact->contact_l_name }}">
+                                <input id="contact_fax" name="contact_fax" type="text" class="form-control" value="{{ $contact->contact_fax }}">
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-form-label col-lg-2">Password</label>
+                            <label class="col-form-label col-lg-2">Office Extension</label>
                             <div class="col-lg-10">
-                                <input id="contact_l_name" name="contact_l_name" type="text" class="form-control" value="{{ $contact->contact_l_name }}">
+                                <input id="contact_office_phone_ext" name="contact_office_phone_ext" type="text" class="form-control" value="{{ $contact->contact_office_phone_ext }}">
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-form-label col-lg-2">Password</label>
+                            <label class="col-form-label col-lg-2">City</label>
                             <div class="col-lg-10">
-                                <input id="contact_l_name" name="contact_l_name" type="text" class="form-control" value="{{ $contact->contact_l_name }}">
+                                <input id="contact_city" name="contact_city" type="text" class="form-control" value="{{ $contact->contact_city }}">
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-form-label col-lg-2">Password</label>
+                            <label class="col-form-label col-lg-2">State</label>
                             <div class="col-lg-10">
-                                <input id="contact_l_name" name="contact_l_name" type="text" class="form-control" value="{{ $contact->contact_l_name }}">
+                                <input id="contact_state" name="contact_state" type="text" class="form-control" value="{{ $contact->contact_state }}">
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-form-label col-lg-2">Password</label>
+                            <label class="col-form-label col-lg-2">Country</label>
                             <div class="col-lg-10">
-                                <input id="contact_l_name" name="contact_l_name" type="text" class="form-control" value="{{ $contact->contact_l_name }}">
+                                <input id="contact_country" name="contact_country" type="text" class="form-control" value="{{ $contact->contact_country }}">
                             </div>
                         </div>
-
                         <div class="form-group row">
-                            <label class="col-form-label col-lg-2">Password</label>
+                            <label class="col-form-label col-lg-2">Street Address</label>
                             <div class="col-lg-10">
-                                <input id="contact_l_name" name="contact_l_name" type="text" class="form-control" value="{{ $contact->contact_l_name }}">
+                                <input id="contact_street_address" name="contact_street_address" type="text" class="form-control" value="{{ $contact->contact_street_address }}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label col-lg-2">Contact Assign To:</label>
+                            <div class="col-lg-10">
+                                <select name="contact_assigned_to_id" id="contact_assigned_to_id" class="form-control">
+                                    @foreach($users as $user)
+                                        <option value="{{$user->id}}" {{$contact->contact_assigned_to_id == $user->id ? 'selected' : ''}}>{{$user->user_f_name .' '. $user->user_l_name}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
 
