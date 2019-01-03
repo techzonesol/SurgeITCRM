@@ -4,110 +4,171 @@
     Company
 @endsection
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col m12 background-white">
-                <div class="card">
-                    <div class="col s12">
-                        <h4 class="align_center">Company Details</h4>
-                    </div>
-                    <form class="col s12" action="{{route('update_company',['id' => $company->company_id])}}" method="post" id="Company_form">
+    <!-- Main content -->
+    <div class="content-wrapper">
+
+        <!-- Content area -->
+        <div class="content">
+
+            <!-- Form inputs -->
+            <div class="card">
+                <div class="card-header header-elements-inline">
+                    <h5 class="card-title font-weight-semibold">Company Details</h5>
+                </div>
+
+                <div class="card-body">
+                    <p class="mb-4">Manage your Companies details here.</p>
+
+                    <form action="{{route('update_company',['id' => $company->company_id])}}" method="post" id="Company_form">
+                        <fieldset class="mb-3">
                             @csrf
-                            <div class="input-field col s6">
-                                <input  id="company_name" name="company_name" type="text" class="validate" value="{{$company->company_name}}">
-                                <label for="company_name">Company Name</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="company_email" name="company_email" type="email" class="validate" value="{{$company->company_email}}">
-                                <label for="company_email">Company Email</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="company_phone_no" name="company_phone_no" type="text" class="validate" value="{{$company->company_phone_no}}">
-                                <label for="company_phone_no">Company Phone No</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="company_phone_no_ext" name="company_phone_no_ext" type="text" class="validate" value="{{$company->company_phone_no_ext}}">
-                                <label for="company_phone_no_ext">Phone Ext</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="company_title" name="company_title" type="text" class="validate" value="{{$company->company_title}}">
-                                <label for="company_title">Company Title</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="company_state" name="company_state" type="text" class="validate" value="{{$company->company_state}}">
-                                <label for="company_state">Company State</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="company_zip_code" name="company_zip_code" type="text" class="validate" value="{{$company->company_zip_code}}">
-                                <label for="company_zip_code">Zip Code</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="company_street_address" name="company_street_address" type="text" class="validate" value="{{$company->company_street_address}}">
-                                <label for="company_street_address">Street Address</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="company_billing_city" name="company_billing_city" type="text" class="validate" value="{{$company->company_billing_city}}">
-                                <label for="company_billing_city">Billing City</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="company_fax" name="company_fax" type="text" class="validate" value="{{$company->company_fax}}">
-                                <label for="company_fax">Company Fax</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="company_other_phone_no" name="company_other_phone_no" type="text" class="validate" value="{{$company->company_other_phone_no}}">
-                                <label for="company_other_phone_no">Other Phone No.</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="company_website" name="company_website" type="text" class="validate" value="{{$company->company_website}}">
-                                <label for="company_website">Website</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="company_country" name="company_country" type="text" class="validate" value="{{$company->company_country}}">
-                                <label for="company_country">Country</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="company_billing_country" name="company_billing_country" type="text" class="validate" value="{{$company->company_billing_country}}">
-                                <label for="company_billing_country">Billing Country</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="company_billing_zip_code" name="company_billing_zip_code" type="text" class="validate" value="{{$company->company_billing_zip_code}}">
-                                <label for="company_billing_zip_code">Billing Zip Code</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="company_billing_state" name="company_billing_state" type="text" class="validate" value="{{$company->company_billing_state}}">
-                                <label for="company_billing_state">Billing state</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="company_billing_street_address" name="company_billing_street_address" type="text" class="validate" value="{{$company->company_billing_street_address}}">
-                                <label for="company_billing_street_address">Billing Street Address</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <select name="company_industry_id">
-                                    @foreach($industries as $industry)
-                                    <option value="{{$industry->id}}" {{$company->company_industry_id == $industry->id ? 'selected' : ''}}>{{$industry->industry_name}}</option>
-                                    @endforeach
-                                </select>
-                                <label>Select industry</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <div class="switch">
-                                    <label>
-                                        Deactive
-                                        <input type="checkbox" {{ $company->company_is_active ? 'checked' : '' }} id="company_is_active" name="company_is_active">
-                                        <span class="lever"></span>
-                                        Active
-                                    </label>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Company Name</label>
+                                <div class="col-lg-10">
+                                    <input id="company_name" name="company_name" type="text" class="form-control" value="{{ $company->company_name }}">
                                 </div>
                             </div>
-                            <div class="input-field col s12">
-                                <button class="btn waves-effect waves-light align_center" type="submit" name="action">Submit
-                                    <i class="material-icons right">send</i>
-                                </button>
+
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Company Email</label>
+                                <div class="col-lg-10">
+                                    <input id="company_email" name="company_email" type="email" class="form-control" value="{{ $company->company_email }}">
+                                </div>
                             </div>
-                        </form>
+
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Email Address</label>
+                                <div class="col-lg-10">
+                                    <input id="company_phone_no" name="company_phone_no" type="text" class="form-control" value="{{ $company->company_phone_no }}">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Company Phone No</label>
+                                <div class="col-lg-10">
+                                    <input id="company_phone_no" name="company_phone_no" type="text" class="form-control" value="{{ $company->company_phone_no }}">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Phone Ext</label>
+                                <div class="col-lg-10">
+                                    <input id="company_phone_no_ext" name="company_phone_no_ext" type="text" class="form-control" value="{{ $company->company_phone_no_ext }}">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Company Title</label>
+                                <div class="col-lg-10">
+                                    <input id="company_title" name="company_title" type="text" class="form-control" value="{{ $company->company_title }}">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Company State</label>
+                                <div class="col-lg-10">
+                                    <input id="company_state" name="company_state" type="text" class="form-control" value="{{ $company->company_state }}">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Zip Code</label>
+                                <div class="col-lg-10">
+                                    <input id="company_zip_code" name="company_zip_code" type="text" class="form-control" value="{{ $company->company_zip_code }}">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Street Address</label>
+                                <div class="col-lg-10">
+                                    <input id="company_street_address" name="company_street_address" type="text" class="form-control" value="{{ $company->company_street_address }}">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Billing City</label>
+                                <div class="col-lg-10">
+                                    <input id="company_billing_city" name="company_billing_city" type="text" class="form-control" value="{{ $company->company_billing_city }}">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Company Fax</label>
+                                <div class="col-lg-10">
+                                    <input id="company_fax" name="company_fax" type="text" class="form-control" value="{{ $company->company_fax }}">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Other Phone No.</label>
+                                <div class="col-lg-10">
+                                    <input id="company_other_phone_no" name="company_other_phone_no" type="text" class="form-control" value="{{ $company->company_other_phone_no }}">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Website</label>
+                                <div class="col-lg-10">
+                                    <input id="company_website" name="company_website" type="text" class="form-control" value="{{ $company->company_website }}">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Country</label>
+                                <div class="col-lg-10">
+                                    <input id="company_country" name="company_country" type="text" class="form-control" value="{{ $company->company_country }}">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Billing Country</label>
+                                <div class="col-lg-10">
+                                    <input id="company_billing_country" name="company_billing_country" type="text" class="form-control" value="{{ $company->company_billing_country }}">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Website</label>
+                                <div class="col-lg-10">
+                                    <input id="company_website" name="company_website" type="text" class="form-control" value="{{ $company->company_website }}">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Billing Zip Code</label>
+                                <div class="col-lg-10">
+                                    <input id="company_billing_zip_code" name="company_billing_zip_code" type="text" class="form-control" value="{{ $company->company_billing_zip_code }}">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Billing state</label>
+                                <div class="col-lg-10">
+                                    <input id="company_billing_state" name="company_billing_state" type="text" class="form-control" value="{{ $company->company_billing_state }}">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Billing Street Address</label>
+                                <div class="col-lg-10">
+                                    <input id="company_billing_street_address" name="company_billing_street_address" type="text" class="form-control" value="{{ $company->company_billing_street_address }}">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Select industry</label>
+                                <div class="col-lg-10">
+                                    <select name="company_industry_id" id="company_industry_id" class="form-control">
+                                        @foreach($industries as $industry)
+                                            <option value="{{$industry->id}}" {{$company->company_industry_id == $industry->id ? 'selected' : ''}}>{{$industry->industry_name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <div class="text-right">
+                            <button type="submit" class="btn btn-primary">Submit <i class="icon-paperplane ml-2"></i></button>
+                        </div>
+                    </form>
+                </div>
             </div>
+            <!-- /form inputs -->
+
         </div>
+        <!-- /content area -->
+
     </div>
+    <!-- /main content -->
+
 @endsection
 @section('js')
     <script src="{{asset('js/jquery.validate.min.js')}}"></script>

@@ -4,115 +4,183 @@
     Company
 @endsection
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col m8 offset-m2">
-                <div class="card">
-                    <div class="row">
-                        <div class="col s12">
-                            <h4 class="align_center">Create Company</h4>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <form class="col s12" action="{{url('/company/create')}}" method="post" id="Contact_form">
+    <!-- Main content -->
+    <div class="content-wrapper">
+
+        <!-- Content area -->
+        <div class="content">
+
+            <!-- Form inputs -->
+            <div class="card">
+                <div class="card-header header-elements-inline">
+                    <h5 class="card-title font-weight-semibold">Create Company</h5>
+                </div>
+
+                <div class="card-body">
+                    <p class="mb-4">Create your Companies here.</p>
+
+                    <form action="{{url('/company/create')}}" method="post" id="Contact_form">
+                        <fieldset class="mb-3">
                             @csrf
-                            <div class="input-field col s6">
-                                <input  id="company_name" name="company_name" type="text" class="validate">
-                                <label for="company_name">Company Name</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="company_email" name="company_email" type="email" class="validate">
-                                <label for="company_email">Company Email</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="company_phone_no" name="company_phone_no" type="text" class="validate">
-                                <label for="company_phone_no">Company Phone No</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="company_phone_no_ext" name="company_phone_no_ext" type="text" class="validate">
-                                <label for="company_phone_no_ext">Phone Ext</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="company_title" name="company_title" type="text" class="validate">
-                                <label for="company_title">Company Title</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="company_state" name="company_state" type="text" class="validate">
-                                <label for="company_state">Company State</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="company_zip_code" name="company_zip_code" type="text" class="validate">
-                                <label for="company_zip_code">Zip Code</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="company_street_address" name="company_street_address" type="text" class="validate">
-                                <label for="company_street_address">Street Address</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="company_billing_city" name="company_billing_city" type="text" class="validate">
-                                <label for="company_billing_city">Billing City</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="company_fax" name="company_fax" type="text" class="validate">
-                                <label for="company_fax">Company Fax</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="company_other_phone_no" name="company_other_phone_no" type="text" class="validate">
-                                <label for="company_other_phone_no">Other Phone No.</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="company_website" name="company_website" type="text" class="validate">
-                                <label for="company_website">Website</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="company_country" name="company_country" type="text" class="validate">
-                                <label for="company_country">Country</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="company_billing_country" name="company_billing_country" type="text" class="validate">
-                                <label for="company_billing_country">Billing Country</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="company_billing_zip_code" name="company_billing_zip_code" type="text" class="validate">
-                                <label for="company_billing_zip_code">Billing Zip Code</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="company_billing_state" name="company_billing_state" type="text" class="validate">
-                                <label for="company_billing_state">Billing state</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="company_billing_street_address" name="company_billing_street_address" type="text" class="validate">
-                                <label for="company_billing_street_address">Billing Street Address</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <select name="company_industry_id">
-                                    @foreach($industries as $industry)
-                                        <option value="{{$industry->id}}" >{{$industry->industry_name}}</option>
-                                    @endforeach
-                                </select>
-                                <label>Select industry</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <div class="switch">
-                                    <label>
-                                        Deactive
-                                        <input type="checkbox" checked id="company_is_active" name="company_is_active">
-                                        <span class="lever"></span>
-                                        Active
-                                    </label>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Company Name</label>
+                                <div class="col-lg-10">
+                                    <input id="company_name" name="company_name" type="text" class="form-control">
                                 </div>
                             </div>
-                            <div class="input-field col s12">
-                                <button class="btn waves-effect waves-light align_center" type="submit" name="action">Submit
-                                    <i class="material-icons right">send</i>
-                                </button>
+
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Company Email</label>
+                                <div class="col-lg-10">
+                                    <input id="company_email" name="company_email" type="email" class="form-control">
+                                </div>
                             </div>
-                        </form>
-                    </div>
+
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Email Address</label>
+                                <div class="col-lg-10">
+                                    <input id="company_phone_no" name="company_phone_no" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Company Phone No</label>
+                                <div class="col-lg-10">
+                                    <input id="company_phone_no" name="company_phone_no" type="text" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Phone Ext</label>
+                                <div class="col-lg-10">
+                                    <input id="company_phone_no_ext" name="company_phone_no_ext" type="text" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Company Title</label>
+                                <div class="col-lg-10">
+                                    <input id="company_title" name="company_title" type="text" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Company State</label>
+                                <div class="col-lg-10">
+                                    <input id="company_state" name="company_state" type="text" class="form-control" >
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Zip Code</label>
+                                <div class="col-lg-10">
+                                    <input id="company_zip_code" name="company_zip_code" type="text" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Street Address</label>
+                                <div class="col-lg-10">
+                                    <input id="company_street_address" name="company_street_address" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Billing City</label>
+                                <div class="col-lg-10">
+                                    <input id="company_billing_city" name="company_billing_city" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Company Fax</label>
+                                <div class="col-lg-10">
+                                    <input id="company_fax" name="company_fax" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Other Phone No.</label>
+                                <div class="col-lg-10">
+                                    <input id="company_other_phone_no" name="company_other_phone_no" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Website</label>
+                                <div class="col-lg-10">
+                                    <input id="company_website" name="company_website" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Country</label>
+                                <div class="col-lg-10">
+                                    <input id="company_country" name="company_country" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Billing Country</label>
+                                <div class="col-lg-10">
+                                    <input id="company_billing_country" name="company_billing_country" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Website</label>
+                                <div class="col-lg-10">
+                                    <input id="company_website" name="company_website" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Billing Zip Code</label>
+                                <div class="col-lg-10">
+                                    <input id="company_billing_zip_code" name="company_billing_zip_code" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Billing state</label>
+                                <div class="col-lg-10">
+                                    <input id="company_billing_state" name="company_billing_state" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Billing Street Address</label>
+                                <div class="col-lg-10">
+                                    <input id="company_billing_street_address" name="company_billing_street_address" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Select industry</label>
+                                <div class="col-lg-10">
+                                    <select name="company_industry_id" id="company_industry_id" class="form-control">
+                                        @foreach($industries as $industry)
+                                            <option value="{{$industry->id}}" >{{$industry->industry_name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Is Active</label>
+                                <div class="col-lg-10">
+                                    <div class="switch">
+                                        <label>
+                                            Deactive
+                                            <input type="checkbox" checked id="company_is_active" name="company_is_active">
+                                            <span class="lever"></span>
+                                            Active
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <div class="text-right">
+                            <button type="submit" class="btn btn-primary">Submit <i class="icon-paperplane ml-2"></i></button>
+                        </div>
+                    </form>
                 </div>
             </div>
+            <!-- /form inputs -->
+
         </div>
+        <!-- /content area -->
+
     </div>
+    <!-- /main content -->
 @endsection
 @section('js')
     <script src="{{asset('js/jquery.validate.min.js')}}"></script>
