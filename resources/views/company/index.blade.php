@@ -38,7 +38,7 @@
             <td>{{$company->company_id}}</td>
             <td><a href="{{route('view_company',['id' =>  $company->company_id])}}">{{$company->company_name}}</a></td>
             <td>{{$company->company_email}}</td>
-            <td>{{'(' .$company->company_phone_no_ext. ')' .' '.$company->company_phone_no}}</td>
+            <td>{{$company->company_phone_no}}</td>
             <td><a href="{{'http://'.$company->company_website}}" target="_blank">{{$company->company_website}}</a></td>
 
             <td><span class="badge">{{ ($company->company_is_active == 1 ? 'Active' : 'Not Active') }}</span></td>

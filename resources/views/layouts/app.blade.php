@@ -31,8 +31,10 @@
 	<script src="{{ asset('js/plugins/ui/moment/moment.min.js') }}"></script>
 	<script src="{{ asset('js/plugins/pickers/daterangepicker.js') }}"></script>
 
+	<script src="{{ asset('js/plugins/tables/datatables/datatables.min.js') }}"></script>
 	<script src="{{ asset('js/app.js') }}"></script>
 	<script src="{{ asset('js/dashboard.js') }}"></script>
+	<script src="{{ asset('js/datatables_basic.js') }}"></script>
 	<!-- /theme JS files -->
 
 </head>
