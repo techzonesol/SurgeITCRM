@@ -154,82 +154,58 @@
                         }
                     }
                 },
-                contact_company_id : {
-                    required:true
-                },
                 contact_office_phone: {
-                    required: true,
                     maxlength: 55
                 },contact_office_phone_ext: {
-                    required: true,
                     maxlength: 55
                 },
                 contact_city:{
-                    required: true,
                     maxlength: 55
                 },
                 contact_state:{
-                    required: true,
                     maxlength: 55
                 },
                 contact_country:{
-                    required: true,
                     maxlength: 55
                 },
                 contact_street_address:{
-                    required: true,
                     maxlength: 255
-                },
-                contact_assigned_to_id:{
-                    required: true,
                 }
 
             },
             //For custom messages
             messages: {
                 contact_f_name:{
-                    required: "Enter Enter First Name",
+                    required: "Please enter first name",
                     maxlength: "Max 55 characters allowed"
                 },
                 contact_l_name:{
-                    required: "Enter Enter Last Name",
+                    required: "Please enter last name",
                     maxlength: "Max 55 characters allowed"
                 },
                 contact_work_email: {
-                    required: "Enter Enter Work Email",
+                    required: "Please enter work email",
                     email:"Enter valid Email",
                     maxlength: "Max 90 characters allowed",
                     remote: "Email already exist"
                 },
-                contact_company_id : {
-                    required : "Please Select Company id"
-                },
                 contact_office_phone: {
-                    required: 'Enter Enter Office Phone',
                     maxlength: 'Max 55 characters allowed'
                 },
                 contact_office_phone_ext: {
-                    required: 'Enter Enter Office Phone extension',
                     maxlength: 'Max 55 characters allowed'
                 },
                 contact_city:{
-                    required: 'Please Enter City Name',
                     maxlength: 'Max 55 characters allowed'
                 },
                 contact_state:{
-                    required: 'Please Enter State Name',
                     maxlength: 'Max 55 characters allowed'
                 },
                 contact_country:{
-                    required: 'Please Enter Country Name',
                     maxlength: 'Max 55 characters allowed'
                 },
                 contact_street_address:{
-                    required: 'Please Enter street Address',
                     maxlength: 'Max 255 characters allowed'
-                },
-                contact_assigned_to_id:{
-                    required: 'Please select Assign id',
                 }
 
             },
