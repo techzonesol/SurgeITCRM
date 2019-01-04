@@ -62,7 +62,12 @@
                                     <input id="company_state" name="company_state" type="text" class="form-control" >
                                 </div>
                             </div>
-
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Website</label>
+                                <div class="col-lg-10">
+                                    <input id="company_website" name="company_website" type="text" class="form-control">
+                                </div>
+                            </div>
                             <div class="form-group row">
                                 <label class="col-form-label col-lg-2">Zip Code</label>
                                 <div class="col-lg-10">
@@ -92,12 +97,6 @@
                                 <label class="col-form-label col-lg-2">Other Phone No.</label>
                                 <div class="col-lg-10">
                                     <input id="company_other_phone_no" name="company_other_phone_no" type="text" class="form-control">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-form-label col-lg-2">Website</label>
-                                <div class="col-lg-10">
-                                    <input id="company_website" name="company_website" type="text" class="form-control">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -145,7 +144,6 @@
                                 <div class="col-lg-10">
                                     <div class="switch">
                                         <label>
-                                            Deactive
                                             <input type="checkbox" checked id="company_is_active" name="company_is_active">
                                             <span class="lever"></span>
                                             Active
