@@ -35,13 +35,6 @@
                                     <input id="company_email" name="company_email" type="email" class="form-control">
                                 </div>
                             </div>
-
-                            <div class="form-group row">
-                                <label class="col-form-label col-lg-2">Email Address</label>
-                                <div class="col-lg-10">
-                                    <input id="company_phone_no" name="company_phone_no" type="text" class="form-control">
-                                </div>
-                            </div>
                             <div class="form-group row">
                                 <label class="col-form-label col-lg-2">Company Phone No</label>
                                 <div class="col-lg-10">
