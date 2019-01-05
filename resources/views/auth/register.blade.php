@@ -81,9 +81,6 @@
 @section('js')
 <script src="{{asset('js/jquery.validate.min.js')}}"></script>
 <script type="text/javascript">
-    $(document).ready(function(){
-        $('select').formSelect();
-    });
 
     $("#new-user").validate({
             rules: {

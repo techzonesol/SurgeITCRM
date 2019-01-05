@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>SurgeIT CRM - SurgeIT CRM</title>
+    <title>@yield('meta_title') | {{env('APP_NAME')}}</title>
+    <meta name="robots" content="noindex, nofollow">
 
     <!-- Global stylesheets -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
@@ -30,8 +31,10 @@
     <script src="{{ asset('js/plugins/ui/moment/moment.min.js') }}"></script>
     <script src="{{ asset('js/plugins/pickers/daterangepicker.js') }}"></script>
 
+    <script src="{{ asset('js/plugins/tables/datatables/datatables.min.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/dashboard.js') }}"></script>
+    <script src="{{ asset('js/datatables_basic.js') }}"></script>
     <!-- /theme JS files -->
 
 </head>
@@ -106,7 +109,7 @@
                                 </div>
 
                                 <div class="media-body">
-                                    <a href="#">Chris Arney</a> created a new <span class="font-weight-semibold">Design</span> branch in <span class="font-weight-semibold">Limit</span> repository
+                                    <a href="#">Chris Arney</a> created a new <span class="font-weight-semibold">Design</span> branch in <span class="font-weight-semibold">Limitless</span> repository
                                     <div class="font-size-sm text-muted mt-1">2 hours ago</div>
                                 </div>
                             </li>
@@ -299,7 +302,7 @@
     <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
         <div class="d-flex">
             <div class="breadcrumb">
-                <a href="index.html" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
+                <a href="{{route('home')}}" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
                 <span class="breadcrumb-item active">Dashboard</span>
             </div>
 
@@ -331,7 +334,7 @@
 
     <div class="page-header-content header-elements-md-inline">
         <div class="page-title d-flex">
-            <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Home</span> - Dashboard</h4>
+            <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Home</span> - @yield('page_bread_scrum')</h4>
             <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
         </div>
 
@@ -416,7 +419,7 @@
                         <!-- Main -->
                         <li class="nav-item-header mt-0"><div class="text-uppercase font-size-xs line-height-xs">Main Menu</div> <i class="icon-menu" title="Main"></i></li>
                         <li class="nav-item">
-                            <a href="/" class="nav-link active">
+                            <a href="/" class="nav-link">
                                 <i class="icon-home4"></i>
                                 <span>
                                     Dashboard
@@ -435,7 +438,7 @@
                             <a href="#" class="nav-link"><i class="icon-stack"></i> <span>Companies</span></a>
 
                             <ul class="nav nav-group-sub" data-submenu-title="Companies">
-                                <li class="nav-item"><a href="{{route('company')}}" class="nav-link active">View Company</a></li>
+                                <li class="nav-item"><a href="{{route('company')}}" class="nav-link">View Company</a></li>
                                 <li class="nav-item"><a href="{{route('create_company')}}" class="nav-link">Add Company</a></li>
                             </ul>
                         </li>
@@ -443,8 +446,8 @@
                             <a href="#" class="nav-link"><i class="icon-stack"></i> <span>Assets</span></a>
 
                             <ul class="nav nav-group-sub" data-submenu-title="Assets">
-                                <li class="nav-item"><a href="" class="nav-link">View Assets</a></li>
-                                <li class="nav-item"><a href="" class="nav-link">Add Assets</a></li>
+                                <li class="nav-item"><a href="{{route('assets')}}" class="nav-link">View Assets</a></li>
+                                <li class="nav-item"><a href="{{route('create_assets')}}" class="nav-link">Add Assets</a></li>
                             </ul>
                         </li>
                         <li class="nav-item nav-item-submenu">
@@ -452,7 +455,7 @@
 
                             <ul class="nav nav-group-sub" data-submenu-title="Employees">
                                 <li class="nav-item"><a href="" class="nav-link">View Employees</a></li>
-                                <li class="nav-item"><a href="" class="nav-link">Add Employee</a></li>
+                                <li class="nav-item"><a href="{{url('register')}}" class="nav-link">Add Employee</a></li>
                             </ul>
                         </li>
                         <!-- /main -->
@@ -477,7 +480,7 @@
 <div class="navbar navbar-expand-lg navbar-light">
     <div class="navbar-collapse collapse" id="navbar-footer">
 			<span class="navbar-text">
-				&copy; 2018 - 2019. <a href="#">SurgeIT CRM</a> by <a href="www.tzsolution.com" target="_blank">TZ Solutions</a>
+				&copy; 2019. <a href="{{route('home')}}">{{env('APP_NAME')}}</a> by <a href="https://www.tzsolution.com" target="_blank">TZ Solutions</a>
 			</span>
     </div>
 </div>

@@ -239,7 +239,6 @@
     <script type="text/javascript">
         $(document).ready(function(){
             $('.datepicker').datepicker();
-            $('select').formSelect();
 
             $("#Assets_form").validate({
                 rules: {
@@ -248,20 +247,14 @@
                         maxlength: 55
                     },
                     asset_tag_number: {
-                        required: true,
                         maxlength: 55,
                     },
                     asset_no: {
-                        required: true,
                         maxlength: 55
 
                     },
                     asset_serial_no : {
-                        required:true,
                         maxlength: 55
-                    },
-                    asset_status_id: {
-                        required: true
                     }
                 },
                 //For custom messages
@@ -271,19 +264,13 @@
                         maxlength: "Max 55 characters allowed"
                     },
                     asset_tag_number: {
-                        required: "Please enter tag number",
                         maxlength: "Max 55 characters allowed",
                     },
                     asset_no: {
-                        required: 'Please enter asset no',
                         maxlength: 'Max 55 characters allowed'
                     },
                     asset_serial_no: {
-                        required: 'Please enter serial number',
                         maxlength: 'Max 55 characters allowed'
-                    },
-                    asset_status_id:{
-                        required: 'Please select status'
                     }
                 },
                 errorElement : 'div',
