@@ -4,122 +4,161 @@
     Assets
 @endsection
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col m8 offset-m2">
-                <div class="card">
-                    <div class="row">
-                        <div class="col s12">
-                            <h4 class="align_center">Create Assets</h4>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <form class="col s12" action="{{route('save_assets')}}" method="post" id="Assets_form" enctype="multipart/form-data">
+    <!-- Main content -->
+    <div class="content-wrapper">
+
+        <!-- Content area -->
+        <div class="content">
+
+            <!-- Form inputs -->
+            <div class="card">
+                <div class="card-header header-elements-inline">
+                    <h5 class="card-title font-weight-semibold">Create Assets</h5>
+                </div>
+
+                <div class="card-body">
+                    <p class="mb-4">Create your Assets here.</p>
+
+                    <form action="{{route('save_assets')}}" method="post" id="Assets_form" enctype="multipart/form-data">
+                        <fieldset class="mb-3">
                             @csrf
-                            <div class="input-field col s6">
-                                <input id="asset_name" name="asset_name" type="text" class="validate">
-                                <label for="asset_name">Asset Name</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="asset_tag_number" name="asset_tag_number" type="text" class="validate">
-                                <label for="asset_tag_number">Tag Number</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input  id="asset_no" name="asset_no" type="text" class="validate">
-                                <label for="asset_no">Assets No</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="asset_serial_no" name="asset_serial_no" type="text" class="validate">
-                                <label for="asset_serial_no">Serial No</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <select name="asset_status_id" id="asset_status_id">
-                                    <option value="" selected>Status</option>
-                                    <option value="in_service">In Service</option>
-                                    <option value="out_of_service">Out of Service</option>
-                                    <option value="Inventory">Inventory</option>
-                                </select>
-                                <label>Select Status</label>
-                            </div>
-                            <div class="input-field file-field col s6">
-                                <div class="btn">
-                                    <span>File</span>
-                                    <input type="file" name="asset_image">
-                                </div>
-                                <div class="file-path-wrapper">
-                                    <input class="file-path validate" type="text" placeholder="Asset Image" name="asset_image">
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Asset Name</label>
+                                <div class="col-lg-10">
+                                    <input id="asset_name" name="asset_name" type="text" class="form-control">
                                 </div>
                             </div>
-                            <div class="input-field col s6">
-                                <input id="asset_in_service_date" name="asset_in_service_date" type="text" class="validate datepicker">
-                                <label for="asset_in_service_date">Date in Service</label>
+
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Tag Number</label>
+                                <div class="col-lg-10">
+                                    <input id="asset_tag_number" name="asset_tag_number" type="text" class="form-control">
+                                </div>
                             </div>
-                            <div class="input-field col s6">
-                                <input id="asset_details" name="asset_details" type="text" class="validate">
-                                <label for="asset_details">Assets Details</label>
+
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Assets No</label>
+                                <div class="col-lg-10">
+                                    <input id="asset_no" name="asset_no" type="text" class="form-control">
+                                </div>
                             </div>
-                            <div class="input-field col s6">
-                                <input id="asset_date_sold" name="asset_date_sold" type="text" class="validate datepicker">
-                                <label for="asset_date_sold">Date Sold</label>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Serial No</label>
+                                <div class="col-lg-10">
+                                    <input id="asset_serial_no" name="asset_serial_no" type="text" class="form-control">
+                                </div>
                             </div>
-                            <div class="input-field col s6">
-                                <select name="asset_product_type" id="asset_product_type">
-                                    <option value="good">Good</option>
-                                    <option value="service">Service</option>
-                                </select>
-                                <label>Product Type</label>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Select Status</label>
+                                <div class="col-lg-10">
+                                    <select name="asset_status_id" id="asset_status_id" class="form-control">
+                                        <option value="" selected>Status</option>
+                                        <option value="in_service">In Service</option>
+                                        <option value="out_of_service">Out of Service</option>
+                                        <option value="Inventory">Inventory</option>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="input-field col s6">
-                                <input id="asset_product_memory" name="asset_product_memory" type="text" class="validate">
-                                <label for="asset_product_memory">Product Memory</label>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Asset Image</label>
+                                <div class="col-lg-10">
+                                    <input id="asset_image" name="asset_image" type="file" class="form-control">
+                                </div>
                             </div>
-                            <div class="input-field col s6">
-                                <select name="asset_product_architecture" id="asset_product_architecture">
-                                    <option value="32">32 bit</option>
-                                    <option value="64">64 bit</option>
-                                </select>
-                                <label>Product Architecture</label>
+
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Date in Service</label>
+                                <div class="col-lg-10">
+                                    <input id="asset_in_service_date" name="asset_in_service_date" type="text" class="form-control">
+                                </div>
                             </div>
-                            <div class="input-field col s6">
-                                <input id="asset_product_processor" name="asset_product_processor" type="text" class="validate">
-                                <label for="asset_product_processor">Product Processor</label>
+
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Assets Details</label>
+                                <div class="col-lg-10">
+                                    <input id="asset_details" name="asset_details" type="text" class="form-control" >
+                                </div>
                             </div>
-                            <div class="input-field col s6">
-                                <select name="asset_product_os" id="asset_product_os">
-                                    <option value="windows10">Windows 10</option>
-                                    <option value="windows7">Windows 7</option>
-                                    <option value="windows8">Windows 8</option>
-                                    <option value="windows_vista">Windows Vista</option>
-                                    <option value="server2003">Server 2003</option>
-                                    <option value="server2008">Server 2008</option>
-                                    <option value="server2012">Server 2012</option>
-                                    <option value="server2016">Server 2016</option>
-                                    <option value="mac_os">Mac OS</option>
-                                </select>
-                                <label>Operating System</label>
+
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Date Sold</label>
+                                <div class="col-lg-10">
+                                    <input id="asset_date_sold" name="asset_date_sold" type="text" class="form-control">
+                                </div>
                             </div>
-                            <div class="input-field col s12">
-                                <input id="asset_receiving_notes" name="asset_receiving_notes" type="text" class="validate">
-                                <label for="asset_receiving_notes">Receiving Notes</label>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Product Type</label>
+                                <div class="col-lg-10">
+                                    <select name="asset_product_type" id="asset_product_type" class="form-control">
+                                        <option value="good">Good</option>
+                                        <option value="service">Service</option>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="input-field col s12">
-                                <button class="btn waves-effect waves-light align_center" type="submit" name="action">Submit
-                                    <i class="material-icons right">send</i>
-                                </button>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Product Memory</label>
+                                <div class="col-lg-10">
+                                    <input id="asset_product_memory" name="asset_product_memory" type="text" class="form-control">
+                                </div>
                             </div>
-                        </form>
-                    </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Product Architecture</label>
+                                <div class="col-lg-10">
+                                    <select name="asset_product_architecture" id="asset_product_architecture" class="form-control">
+                                        <option value="32">32 bit</option>
+                                        <option value="64">64 bit</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Product Processor</label>
+                                <div class="col-lg-10">
+                                    <input id="asset_product_processor" name="asset_product_processor" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Operating System</label>
+                                <div class="col-lg-10">
+                                    <select name="asset_product_os" id="asset_product_os" class="form-control">
+                                        <option value="windows10">Windows 10</option>
+                                        <option value="windows7">Windows 7</option>
+                                        <option value="windows8">Windows 8</option>
+                                        <option value="windows_vista">Windows Vista</option>
+                                        <option value="server2003">Server 2003</option>
+                                        <option value="server2008">Server 2008</option>
+                                        <option value="server2012">Server 2012</option>
+                                        <option value="server2016">Server 2016</option>
+                                        <option value="mac_os">Mac OS</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Receiving Notes</label>
+                                <div class="col-lg-10">
+                                    <input id="asset_receiving_notes" name="asset_receiving_notes" type="text" class="form-control">
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <div class="text-right">
+                            <button type="submit" class="btn btn-primary">Submit <i class="icon-paperplane ml-2"></i></button>
+                        </div>
+                    </form>
                 </div>
             </div>
+            <!-- /form inputs -->
+
         </div>
+        <!-- /content area -->
+
     </div>
+    <!-- /main content -->
 @endsection
 @section('js')
     <script src="{{asset('js/jquery.validate.min.js')}}"></script>
     <script type="text/javascript">
         $(document).ready(function(){
             $('.datepicker').datepicker();
-            $('select').formSelect();
 
             $("#Assets_form").validate({
                 rules: {
@@ -128,20 +167,14 @@
                         maxlength: 55
                     },
                     asset_tag_number: {
-                        required: true,
                         maxlength: 55,
                     },
                     asset_no: {
-                        required: true,
                         maxlength: 55
 
                     },
                     asset_serial_no : {
-                        required:true,
                         maxlength: 55
-                    },
-                    asset_status_id: {
-                        required: true
                     }
                 },
                 //For custom messages
@@ -151,19 +184,13 @@
                         maxlength: "Max 55 characters allowed"
                     },
                     asset_tag_number: {
-                        required: "Please enter tag number",
                         maxlength: "Max 55 characters allowed",
                     },
                     asset_no: {
-                        required: 'Please enter asset no',
                         maxlength: 'Max 55 characters allowed'
                     },
                     asset_serial_no: {
-                        required: 'Please enter serial number',
                         maxlength: 'Max 55 characters allowed'
-                    },
-                    asset_status_id:{
-                        required: 'Please select status'
                     }
                 },
                 errorElement : 'div',

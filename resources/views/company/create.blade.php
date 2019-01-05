@@ -171,7 +171,6 @@
     <script src="{{asset('js/jquery.validate.min.js')}}"></script>
     <script type="text/javascript">
         $(document).ready(function(){
-            $('select').formSelect();
 
             $("#Contact_form").validate({
                 rules: {
