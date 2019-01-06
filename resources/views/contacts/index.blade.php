@@ -62,7 +62,6 @@
         </table>
       </div>
       <!-- /basic datatable -->
-{{ $contacts }}
     </div>
     <!-- /content area -->
 
