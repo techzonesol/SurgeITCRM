@@ -19,6 +19,6 @@ class Company extends Model
         return Company::where('company_id', $id)->update($data);
     }
     public function getCompanies(){
-        return Company::where('company_is_active',1)->select('company_id','company_name')->paginate(25);
+        return Company::where('company_is_active',1)->select('company_id','company_name')->get();
     }
 }

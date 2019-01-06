@@ -147,6 +147,7 @@
                                 <label class="col-form-label col-lg-2">Select industry</label>
                                 <div class="col-lg-10">
                                     <select name="company_industry_id" id="company_industry_id" class="form-control">
+                                        <option value="">Select Industry</option>
                                         @foreach($industries as $industry)
                                             <option value="{{$industry->id}}" {{$company->company_industry_id == $industry->id ? 'selected' : ''}}>{{$industry->industry_name}}</option>
                                         @endforeach

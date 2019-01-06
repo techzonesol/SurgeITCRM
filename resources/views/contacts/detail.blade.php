@@ -47,6 +47,7 @@
                             <label class="col-form-label col-lg-2">Select Company:</label>
                             <div class="col-lg-10">
                                 <select name="contact_company_id" id="contact_company_id" class="form-control">
+                                    <option value="">Select Company</option>
                                     @foreach($companies as $company)
                                         <option value="{{$company->company_id}}" {{$contact->contact_company_id == $company->company_id ? 'selected' : ''}}>{{$company->company_name}}</option>
                                     @endforeach
