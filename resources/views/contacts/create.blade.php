@@ -84,7 +84,7 @@
                             <div class="form-group row">
                                 <label class="col-form-label col-lg-2">City</label>
                                 <div class="col-lg-10">
-                                    <input id="contact_city" name="contact_city" type="text" class="form-control">
+                                    <input id="contact_city" name="contact_city" type="text" class="form-control" value="Chicago">
                                 </div>
                             </div>
 
