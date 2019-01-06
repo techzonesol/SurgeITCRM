@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 class ContactsController extends Controller
 {
     public function index(){
-        $contacts = Contact::paginate(25);
+        $contacts = Contact::get();
         return view('contacts.index',['contacts' =>  $contacts]);
     }
     public function create(){
