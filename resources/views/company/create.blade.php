@@ -19,7 +19,7 @@
                 <div class="card-body">
                     <p class="mb-4">Create your Companies here.</p>
 
-                    <form action="{{url('/company/create')}}" method="post" id="Contact_form">
+                    <form action="{{url('/company/create')}}" method="post" id="Company_form">
                         <fieldset class="mb-3">
                             @csrf
                             <div class="form-group row">
@@ -133,6 +133,7 @@
                                 <label class="col-form-label col-lg-2">Select industry</label>
                                 <div class="col-lg-10">
                                     <select name="company_industry_id" id="company_industry_id" class="form-control">
+                                        <option value="">Select Idustry</option>
                                         @foreach($industries as $industry)
                                             <option value="{{$industry->id}}" >{{$industry->industry_name}}</option>
                                         @endforeach
@@ -145,8 +146,6 @@
                                     <div class="switch">
                                         <label>
                                             <input type="checkbox" checked id="company_is_active" name="company_is_active">
-                                            <span class="lever"></span>
-                                            Active
                                         </label>
                                     </div>
                                 </div>
@@ -171,8 +170,7 @@
     <script src="{{asset('js/jquery.validate.min.js')}}"></script>
     <script type="text/javascript">
         $(document).ready(function(){
-
-            $("#Contact_form").validate({
+            $("#Company_form").validate({
                 rules: {
                     company_name: {
                         required: true,
@@ -193,68 +191,50 @@
                         }
                     },
                     company_phone_no: {
-                        required: true,
                         maxlength: 55
 
                     },
                     company_phone_no_ext : {
-                        required:true,
                         maxlength: 55
                     },
                     company_title: {
-                        required: true,
                         maxlength: 90
                     },
                     company_state: {
-                        required: true,
                         maxlength: 55
                     },
                     company_zip_code:{
-                        required: true,
                         maxlength: 55
                     },
                     company_street_address:{
-                        required: true,
                         maxlength: 255
                     },
                     company_billing_city:{
-                        required: true,
                         maxlength: 55
                     },
                     company_fax:{
-                        required: true,
                         maxlength: 55
                     },
                     company_other_phone_no:{
-                        required: true,
                         maxlength: 55
                     },
                     company_website:{
-                        required: true,
                         maxlength: 255
                     },
                     company_country:{
-                        required: true,
                         maxlength: 55
                     },
                     company_billing_country:{
-                        required: true,
                         maxlength: 55
                     },
                     company_billing_zip_code:{
-                        required: true,
                         maxlength: 55
                     },
                     company_billing_state:{
-                        required: true,
                         maxlength: 55
                     },
                     company_billing_street_address:{
-                        required: true,
                         maxlength: 255
-                    },
-                    company_industry_id:{
-                        required: true
                     }
                 },
                 //For custom messages
@@ -270,67 +250,49 @@
                         remote: "Email already exist"
                     },
                     company_phone_no: {
-                        required: 'Please enter company phone no',
                         maxlength: 'Max 55 characters allowed'
                     },
                     company_phone_no_ext: {
-                        required: 'Please enter company phone extension',
                         maxlength: 'Max 55 characters allowed'
                     },
                     company_title:{
-                        required: 'Please enter company title',
                         maxlength: 'Max 90 characters allowed'
                     },
                     company_state:{
-                        required: 'Please Enter state name',
                         maxlength: 'Max 55 characters allowed'
                     },
                     company_zip_code:{
-                        required: 'Please enter company zip code',
                         maxlength: 'Max 55 characters allowed'
                     },
                     company_street_address:{
-                        required: 'Please enter street address',
                         maxlength: 'Max 255 characters allowed'
                     },
                     company_billing_city:{
-                        required: 'Please enter billing city',
                         maxlength: 'Max 255 characters allowed'
                     },
                     company_fax:{
-                        required: 'Please enter fax',
                         maxlength: 'Max 55 characters allowed'
                     },
                     company_other_phone_no:{
-                        required: 'Please enter other phone no',
                         maxlength: 'Max 55 characters allowed'
                     },
                     company_website:{
-                        required: 'Please enter company website',
                         maxlength: 'Max 255 characters allowed'
                     },
                     company_country:{
-                        required: 'Please enter company country',
                         maxlength: 'Max 55 characters allowed'
                     },
                     company_billing_country:{
-                        required: 'Please enter billing country',
                         maxlength: 'Max 55 characters allowed'
                     },
                     company_billing_zip_code:{
-                        required: 'Please enter zip code',
                         maxlength: 'Max 55 characters allowed'
                     },
                     company_billing_state:{
-                        required: 'Please enter billing state',
                         maxlength: 'Max 55 characters allowed'
                     },
                     company_billing_street_address:{
-                        required: 'Please Enter street Address',
                         maxlength: 'Max 255 characters allowed'
-                    },
-                    company_industry_id:{
-                        required: 'Please select industry'
                     }
                 },
                 errorElement : 'div',
@@ -343,8 +305,6 @@
                     }
                 }
             });
-
-
         });
     </script>
 @endsection
