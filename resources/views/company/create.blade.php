@@ -62,7 +62,12 @@
                                     <input id="company_state" name="company_state" type="text" class="form-control" >
                                 </div>
                             </div>
-
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Website</label>
+                                <div class="col-lg-10">
+                                    <input id="company_website" name="company_website" type="text" class="form-control">
+                                </div>
+                            </div>
                             <div class="form-group row">
                                 <label class="col-form-label col-lg-2">Zip Code</label>
                                 <div class="col-lg-10">
@@ -95,12 +100,6 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-form-label col-lg-2">Website</label>
-                                <div class="col-lg-10">
-                                    <input id="company_website" name="company_website" type="text" class="form-control">
-                                </div>
-                            </div>
-                            <div class="form-group row">
                                 <label class="col-form-label col-lg-2">Country</label>
                                 <div class="col-lg-10">
                                     <input id="company_country" name="company_country" type="text" class="form-control">
@@ -110,12 +109,6 @@
                                 <label class="col-form-label col-lg-2">Billing Country</label>
                                 <div class="col-lg-10">
                                     <input id="company_billing_country" name="company_billing_country" type="text" class="form-control">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-form-label col-lg-2">Website</label>
-                                <div class="col-lg-10">
-                                    <input id="company_website" name="company_website" type="text" class="form-control">
                                 </div>
                             </div>
                             <div class="form-group row">
