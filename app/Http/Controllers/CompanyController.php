@@ -10,7 +10,7 @@ use DB;
 class CompanyController extends Controller
 {
     public function index(){
-        $companies = Company::paginate(10);
+        $companies = Company::get();
         return view('company.index',['companies' =>  $companies]);
     }
     public function create(){

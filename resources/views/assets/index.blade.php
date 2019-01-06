@@ -61,7 +61,6 @@ Assets
         @endforeach
       </tbody>
     </table>
-    {{$assets}}
   </div>
   <!-- /basic datatable -->
 
