@@ -62,7 +62,6 @@
         </table>
       </div>
       <!-- /basic datatable -->
-
     </div>
     <!-- /content area -->
 

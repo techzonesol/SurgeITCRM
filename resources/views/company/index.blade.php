@@ -62,7 +62,6 @@
         @endforeach
       </tbody>
     </table>
-    {{$companies}}
   </div>
   <!-- /basic datatable -->
 

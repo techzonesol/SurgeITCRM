@@ -9,7 +9,7 @@ use Carbon\Carbon;
 class AssetsController extends Controller
 {
     public function index(){
-        $assets = Asset::paginate(10);
+        $assets = Asset::get();
         return view('assets.index',['assets' =>  $assets]);
     }
     public function create(){

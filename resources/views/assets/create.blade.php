@@ -158,7 +158,7 @@
     <script src="{{asset('js/jquery.validate.min.js')}}"></script>
     <script type="text/javascript">
         $(document).ready(function(){
-            $('.datepicker').datepicker();
+//            $('.datepicker').datepicker();
 
             $("#Assets_form").validate({
                 rules: {
