@@ -91,7 +91,7 @@
                             <div class="form-group row">
                                 <label class="col-form-label col-lg-2">State</label>
                                 <div class="col-lg-10">
-                                    <input id="contact_state" name="contact_state" type="text" class="form-control">
+                                    <input id="contact_state" name="contact_state" type="text" class="form-control" value="IL">
                                 </div>
                             </div>
 
