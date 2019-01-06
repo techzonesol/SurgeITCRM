@@ -31,4 +31,14 @@ class User extends Authenticatable
     public function get_user(){
         return User::where('user_is_active',1)->get();
     }
+    public function get_user_by_id($id){
+        return User::where('id', $id)->first();
+    }
+    public function update_data($id, $data){
+        return User::where('id', $id)->update($data);
+    }
+    public function delete_user($id){
+        return User::where('id' , $id)->delete();
+    }
+
 }

@@ -21,7 +21,12 @@ Auth::routes();
 Route::middleware('auth')->group(function () {
     Route::post('/register/create','Auth\RegisterController@create')->name('create_user');
     Route::get('/home', 'HomeController@index')->name('home');
-
+    Route::prefix('employees')->group(function () {
+        Route::get('/', 'EmployeeController@index')->name('home');
+        Route::post('/delete','EmployeeController@delete_user')->name('delete_user');
+        Route::get('{id}', 'EmployeeController@view_employees')->name('view_employee');
+        Route::post('{id}', 'EmployeeController@update_employee')->name('update_employee');
+    });
     /*******         Contacts Module Start                      *********/
     Route::prefix('contacts')->group(function () {
         Route::get('/','ContactsController@index')->name('contacts');

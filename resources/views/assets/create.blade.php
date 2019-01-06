@@ -69,7 +69,7 @@
                             <div class="form-group row">
                                 <label class="col-form-label col-lg-2">Date in Service</label>
                                 <div class="col-lg-10">
-                                    <input id="asset_in_service_date" name="asset_in_service_date" type="text" class="form-control">
+                                    <input id="asset_in_service_date" name="asset_in_service_date" type="date" class="form-control">
                                 </div>
                             </div>
 
@@ -83,7 +83,7 @@
                             <div class="form-group row">
                                 <label class="col-form-label col-lg-2">Date Sold</label>
                                 <div class="col-lg-10">
-                                    <input id="asset_date_sold" name="asset_date_sold" type="text" class="form-control">
+                                    <input id="asset_date_sold" name="asset_date_sold" type="date" class="form-control">
                                 </div>
                             </div>
                             <div class="form-group row">

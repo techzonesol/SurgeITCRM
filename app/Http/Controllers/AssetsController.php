@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Asset;
+use App\User;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
@@ -63,8 +64,9 @@ class AssetsController extends Controller
     public function view_assets($id, Request $request){
         $asset_obj = new Asset();
         $get_asset = $asset_obj->getAsset($id);
+        $users = User::get();
         if($get_asset){
-            return view('assets.detail',['asset' => $get_asset]);
+            return view('assets.detail',['asset' => $get_asset,'users' => $users]);
         }else{
             $request->session()->flash('error', 'Something went wrong!');
             return redirect()->route('home');

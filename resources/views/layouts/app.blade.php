@@ -455,7 +455,7 @@
                             <a href="#" class="nav-link"><i class="icon-stack"></i> <span>Employees</span></a>
 
                             <ul class="nav nav-group-sub" data-submenu-title="Employees">
-                                <li class="nav-item"><a href="" class="nav-link">View Employees</a></li>
+                                <li class="nav-item"><a href="{{url('employees')}}" class="nav-link">View Employees</a></li>
                                 <li class="nav-item"><a href="{{url('register')}}" class="nav-link">Add Employee</a></li>
                             </ul>
                         </li>
