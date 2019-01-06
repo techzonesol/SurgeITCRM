@@ -105,7 +105,7 @@
                             <div class="form-group row">
                                 <label class="col-form-label col-lg-2">Country</label>
                                 <div class="col-lg-10">
-                                    <input id="contact_country" name="contact_country" type="text" class="form-control">
+                                    <input id="contact_country" name="contact_country" type="text" class="form-control" placeholder="United State">
                                 </div>
                             </div>
                             <div class="form-group row">
