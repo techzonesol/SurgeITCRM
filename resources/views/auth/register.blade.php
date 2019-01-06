@@ -1,81 +1,123 @@
 @extends('layouts.app')
 @section('meta_title') Create User @endsection
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col m12 background-white">
-                <div class="card">
+    <!-- Main content -->
+    <div class="content-wrapper">
 
-                    <div class="col s12">
-                        <h4 class="align_center">Add New User</h4>
-                    </div>
+        <!-- Content area -->
+        <div class="content">
 
+            <!-- Form inputs -->
+            <div class="card">
+                <div class="card-header header-elements-inline">
+                    <h5 class="card-title font-weight-semibold">Add New User</h5>
+                </div>
 
-                    <form class="col s12" id="new-user" method="post" action="{{route('create_user')}}">
+                <div class="card-body">
+                    <p class="mb-4">Create your employees here.</p>
+
+                    <form action="{{route('create_user')}}" method="post" id="new-user">
+                        <fieldset class="mb-3">
                             @csrf
-                            <div class="input-field col s3">
-                                <input  id="user_f_name" name="user_f_name" type="text" class="validate">
-                                <label for="user_f_name">First Name</label>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">First Name</label>
+                                <div class="col-lg-10">
+                                    <input id="user_f_name" name="user_f_name" type="text" class="form-control">
+                                </div>
                             </div>
-                            <div class="input-field col s3">
-                                <input id="user_l_name" name="user_l_name" type="text" class="validate">
-                                <label for="user_l_name">Last Name</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="email" name="email" type="email" class="validate">
-                                <label for="email">Email Address</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="user_username" name="user_username" type="text" class="validate">
-                                <label for="user_username">User Name</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="user_password" name="user_password" type="password" class="validate">
-                                <label for="user_password">Password</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="user_dob" name="user_dob" type="text" class="validate datepicker">
-                                <label for="user_dob">DOB</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="user_home_phone" name="user_home_phone" type="text" class="validate">
-                                <label for="user_home_phone">Home Phone</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="user_cell_no" name="user_cell_no" type="text" class="validate">
-                                <label for="user_cell_no">Cell Phone</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="user_street_address" name="user_street_address" type="text" class="validate">
-                                <label for="user_street_address">Street Address</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="user_zip_code" name="user_zip_code" type="text" class="validate">
-                                <label for="user_zip_code">Zip Code</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="user_country" name="user_country" type="text" class="validate" value="United States">
-                                <label for="user_country">Country</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="user_state" name="user_state" type="text" class="validate">
-                                <label for="user_state">State</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="user_city" name="user_city" type="text" class="validate">
-                                <label for="user_city">City</label>
-                            </div>
-                            <div class="input-field col s12">
-                                <button class="btn waves-effect waves-light align_center" type="submit" name="action">Submit
-                                    <i class="material-icons right">send</i>
-                                </button>
-                            </div>
-                        </form>
 
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Last Name</label>
+                                <div class="col-lg-10">
+                                    <input id="user_l_name" name="user_l_name" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Email Address</label>
+                                <div class="col-lg-10">
+                                    <input id="email" name="email" type="email" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">User Name</label>
+                                <div class="col-lg-10">
+                                    <input id="user_username" name="user_username" type="text" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Password</label>
+                                <div class="col-lg-10">
+                                    <input id="user_password" name="user_password" type="text" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">DOB</label>
+                                <div class="col-lg-10">
+                                    <input id="user_dob" name="user_dob" type="text" class="form-control" >
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Home Phone</label>
+                                <div class="col-lg-10">
+                                    <input id="user_home_phone" name="user_home_phone" type="text" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Cell Phone</label>
+                                <div class="col-lg-10">
+                                    <input id="user_cell_no" name="user_cell_no" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Street Address</label>
+                                <div class="col-lg-10">
+                                    <input id="user_street_address" name="user_street_address" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Zip Code</label>
+                                <div class="col-lg-10">
+                                    <input id="user_zip_code" name="user_zip_code" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Country</label>
+                                <div class="col-lg-10">
+                                    <input id="user_country" name="user_country" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">State</label>
+                                <div class="col-lg-10">
+                                    <input id="user_state" name="user_state" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">City</label>
+                                <div class="col-lg-10">
+                                    <input id="user_city" name="user_city" type="text" class="form-control">
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <div class="text-right">
+                            <button type="submit" class="btn btn-primary">Submit <i class="icon-paperplane ml-2"></i></button>
+                        </div>
+                    </form>
                 </div>
             </div>
+            <!-- /form inputs -->
+
         </div>
+        <!-- /content area -->
+
     </div>
+    <!-- /main content -->
 @endsection
 
 @section('js')
