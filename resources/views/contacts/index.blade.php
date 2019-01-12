@@ -40,7 +40,6 @@
               <td>{{$contact->contact_work_email}}</td>
               <td>{{$contact->contact_office_phone}}</td>
               <td>{{$contact->contact_city}}</td>
-              <td><spn class="badge badge-success">Activ</spn></td>
               <td class="text-center">
                 <div class="list-icons">
                   <div class="dropdown">

@@ -428,6 +428,14 @@
                             </a>
                         </li>
                         <li class="nav-item nav-item-submenu">
+                            <a href="#" class="nav-link"><i class="icon-stack"></i> <span>Assets</span></a>
+
+                            <ul class="nav nav-group-sub" data-submenu-title="Assets">
+                                <li class="nav-item"><a href="{{route('assets')}}" class="nav-link">View Assets</a></li>
+                                <li class="nav-item"><a href="{{route('create_assets')}}" class="nav-link">Add Assets</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item nav-item-submenu">
                             <a href="#" class="nav-link"><i class="icon-user"></i> <span>Contacts</span></a>
 
                             <ul class="nav nav-group-sub" data-submenu-title="Contacts">
@@ -444,19 +452,19 @@
                             </ul>
                         </li>
                         <li class="nav-item nav-item-submenu">
-                            <a href="#" class="nav-link"><i class="icon-stack"></i> <span>Assets</span></a>
-
-                            <ul class="nav nav-group-sub" data-submenu-title="Assets">
-                                <li class="nav-item"><a href="{{route('assets')}}" class="nav-link">View Assets</a></li>
-                                <li class="nav-item"><a href="{{route('create_assets')}}" class="nav-link">Add Assets</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item nav-item-submenu">
                             <a href="#" class="nav-link"><i class="icon-stack"></i> <span>Employees</span></a>
 
                             <ul class="nav nav-group-sub" data-submenu-title="Employees">
                                 <li class="nav-item"><a href="{{url('employees')}}" class="nav-link">View Employees</a></li>
                                 <li class="nav-item"><a href="{{url('register')}}" class="nav-link">Add Employee</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item nav-item-submenu">
+                            <a href="#" class="nav-link"><i class="icon-stack"></i> <span>Tickets</span></a>
+
+                            <ul class="nav nav-group-sub" data-submenu-title="Employees">
+                                <li class="nav-item"><a href="{{route('tickets')}}" class="nav-link">View Tickets</a></li>
+                                <li class="nav-item"><a href="{{route('create_tickets')}}" class="nav-link">Add Tickets</a></li>
                             </ul>
                         </li>
                         <!-- /main -->

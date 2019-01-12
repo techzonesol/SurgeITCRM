@@ -60,6 +60,14 @@ Route::middleware('auth')->group(function () {
         Route::post('{id}','AssetsController@update_assets')->name('update_assets');
     });
     /*******         Assets Module END                      *********/
-
+    Route::prefix('tickets')->group(function () {
+        Route::get('/','TicketsController@index')->name('tickets');
+        Route::get('create','TicketsController@create')->name('create_tickets');
+        Route::post('create','TicketsController@save_ticket')->name('save_ticket');
+        Route::post('delete','TicketsController@delete_ticket')->name('delete_ticket');
+        Route::get('get_sub_category','TicketsController@sub_cat')->name('sub_cat');
+        Route::get('{id}','TicketsController@view_ticket')->name('view_ticket');
+        Route::post('{id}','TicketsController@update_ticket')->name('update_ticket');
+    });
 
 });
