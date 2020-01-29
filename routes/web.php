@@ -21,7 +21,12 @@ Auth::routes();
 Route::middleware('auth')->group(function () {
     Route::post('/register/create','Auth\RegisterController@create')->name('create_user');
     Route::get('/home', 'HomeController@index')->name('home');
-
+    Route::prefix('employees')->group(function () {
+        Route::get('/', 'EmployeeController@index')->name('home');
+        Route::post('/delete','EmployeeController@delete_user')->name('delete_user');
+        Route::get('{id}', 'EmployeeController@view_employees')->name('view_employee');
+        Route::post('{id}', 'EmployeeController@update_employee')->name('update_employee');
+    });
     /*******         Contacts Module Start                      *********/
     Route::prefix('contacts')->group(function () {
         Route::get('/','ContactsController@index')->name('contacts');
@@ -55,6 +60,14 @@ Route::middleware('auth')->group(function () {
         Route::post('{id}','AssetsController@update_assets')->name('update_assets');
     });
     /*******         Assets Module END                      *********/
-
+    Route::prefix('tickets')->group(function () {
+        Route::get('/','TicketsController@index')->name('tickets');
+        Route::get('create','TicketsController@create')->name('create_tickets');
+        Route::post('create','TicketsController@save_ticket')->name('save_ticket');
+        Route::post('delete','TicketsController@delete_ticket')->name('delete_ticket');
+        Route::get('get_sub_category','TicketsController@sub_cat')->name('sub_cat');
+        Route::get('{id}','TicketsController@view_ticket')->name('view_ticket');
+        Route::post('{id}','TicketsController@update_ticket')->name('update_ticket');
+    });
 
 });

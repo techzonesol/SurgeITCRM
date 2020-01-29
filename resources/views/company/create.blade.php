@@ -130,10 +130,10 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-form-label col-lg-2">Select industry</label>
+                                <label class="col-form-label col-lg-2">Select Industry</label>
                                 <div class="col-lg-10">
                                     <select name="company_industry_id" id="company_industry_id" class="form-control">
-                                        <option value="">Select Idustry</option>
+                                        <option value="">Select Industry</option>
                                         @foreach($industries as $industry)
                                             <option value="{{$industry->id}}" >{{$industry->industry_name}}</option>
                                         @endforeach
@@ -145,7 +145,7 @@
                                 <div class="col-lg-10">
                                     <div class="switch">
                                         <label>
-                                            <input type="checkbox" checked id="company_is_active" name="company_is_active">
+                                            <input type="checkbox" id="company_is_active" name="company_is_active">
                                         </label>
                                     </div>
                                 </div>
