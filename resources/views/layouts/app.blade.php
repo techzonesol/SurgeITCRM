@@ -66,6 +66,31 @@
                     <i class="icon-paragraph-justify3"></i>
                 </a>
             </li>
+            
+            <li class="nav-item">
+            	<a href="#" class="navbar-nav-link caret-0">
+                    <i class="fas fa-sitemap"></i>
+                    <span class="font-weight-semibold">
+                    	<span style="color: #7AC142;">Meraki - </span> 
+                    	Cisco Dashboard
+                    </span>
+                    <span class="badge badge-pill badge-mark bg-orange-400 border-orange-400 ml-auto ml-md-0"></span>
+                </a>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a href="#" class="navbar-nav-link dropdown-toggle caret-0" data-toggle="dropdown">
+                    <i class="icon-plus-circle2"></i>
+                </a>
+
+                <div class="dropdown-menu dropdown-content">
+                    <a href="{{route('create_contact')}}" class="dropdown-item"><i class="icon-user-plus"></i>Create Contact</a>
+                    <a href="{{route('create_company')}}" class="dropdown-item"><i class="icon-user-plus"></i>Create Company</a>
+                    <a href="{{route('create_assets')}}" class="dropdown-item"><i class="icon-user-plus"></i>Create Asset</a>
+                    <a href="{{url('register')}}" class="dropdown-item"><i class="icon-user-plus"></i>Create Employee</a>
+                </div>
+
+            </li>
 
             {{-- <li class="nav-item dropdown">
                 <a href="#" class="navbar-nav-link dropdown-toggle caret-0" data-toggle="dropdown">
@@ -162,15 +187,15 @@
         </ul>
 
         <span class="navbar-text ml-md-auto mr-md-3">
-				<span class="badge bg-success-400">Active</span>
-			</span>
+			<span class="badge bg-success-400">Online</span>
+		</span>
 
         <ul class="navbar-nav">
+            {{-- Message Dropdown --}}
             <li class="nav-item dropdown">
                 <a href="#" class="navbar-nav-link dropdown-toggle caret-0" data-toggle="dropdown">
-                    <i class="icon-bubbles5"></i>
+                    <i class="icon-bubbles10"></i>
                     <span class="d-md-none ml-2">Messages</span>
-                    <span class="badge badge-pill badge-mark bg-orange-400 border-orange-400 ml-auto ml-md-0"></span>
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right dropdown-content wmin-md-350">
@@ -182,85 +207,7 @@
                     <div class="dropdown-content-body dropdown-scrollable">
                         <ul class="media-list">
                             <li class="media">
-                                <div class="mr-3 position-relative">
-                                    <img src="{{ asset('images/placeholders/placeholder.jpg') }}" width="36" height="36" class="rounded-circle" alt="">
-                                </div>
-
-                                <div class="media-body">
-                                    <div class="media-title">
-                                        <a href="#">
-                                            <span class="font-weight-semibold">James Alexander</span>
-                                            <span class="text-muted float-right font-size-sm">04:58</span>
-                                        </a>
-                                    </div>
-
-                                    <span class="text-muted">who knows, maybe that would be the best thing for me...</span>
-                                </div>
-                            </li>
-
-                            <li class="media">
-                                <div class="mr-3 position-relative">
-                                    <img src="{{ asset('images/placeholders/placeholder.jpg') }}" width="36" height="36" class="rounded-circle" alt="">
-                                </div>
-
-                                <div class="media-body">
-                                    <div class="media-title">
-                                        <a href="#">
-                                            <span class="font-weight-semibold">Margo Baker</span>
-                                            <span class="text-muted float-right font-size-sm">12:16</span>
-                                        </a>
-                                    </div>
-
-                                    <span class="text-muted">That was something he was unable to do because...</span>
-                                </div>
-                            </li>
-
-                            <li class="media">
-                                <div class="mr-3">
-                                    <img src="{{ asset('images/placeholders/placeholder.jpg') }}" width="36" height="36" class="rounded-circle" alt="">
-                                </div>
-                                <div class="media-body">
-                                    <div class="media-title">
-                                        <a href="#">
-                                            <span class="font-weight-semibold">Jeremy Victorino</span>
-                                            <span class="text-muted float-right font-size-sm">22:48</span>
-                                        </a>
-                                    </div>
-
-                                    <span class="text-muted">But that would be extremely strained and suspicious...</span>
-                                </div>
-                            </li>
-
-                            <li class="media">
-                                <div class="mr-3">
-                                    <img src="{{ asset('images/placeholders/placeholder.jpg') }}" width="36" height="36" class="rounded-circle" alt="">
-                                </div>
-                                <div class="media-body">
-                                    <div class="media-title">
-                                        <a href="#">
-                                            <span class="font-weight-semibold">Beatrix Diaz</span>
-                                            <span class="text-muted float-right font-size-sm">Tue</span>
-                                        </a>
-                                    </div>
-
-                                    <span class="text-muted">What a strenuous career it is that I've chosen...</span>
-                                </div>
-                            </li>
-
-                            <li class="media">
-                                <div class="mr-3">
-                                    <img src="{{ asset('images/placeholders/placeholder.jpg') }}" width="36" height="36" class="rounded-circle" alt="">
-                                </div>
-                                <div class="media-body">
-                                    <div class="media-title">
-                                        <a href="#">
-                                            <span class="font-weight-semibold">Richard Vango</span>
-                                            <span class="text-muted float-right font-size-sm">Mon</span>
-                                        </a>
-                                    </div>
-
-                                    <span class="text-muted">Other travelling salesmen live a life of luxury...</span>
-                                </div>
+                            	No Messages
                             </li>
                         </ul>
                     </div>
@@ -304,7 +251,7 @@
         <div class="d-flex">
             <div class="breadcrumb">
                 <a href="{{route('home')}}" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
-                <span class="breadcrumb-item active">Dashboard</span>
+                <span class="breadcrumb-item active">@yield('page_bread_scrum')</span>
             </div>
 
             <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
@@ -335,7 +282,20 @@
 
     <div class="page-header-content header-elements-md-inline">
         <div class="page-title d-flex">
-            <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Home</span> - @yield('page_bread_scrum')</h4>
+            <h4>
+            	<i class="icon-arrow-left52 mr-2"></i> 
+            	<span class="font-weight-semibold"> @yield('page_bread_scrum')</span> 
+            	<small class="font-size-base opacity-50">
+            		@if(date('H') < 12)
+            			Good Morning, 
+            		@elseif(date('H') >= 12)
+            			Good Evening, 
+            		@elseif(date('H') >= 20)
+            			Good Night, 	
+            		@endif
+            		{{ Auth::user()->user_f_name }} 
+            	</small>
+            </h4>
             <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
         </div>
 
@@ -428,6 +388,7 @@
                             </a>
                         </li>
                         <li class="nav-item nav-item-submenu">
+
                             <a href="#" class="nav-link"><i class="icon-stack"></i> <span>Assets</span></a>
 
                             <ul class="nav nav-group-sub" data-submenu-title="Assets">
@@ -444,7 +405,7 @@
                             </ul>
                         </li>
                         <li class="nav-item nav-item-submenu">
-                            <a href="#" class="nav-link"><i class="icon-stack"></i> <span>Companies</span></a>
+                            <a href="#" class="nav-link"><i class="icon-office"></i> <span>Companies</span></a>
 
                             <ul class="nav nav-group-sub" data-submenu-title="Companies">
                                 <li class="nav-item"><a href="{{route('company')}}" class="nav-link">View Company</a></li>
@@ -452,6 +413,7 @@
                             </ul>
                         </li>
                         <li class="nav-item nav-item-submenu">
+
                             <a href="#" class="nav-link"><i class="icon-stack"></i> <span>Employees</span></a>
 
                             <ul class="nav nav-group-sub" data-submenu-title="Employees">
@@ -460,6 +422,7 @@
                             </ul>
                         </li>
                         <li class="nav-item nav-item-submenu">
+
                             <a href="#" class="nav-link"><i class="icon-stack"></i> <span>Tickets</span></a>
 
                             <ul class="nav nav-group-sub" data-submenu-title="Employees">
